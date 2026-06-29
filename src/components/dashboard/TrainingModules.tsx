@@ -60,7 +60,7 @@ export function TrainingModules() {
   return (
     <div className="px-10 pb-12">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-bold text-[#1D1F4C]">Training Modules</h2>
+        <h2 className="text-xl font-bold text-[#1D1F4C]">Recent Activity</h2>
         <Link 
           to="/dashboard/training" 
           className="text-sm font-medium text-slate-500 hover:text-[#1A74E3] transition-colors"
