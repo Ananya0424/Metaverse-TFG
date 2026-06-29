@@ -6,7 +6,7 @@ export function WelcomeBanner() {
 
   return (
     <div className="px-10 pt-8">
-      <div className="bg-[#1D1F4C] px-8 py-8 rounded-2xl shadow-sm">
+      <div className="bg-black px-8 py-8 rounded-2xl shadow-sm">
         <h1 className="text-3xl font-bold text-white mb-2">
           Welcome, {displayName}
         </h1>

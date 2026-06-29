@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create an Axios instance pointing to our Node backend
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: import.meta.env.PROD ? '/api' : 'http://localhost:5000/api',
 });
 
 // Interceptor to add auth token to requests
