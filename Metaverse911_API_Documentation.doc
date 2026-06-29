@@ -1,0 +1,144 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+    <meta charset="utf-8">
+    <title>Metaverse911 Backend API Documentation</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; }
+        h1 { color: #1D1F4C; border-bottom: 2px solid #1D1F4C; padding-bottom: 5px; }
+        h2 { color: #1A4BFF; margin-top: 20px; }
+        h3 { color: #333; margin-top: 15px; }
+        pre { background: #f4f4f4; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: Consolas, monospace; }
+        code { background: #f4f4f4; padding: 2px 4px; font-family: Consolas, monospace; }
+        .endpoint-box { border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; background: #fafafa; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <h1>Metaverse911 Backend API Documentation</h1>
+    
+    <h2>1. Overview</h2>
+    <p>This document outlines the architecture, data flow, and RESTful API endpoints for the Metaverse911 Training Platform backend. The backend is built using Node.js, Express, and MongoDB, providing the necessary infrastructure for user authentication, fetching training modules, and generating performance reports.</p>
+    
+    <p><b>Base URL (Local Environment):</b> <code>http://localhost:5000/api</code></p>
+
+    <h2>2. Authentication Endpoints (/api/auth)</h2>
+
+    <div class="endpoint-box">
+        <h3>2.1 Register User</h3>
+        <p><b>URL:</b> <code>/auth/register</code></p>
+        <p><b>Method:</b> POST</p>
+        <p><b>Access:</b> Public</p>
+        <p><b>Description:</b> Registers a new user and returns a JWT token.</p>
+        <p><b>Request Body (JSON):</b></p>
+<pre>
+{
+  "name": "Ananya Sharma",
+  "email": "ananya@example.com",
+  "password": "password123"
+}
+</pre>
+    </div>
+
+    <div class="endpoint-box">
+        <h3>2.2 Login User</h3>
+        <p><b>URL:</b> <code>/auth/login</code></p>
+        <p><b>Method:</b> POST</p>
+        <p><b>Access:</b> Public</p>
+        <p><b>Description:</b> Authenticates a user and returns a JWT token.</p>
+        <p><b>Request Body (JSON):</b></p>
+<pre>
+{
+  "email": "ananya@example.com",
+  "password": "password123"
+}
+</pre>
+    </div>
+
+    <h2>3. User Profile Endpoints (/api/users)</h2>
+
+    <div class="endpoint-box">
+        <h3>3.1 Get Profile</h3>
+        <p><b>URL:</b> <code>/users/profile</code></p>
+        <p><b>Method:</b> GET</p>
+        <p><b>Access:</b> Private (Requires Bearer Token)</p>
+        <p><b>Description:</b> Retrieves the profile of the currently logged-in user.</p>
+    </div>
+
+    <div class="endpoint-box">
+        <h3>3.2 Update Profile</h3>
+        <p><b>URL:</b> <code>/users/profile</code></p>
+        <p><b>Method:</b> PUT</p>
+        <p><b>Access:</b> Private (Requires Bearer Token)</p>
+        <p><b>Description:</b> Updates the profile information of the currently logged-in user.</p>
+    </div>
+
+    <h2>4. Training Modules Endpoints (/api/modules)</h2>
+
+    <div class="endpoint-box">
+        <h3>4.1 Get All Modules</h3>
+        <p><b>URL:</b> <code>/modules</code></p>
+        <p><b>Method:</b> GET</p>
+        <p><b>Access:</b> Public</p>
+        <p><b>Description:</b> Returns a list of all available training modules (Leadership, Innovation, Customer Experience, etc.) and their sub-modules.</p>
+    </div>
+
+    <div class="endpoint-box">
+        <h3>4.2 Get Module by ID</h3>
+        <p><b>URL:</b> <code>/modules/:id</code></p>
+        <p><b>Method:</b> GET</p>
+        <p><b>Access:</b> Public</p>
+        <p><b>Description:</b> Returns detailed information for a specific training module by its MongoDB ID.</p>
+    </div>
+
+    <h2>5. Performance Reports Endpoints (/api/reports)</h2>
+
+    <div class="endpoint-box">
+        <h3>5.1 Get User Reports</h3>
+        <p><b>URL:</b> <code>/reports</code></p>
+        <p><b>Method:</b> GET</p>
+        <p><b>Access:</b> Private (Requires Bearer Token)</p>
+        <p><b>Description:</b> Fetches all performance reports generated for the logged-in user.</p>
+    </div>
+
+    <div class="endpoint-box">
+        <h3>5.2 Get Report by ID</h3>
+        <p><b>URL:</b> <code>/reports/:id</code></p>
+        <p><b>Method:</b> GET</p>
+        <p><b>Access:</b> Private (Requires Bearer Token)</p>
+        <p><b>Description:</b> Fetches the deep-dive analytics and transcript for a specific report ID.</p>
+    </div>
+
+    <div class="endpoint-box">
+        <h3>5.3 Create a Report</h3>
+        <p><b>URL:</b> <code>/reports</code></p>
+        <p><b>Method:</b> POST</p>
+        <p><b>Access:</b> Private (Requires Bearer Token)</p>
+        <p><b>Description:</b> Generates a new performance report after a user completes a training simulation. This strictly follows the provided swagger definitions.</p>
+        <p><b>Request Body (JSON):</b></p>
+<pre>
+{
+  "module": "60d5ecb8b392d70015342a12",
+  "overallScore": "Good",
+  "interactionTime": "16:24",
+  "speakingPace": {
+    "wpm": 120,
+    "rating": "Good"
+  },
+  "fillerWords": {
+    "count": 5,
+    "rating": "Average"
+  },
+  "skills": {
+    "communication": "Intermediate",
+    "problemSolving": "Advanced",
+    "clarity": "Intermediate",
+    "bodyLanguage": "Expert"
+  },
+  "transcript": "Mio: Hello. I am ready to guide you.\nUser: Thank you. Let's begin.",
+  "feedback": "You demonstrated great communication skills, but work on reducing filler words."
+}
+</pre>
+    </div>
+
+</body>
+</html>
