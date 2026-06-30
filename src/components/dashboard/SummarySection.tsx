@@ -1,16 +1,30 @@
 import { CheckCircle2, ChevronDown, ChevronUp, Layers } from 'lucide-react';
 import { useTrainingCategories } from '@/features/modules/hooks/useModules';
+import { useState, useEffect } from 'react';
+import api from '@/services/api';
 
 export function SummarySection() {
   const { data: categories = [] } = useTrainingCategories();
   
   // Dynamic metrics
   const totalCourses = categories.length;
-  // If the user registered locally, their progress is 0. Otherwise fallback to some default mock data for the admin.
-  const isMockUser = !!localStorage.getItem('mock_user_email');
-  
-  const completed = isMockUser ? 0 : 2;
-  const inProgress = isMockUser ? 0 : 2;
+  const [completed, setCompleted] = useState(0);
+  const [inProgress, setInProgress] = useState(0);
+
+  useEffect(() => {
+    const fetchReports = async () => {
+      try {
+        const response = await api.get('/reports');
+        if (response.data && response.data.length > 0) {
+           setCompleted(response.data.length);
+           setInProgress(0); // If they have reports, they completed them (simulation finishes)
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchReports();
+  }, []);
 
   return (
     <div className="px-10 py-8">

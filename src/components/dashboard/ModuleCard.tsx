@@ -13,12 +13,9 @@ export function ModuleCard({
   reportId,
 }: ModuleData) {
   const navigate = useNavigate();
-  // If it's a new registered user, zero out their progress
-  const isMockUser = !!localStorage.getItem('mock_user_email');
-  
-  const displayProgressText = isMockUser ? '0%' : `${progressValue}%`;
-  const displayScore = isMockUser ? '0' : score;
-  const displayScoreColor = isMockUser ? 'text-slate-400' : scoreColor;
+  const displayProgressText = `${progressValue}%`;
+  const displayScore = score;
+  const displayScoreColor = scoreColor;
   
   // Get first letter of title for the big background block
   const initial = title.charAt(0).toUpperCase();
@@ -50,7 +47,7 @@ export function ModuleCard({
           <div className="flex justify-between items-center text-xs font-bold">
             <div>
               <span className="text-[#1D1F4C]">Lesson Completed </span>
-              <span className={isMockUser ? "text-slate-400" : "text-yellow-500"}>{displayProgressText}</span>
+              <span className="text-yellow-500">{displayProgressText}</span>
             </div>
             <span className="bg-[#8C9EFF] text-white text-[10px] px-2 py-0.5 rounded-sm">WEB</span>
           </div>
