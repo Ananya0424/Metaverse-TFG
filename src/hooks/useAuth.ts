@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 
-const TOKEN_KEY = 'tfg_auth_token';
+const TOKEN_KEY = 'token'; // Matches the key used in api.ts
 
 export function useAuth() {
   const [token, setToken] = useState<string | null>(() => localStorage.getItem(TOKEN_KEY));
 
   const isAuthenticated = !!token;
 
-  const login = (fakeToken: string) => {
-    localStorage.setItem(TOKEN_KEY, fakeToken);
-    setToken(fakeToken);
+  const login = (newToken: string) => {
+    localStorage.setItem(TOKEN_KEY, newToken);
+    setToken(newToken);
   };
 
   const logout = () => {

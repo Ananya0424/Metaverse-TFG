@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { User, Mail, Phone, Link as LinkIcon, Lock, X, Check, Circle, CheckCircle2 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { Button } from '@/components/common/Button';
+import api from '@/services/api';
 
 interface SignupModalProps {
   isOpen: boolean;
@@ -31,29 +32,39 @@ export function SignupModal({ isOpen, onClose }: SignupModalProps) {
   // State for Step 3
   const [membershipType, setMembershipType] = useState<'monthly' | 'annually'>('annually');
 
+  const [error, setError] = useState('');
+
   const handleNextToStep2 = () => setStep(2);
   const handleNextToStep3 = (e: React.FormEvent) => {
     e.preventDefault();
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+    setError('');
     setStep(3);
   };
   
-  const handlePayment = (e: React.FormEvent) => {
+  const handlePayment = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Save the new user credentials to mock a database
-    if (formData.email && formData.password) {
-      localStorage.setItem('mock_user_email', formData.email);
-      localStorage.setItem('mock_user_password', formData.password);
-      if (formData.firstName) {
-        localStorage.setItem('mock_user_name', formData.firstName);
-      }
-    }
+    setError('');
     
-    // Simulate successful registration & payment
-    login('mock_jwt_token_new_user');
-    onClose();
-    // Reset state for future opens
-    setTimeout(() => setStep(1), 300);
-    navigate('/dashboard', { replace: true });
+    try {
+      const response = await api.post('/auth/register', {
+        name: `${formData.firstName} ${formData.lastName}`.trim(),
+        email: formData.email,
+        password: formData.password
+      });
+
+      if (response.data && response.data.token) {
+        login(response.data.token);
+        onClose();
+        setTimeout(() => setStep(1), 300);
+        navigate('/dashboard', { replace: true });
+      }
+    } catch (err: any) {
+      setError(err.response?.data?.message || 'Registration failed');
+    }
   };
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -170,6 +181,7 @@ export function SignupModal({ isOpen, onClose }: SignupModalProps) {
               <div className="flex flex-col h-full overflow-y-auto">
                 <div className="px-10 pt-10 pb-6 border-b border-slate-100 shrink-0">
                   <h2 className="text-3xl font-bold text-[#1D1F4C]">Tell Us About Yourself</h2>
+                  {error && <div className="mt-4 p-3 bg-red-50 text-red-600 text-sm rounded-md border border-red-200">{error}</div>}
                 </div>
 
                 <div className="px-10 py-6 flex-1">
@@ -335,6 +347,7 @@ export function SignupModal({ isOpen, onClose }: SignupModalProps) {
                 <div className="px-10 pt-10 pb-6 shrink-0">
                   <h2 className="text-3xl font-bold text-[#1D1F4C]">Individual Plan</h2>
                   <p className="text-slate-500 mt-2">Get Access to All Learning Modules on Web and VR</p>
+                  {error && <div className="mt-4 p-3 bg-red-50 text-red-600 text-sm rounded-md border border-red-200">{error}</div>}
                 </div>
 
                 <form id="paymentForm" onSubmit={handlePayment} className="px-10 py-4 flex-1">

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { Header } from '@/components/layout/Header';
 import aiHuman from '@/assets/images/ai-human.png';
+import api from '@/services/api';
 
 export function Login() {
   const [email, setEmail] = useState('');
@@ -13,7 +14,7 @@ export function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
 
@@ -22,19 +23,17 @@ export function Login() {
       return;
     }
 
-    // Mock verification
-    const savedEmail = localStorage.getItem('mock_user_email');
-    const savedPassword = localStorage.getItem('mock_user_password');
-
-    if (
-      (email === 'admin@example.com' && password === 'password') ||
-      (savedEmail && email === savedEmail && savedPassword && password === savedPassword)
-    ) {
-      // Set fake token and redirect
-      login('mock_jwt_token_123456789');
-      navigate('/dashboard', { replace: true });
-    } else {
-      setError('Invalid email or password.');
+    try {
+      const response = await api.post('/auth/login', { email, password });
+      
+      if (response.data && response.data.token) {
+        login(response.data.token);
+        navigate('/dashboard', { replace: true });
+      } else {
+        setError('Unexpected response from server.');
+      }
+    } catch (err: any) {
+      setError(err.response?.data?.message || 'Invalid email or password.');
     }
   };
 
