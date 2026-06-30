@@ -11,6 +11,7 @@ import { Login } from '@/pages/Login';
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
 import { Settings } from '@/pages/Settings';
 import { HelpCenter } from '@/pages/HelpCenter';
+import { Simulation } from '@/pages/Simulation';
 
 export const router = createBrowserRouter([
   {
@@ -69,6 +70,10 @@ export const router = createBrowserRouter([
           },
         ],
       },
+      {
+        path: 'simulation/:moduleId',
+        element: <Simulation />
+      }
     ],
   },
 ]);

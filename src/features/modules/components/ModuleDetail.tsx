@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Star, Lock, CheckCircle, Clock, BookOpen } from 'lucide-react';
 import { modulesService } from '../services/modules.service';
 import type { TrainingCategory, SubModule } from '../types';
@@ -7,6 +7,7 @@ import { Button } from '@/components/common/Button';
 
 export function ModuleDetail() {
   const { moduleId } = useParams<{ moduleId: string }>();
+  const navigate = useNavigate();
   const [category, setCategory] = useState<TrainingCategory | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -65,7 +66,11 @@ export function ModuleDetail() {
           )}
 
           <div className="mt-12">
-            <Button variant="primary" className="bg-[#1A4BFF] hover:bg-blue-700 text-white rounded-full px-8 py-3 font-semibold w-auto min-w-[200px]">
+            <Button 
+              variant="primary" 
+              className="bg-[#1A4BFF] hover:bg-blue-700 text-white rounded-full px-8 py-3 font-semibold w-auto min-w-[200px]"
+              onClick={() => navigate(`/dashboard/simulation/${category.id}`)}
+            >
               Continue Module
             </Button>
           </div>
