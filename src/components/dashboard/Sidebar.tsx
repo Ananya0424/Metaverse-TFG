@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, BookOpen, FileText, Settings, HelpCircle, LogOut } from 'lucide-react';
+import { LayoutDashboard, BookOpen, FileText, Settings, HelpCircle, LogOut, Layers, User } from 'lucide-react';
 import { cn } from '@/utils/cn';
 import logoImg from '@/assets/images/logo.png';
 import { USER_PROFILE } from '@/data/dashboard';
@@ -9,6 +9,8 @@ const MAIN_NAV = [
   { label: 'Dashboard', icon: LayoutDashboard, href: '/dashboard', end: true },
   { label: 'Training', icon: BookOpen, href: '/dashboard/training' },
   { label: 'Reports', icon: FileText, href: '/dashboard/reports' },
+  { label: 'Career Coach', icon: Layers, href: '/dashboard/career-coach' },
+  { label: 'Product Training', icon: User, href: '/dashboard/product-training' },
 ];
 
 const SETTINGS_NAV = [

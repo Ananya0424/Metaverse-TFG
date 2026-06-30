@@ -12,6 +12,8 @@ import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
 import { Settings } from '@/pages/Settings';
 import { HelpCenter } from '@/pages/HelpCenter';
 import { Simulation } from '@/pages/Simulation';
+import { CareerCoach } from '@/pages/CareerCoach';
+import { ProductTraining } from '@/pages/ProductTraining';
 
 export const router = createBrowserRouter([
   {
@@ -67,6 +69,14 @@ export const router = createBrowserRouter([
           {
             path: 'help',
             element: <HelpCenter />,
+          },
+          {
+            path: 'career-coach',
+            element: <CareerCoach />,
+          },
+          {
+            path: 'product-training',
+            element: <ProductTraining />,
           },
         ],
       },
