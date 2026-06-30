@@ -27,21 +27,26 @@
 // Rewrite production origin to same-origin so reports save locally.
 
 (() => {
-  const isLocalHost =
-    window.location.hostname === "localhost" ||
-    window.location.hostname === "127.0.0.1" ||
-    window.location.hostname === "0.0.0.0";
-
-  if (!isLocalHost) return;
-
   const PROD_ORIGIN = "https://tfg.metaverse911.in/api";
 
   const rewriteUrl = (input) => {
     try {
       const urlStr = typeof input === "string" ? input : input?.url;
       if (!urlStr || typeof urlStr !== "string") return input;
-      if (!urlStr.startsWith(PROD_ORIGIN)) return input;
-      return urlStr.replace(PROD_ORIGIN, window.location.origin + '/api');
+
+      // Intercept relative API calls from Unity
+      if (urlStr === "modules" || urlStr.endsWith("/modules")) {
+         return window.location.origin + "/api/modules";
+      }
+      if (urlStr === "me" || urlStr.endsWith("/me")) {
+         return window.location.origin + "/api/users/me";
+      }
+
+      if (urlStr.startsWith(PROD_ORIGIN)) {
+         return urlStr.replace(PROD_ORIGIN, window.location.origin + '/api');
+      }
+
+      return input;
     } catch {
       return input;
     }
