@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Mic, Search, Check, Upload, Briefcase, Code, Palette, LineChart } from 'lucide-react';
+import { Mic, Search, Check, Upload, Code, Palette, LineChart } from 'lucide-react';
 
 export function CareerCoach() {
   const navigate = useNavigate();
