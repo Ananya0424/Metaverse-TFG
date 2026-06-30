@@ -14,6 +14,8 @@ import { HelpCenter } from '@/pages/HelpCenter';
 import { Simulation } from '@/pages/Simulation';
 import { CareerCoach } from '@/pages/CareerCoach';
 import { ProductTraining } from '@/pages/ProductTraining';
+import { MockInterview } from '@/pages/MockInterview';
+import { InterviewReport } from '@/pages/InterviewReport';
 
 export const router = createBrowserRouter([
   {
@@ -73,6 +75,14 @@ export const router = createBrowserRouter([
           {
             path: 'career-coach',
             element: <CareerCoach />,
+          },
+          {
+            path: 'career-coach/interview',
+            element: <MockInterview />,
+          },
+          {
+            path: 'career-coach/report',
+            element: <InterviewReport />,
           },
           {
             path: 'product-training',
