@@ -41,7 +41,7 @@
       const urlStr = typeof input === "string" ? input : input?.url;
       if (!urlStr || typeof urlStr !== "string") return input;
       if (!urlStr.startsWith(PROD_ORIGIN)) return input;
-      return urlStr.replace(PROD_ORIGIN, window.location.origin);
+      return urlStr.replace(PROD_ORIGIN, window.location.origin + '/api');
     } catch {
       return input;
     }
