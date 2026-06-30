@@ -1,8 +1,28 @@
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Mic, Search, Check, Upload, Code, Palette, LineChart } from 'lucide-react';
 
 export function CareerCoach() {
   const navigate = useNavigate();
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setSelectedFile(e.target.files[0]);
+    }
+  };
+
+  const handleUpload = () => {
+    if (!selectedFile) return;
+    setIsUploading(true);
+    // Simulate upload delay
+    setTimeout(() => {
+      setIsUploading(false);
+      alert('Resume uploaded successfully! AI is analyzing your profile.');
+    }, 1500);
+  };
 
   return (
     <div className="p-10 max-w-[1400px] mx-auto w-full min-h-screen bg-[#F8FAFC]">
@@ -95,12 +115,29 @@ export function CareerCoach() {
               Upload your latest resume to start AI-powered interview preparation.
             </p>
             
-            <div className="border border-slate-200 rounded-xl h-[60px] flex items-center justify-center mb-4 border-dashed bg-slate-50 cursor-pointer hover:bg-slate-100 transition-colors">
-               <Upload className="w-5 h-5 text-slate-400" />
+            <div 
+              onClick={() => fileInputRef.current?.click()}
+              className="border border-slate-200 rounded-xl p-4 flex flex-col items-center justify-center mb-4 border-dashed bg-slate-50 cursor-pointer hover:bg-slate-100 transition-colors"
+            >
+               <Upload className="w-5 h-5 text-slate-400 mb-2" />
+               <span className="text-xs text-slate-500 text-center">
+                 {selectedFile ? selectedFile.name : 'Click to select or drag PDF here'}
+               </span>
+               <input 
+                 type="file" 
+                 ref={fileInputRef} 
+                 className="hidden" 
+                 accept=".pdf,.doc,.docx"
+                 onChange={handleFileChange}
+               />
             </div>
             
-            <button className="w-full bg-[#FFCC00] hover:bg-[#F0C000] text-[#1D1F4C] text-sm font-bold py-3 rounded-lg transition-colors mb-10">
-              Upload Resume
+            <button 
+              onClick={handleUpload}
+              disabled={!selectedFile || isUploading}
+              className={`w-full text-sm font-bold py-3 rounded-lg transition-colors mb-10 ${!selectedFile || isUploading ? 'bg-slate-200 text-slate-400 cursor-not-allowed' : 'bg-[#FFCC00] hover:bg-[#F0C000] text-[#1D1F4C]'}`}
+            >
+              {isUploading ? 'Uploading...' : 'Upload Resume'}
             </button>
 
             <h4 className="font-bold text-[#1D1F4C] text-[15px] mb-4">AI Resume Analysis</h4>
