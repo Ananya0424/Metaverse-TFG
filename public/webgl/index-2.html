@@ -41,6 +41,9 @@
       if (urlStr === "me" || urlStr.endsWith("/me")) {
          return window.location.origin + "/api/users/me";
       }
+      if (urlStr === "reports" || urlStr.endsWith("/reports")) {
+         return window.location.origin + "/api/reports";
+      }
 
       if (urlStr.startsWith(PROD_ORIGIN)) {
          return urlStr.replace(PROD_ORIGIN, window.location.origin + '/api');
