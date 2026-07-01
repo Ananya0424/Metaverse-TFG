@@ -79,13 +79,14 @@ export function CareerCoach() {
     }
   };
 
-  const handleJobSearch = async (role: string, jobDescription: string) => {
+  const handleJobSearch = async (role: string, jobDescription: string, filters: { location: string, employmentType: string }) => {
     setIsSearchingJobs(true);
     try {
       const response = await api.post('/jobs/search', {
         role,
         jobDescription,
-        resumeData: hasUploadedResume ? cachedResumeData : undefined
+        resumeData: hasUploadedResume ? cachedResumeData : undefined,
+        filters
       });
       setRecommendedJobs(response.data.recommendedJobs || []);
       setShowAllJobs(false);

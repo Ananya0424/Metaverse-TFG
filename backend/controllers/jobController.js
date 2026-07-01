@@ -60,10 +60,20 @@ const seedJobs = async (req, res) => {
 // Search jobs semantically via Gemini
 const searchJobs = async (req, res) => {
   try {
-    const { role, jobDescription, resumeData } = req.body;
+    const { role, jobDescription, resumeData, filters } = req.body;
     
-    // Fetch all jobs to pass to Gemini context
-    const jobs = await Job.find();
+    // Build DB query for hard filters
+    let query = {};
+    if (filters?.location && filters.location !== 'Any') {
+      // e.g. "Remote", "Hybrid", or specific cities
+      query.location = { $regex: new RegExp(filters.location, 'i') };
+    }
+    if (filters?.employmentType && filters.employmentType !== 'Any') {
+      query.employmentType = filters.employmentType;
+    }
+
+    // Fetch filtered jobs to pass to Gemini/Groq context
+    const jobs = await Job.find(query);
     
     if (!process.env.GROQ_API_KEY) {
       // Fallback if no API key
@@ -80,6 +90,7 @@ const searchJobs = async (req, res) => {
       User Resume Data: ${JSON.stringify(resumeData || {})}
       Requested Role: ${role || 'None'}
       Requested Job Description: ${jobDescription || 'None'}
+      Filters Applied: Location=${filters?.location || 'Any'}, Type=${filters?.employmentType || 'Any'}
       
       Available Jobs List:
       ${JSON.stringify(jobs)}

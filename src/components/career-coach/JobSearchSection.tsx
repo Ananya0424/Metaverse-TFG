@@ -2,16 +2,18 @@ import { useState } from 'react';
 import { Search } from 'lucide-react';
 
 interface Props {
-  onSearch: (role: string, jobDescription: string) => void;
+  onSearch: (role: string, jobDescription: string, filters: { location: string, employmentType: string }) => void;
   isLoading: boolean;
 }
 
 export function JobSearchSection({ onSearch, isLoading }: Props) {
   const [role, setRole] = useState('');
   const [jobDescription, setJobDescription] = useState('');
+  const [location, setLocation] = useState('Any');
+  const [employmentType, setEmploymentType] = useState('Any');
 
   const handleSearch = () => {
-    onSearch(role, jobDescription);
+    onSearch(role, jobDescription, { location, employmentType });
   };
 
   return (
@@ -20,15 +22,44 @@ export function JobSearchSection({ onSearch, isLoading }: Props) {
       <p className="text-slate-500 text-sm mb-8">Search jobs using role name or job description</p>
 
       <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-[#1D1F4C] text-sm font-bold mb-2">Search by Role</label>
+            <input 
+              type="text" 
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              placeholder="e.g. Frontend Developer" 
+              className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#FFCC00]"
+            />
+          </div>
+          <div>
+            <label className="block text-[#1D1F4C] text-sm font-bold mb-2">Location</label>
+            <select 
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+              className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#FFCC00] bg-white"
+            >
+              <option value="Any">Any Location</option>
+              <option value="Remote">Remote</option>
+              <option value="Hybrid">Hybrid</option>
+              <option value="On-site">On-site</option>
+            </select>
+          </div>
+        </div>
+
         <div>
-          <label className="block text-[#1D1F4C] text-sm font-bold mb-2">Search by Role</label>
-          <input 
-            type="text" 
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-            placeholder="e.g. Frontend Developer" 
-            className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#FFCC00]"
-          />
+          <label className="block text-[#1D1F4C] text-sm font-bold mb-2">Employment Type</label>
+          <select 
+            value={employmentType}
+            onChange={(e) => setEmploymentType(e.target.value)}
+            className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#FFCC00] bg-white mb-6"
+          >
+            <option value="Any">Any Type</option>
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Contract">Contract</option>
+          </select>
         </div>
 
         <div>
