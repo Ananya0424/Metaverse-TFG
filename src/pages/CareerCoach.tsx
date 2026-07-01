@@ -80,7 +80,7 @@ export function CareerCoach() {
       alert('Resume parsed successfully! Check the Resume Builder.');
     } catch (err) {
       console.error('Upload failed', err);
-      alert('Failed to parse resume. Ensure your backend has GEMINI_API_KEY set.');
+      alert('Failed to parse resume. Ensure your backend has GROQ_API_KEY set.');
     } finally {
       setIsUploading(false);
     }
