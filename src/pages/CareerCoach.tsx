@@ -114,31 +114,33 @@ export function CareerCoach() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
         {/* Top Left: Upload Resume */}
-        <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col h-[600px]">
-          <div className="flex items-center mb-6">
-            <FileText className="w-6 h-6 text-[#1A4BFF] mr-3" />
-            <h3 className="font-bold text-[#1D1F4C] text-xl">1. Upload Resume</h3>
-          </div>
-          <p className="text-[14px] text-slate-500 mb-8 leading-relaxed">
-            Upload your latest resume in PDF format. Our AI will instantly parse your information to fill out your profile and recommend the best jobs for you.
-          </p>
-          
-          <div 
-            onClick={() => fileInputRef.current?.click()}
-            className="flex-1 border-2 border-slate-200 rounded-2xl p-6 flex flex-col items-center justify-center mb-6 border-dashed bg-slate-50 cursor-pointer hover:bg-slate-100 hover:border-[#1A4BFF] transition-all"
-          >
-             <Upload className="w-10 h-10 text-slate-400 mb-4" />
-             <span className="text-sm font-semibold text-[#1D1F4C] mb-2">Click to select or drag PDF</span>
-             <span className="text-xs text-slate-500 text-center px-4">
-               {selectedFile ? selectedFile.name : 'Supports PDF up to 5MB'}
-             </span>
-             <input 
-               type="file" 
-               ref={fileInputRef} 
-               className="hidden" 
-               accept=".pdf"
-               onChange={handleFileChange}
-             />
+        <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col justify-between">
+          <div>
+            <div className="flex items-center mb-6">
+              <FileText className="w-6 h-6 text-[#1A4BFF] mr-3" />
+              <h3 className="font-bold text-[#1D1F4C] text-xl">Upload Resume</h3>
+            </div>
+            <p className="text-[14px] text-slate-500 mb-8 leading-relaxed">
+              Upload your latest resume in PDF format. Our AI will instantly parse your information to fill out your profile and recommend the best jobs.
+            </p>
+            
+            <div 
+              onClick={() => fileInputRef.current?.click()}
+              className="border-2 border-slate-200 rounded-2xl p-6 flex flex-col items-center justify-center mb-6 border-dashed bg-slate-50 cursor-pointer hover:bg-slate-100 hover:border-[#1A4BFF] transition-all"
+            >
+               <Upload className="w-10 h-10 text-slate-400 mb-4" />
+               <span className="text-sm font-semibold text-[#1D1F4C] mb-2">Click to select or drag PDF</span>
+               <span className="text-xs text-slate-500 text-center px-4">
+                 {selectedFile ? selectedFile.name : 'Supports PDF up to 5MB'}
+               </span>
+               <input 
+                 type="file" 
+                 ref={fileInputRef} 
+                 className="hidden" 
+                 accept=".pdf"
+                 onChange={handleFileChange}
+               />
+            </div>
           </div>
           
           <button 
@@ -150,45 +152,14 @@ export function CareerCoach() {
           </button>
         </div>
 
-        {/* Top Right: Resume Builder */}
-        <div className="lg:col-span-2 flex flex-col h-[600px]">
-          <div className="flex justify-between items-end mb-4">
-            <div className="flex items-center">
-              <CheckCircle2 className="w-6 h-6 text-[#1A4BFF] mr-3" />
-              <h3 className="font-bold text-[#1D1F4C] text-xl">2. Resume Builder</h3>
-            </div>
-            
-            <PDFDownloadLink
-              document={<ResumePDF data={resumeData} />}
-              fileName={`${resumeData.personalInfo.fullName.replace(/\s+/g, '_') || 'My'}_Resume.pdf`}
-            >
-              {({ loading }) => (
-                <button 
-                  disabled={loading}
-                  className="bg-[#1D1F4C] hover:bg-[#15173B] text-white text-sm font-bold py-2.5 px-5 rounded-full flex items-center transition-colors"
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  {loading ? 'Preparing...' : 'Save & Download PDF'}
-                </button>
-              )}
-            </PDFDownloadLink>
-          </div>
-          
-          <div className="flex-1 min-h-0">
-            <ResumeBuilderForm data={resumeData} setData={setResumeData} />
-          </div>
+        {/* Top Right: Job Search Section */}
+        <div className="lg:col-span-2">
+          <JobSearchSection onSearch={handleJobSearch} isLoading={isSearchingJobs} />
         </div>
       </div>
 
-      <hr className="border-t border-slate-200 my-12" />
-
-      {/* Find Your Dream Job Section */}
-      <div className="mb-12">
-        <JobSearchSection onSearch={handleJobSearch} isLoading={isSearchingJobs} />
-      </div>
-
       {/* Recommended Jobs Section */}
-      <div>
+      <div className="mb-12">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-[28px] font-bold text-[#1D1F4C]">Recommended Jobs</h2>
           {recommendedJobs.length > 3 && (
@@ -213,7 +184,7 @@ export function CareerCoach() {
         </div>
         
         {!showAllJobs && recommendedJobs.length > 3 && (
-          <div className="mt-10 text-center">
+          <div className="mt-8 text-center">
             <button 
               onClick={() => setShowAllJobs(true)}
               className="bg-white border-2 border-slate-200 hover:border-slate-300 text-[#1D1F4C] font-bold py-3 px-8 rounded-full transition-colors"
@@ -222,6 +193,37 @@ export function CareerCoach() {
             </button>
           </div>
         )}
+      </div>
+
+      <hr className="border-t border-slate-200 my-12" />
+
+      {/* Resume Builder Section */}
+      <div className="flex flex-col">
+        <div className="flex justify-between items-end mb-6">
+          <div className="flex items-center">
+            <CheckCircle2 className="w-6 h-6 text-[#1A4BFF] mr-3" />
+            <h2 className="text-[28px] font-bold text-[#1D1F4C]">Resume Builder</h2>
+          </div>
+          
+          <PDFDownloadLink
+            document={<ResumePDF data={resumeData} />}
+            fileName={`${resumeData.personalInfo.fullName.replace(/\s+/g, '_') || 'My'}_Resume.pdf`}
+          >
+            {({ loading }) => (
+              <button 
+                disabled={loading}
+                className="bg-[#1D1F4C] hover:bg-[#15173B] text-white text-sm font-bold py-2.5 px-6 rounded-full flex items-center transition-colors shadow-sm"
+              >
+                <Download className="w-4 h-4 mr-2" />
+                {loading ? 'Preparing...' : 'Save & Download PDF'}
+              </button>
+            )}
+          </PDFDownloadLink>
+        </div>
+        
+        <div className="w-full">
+          <ResumeBuilderForm data={resumeData} setData={setResumeData} />
+        </div>
       </div>
 
     </div>
