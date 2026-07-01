@@ -13,6 +13,7 @@ import { Settings } from '@/pages/Settings';
 import { HelpCenter } from '@/pages/HelpCenter';
 import { Simulation } from '@/pages/Simulation';
 import { CareerCoach } from '@/pages/CareerCoach';
+import { ResumeBuilderPage } from '@/pages/ResumeBuilderPage';
 import { ProductTraining } from '@/pages/ProductTraining';
 import { MockInterview } from '@/pages/MockInterview';
 import { InterviewReport } from '@/pages/InterviewReport';
@@ -75,6 +76,10 @@ export const router = createBrowserRouter([
           {
             path: 'career-coach',
             element: <CareerCoach />,
+          },
+          {
+            path: 'career-coach/builder',
+            element: <ResumeBuilderPage />,
           },
           {
             path: 'career-coach/interview',

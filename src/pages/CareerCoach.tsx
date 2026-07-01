@@ -1,34 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Upload, FileText, Download, CheckCircle2 } from 'lucide-react';
-import { PDFDownloadLink } from '@react-pdf/renderer';
+import { useNavigate } from 'react-router-dom';
+import { Upload, FileText, Search, PlusCircle } from 'lucide-react';
 import api from '@/services/api';
 import type { ResumeData } from '@/types/resume';
 
 import { JobCard, JobProps } from '@/components/career-coach/JobCard';
-import { ResumeBuilderForm } from '@/components/career-coach/ResumeBuilderForm';
-import { ResumePDF } from '@/components/career-coach/ResumePDF';
 import { JobSearchSection } from '@/components/career-coach/JobSearchSection';
 
-const emptyResumeData: ResumeData = {
-  personalInfo: { fullName: '', email: '', phone: '', address: '', linkedIn: '', github: '', portfolio: '' },
-  professionalSummary: '',
-  skills: [],
-  experience: [],
-  education: [],
-  certifications: [],
-  projects: [],
-  languages: [],
-  achievements: [],
-  additionalInfo: ''
-};
-
 export function CareerCoach() {
+  const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isUploading, setIsUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const [resumeData, setResumeData] = useState<ResumeData>(emptyResumeData);
   const [hasUploadedResume, setHasUploadedResume] = useState(false);
+  const [cachedResumeData, setCachedResumeData] = useState<ResumeData | undefined>(undefined);
 
   const [recommendedJobs, setRecommendedJobs] = useState<JobProps[]>([]);
   const [isSearchingJobs, setIsSearchingJobs] = useState(false);
@@ -54,36 +40,42 @@ export function CareerCoach() {
     }
   };
 
-  const handleUpload = async () => {
+  const handleUploadAndSearch = async () => {
     if (!selectedFile) return;
     setIsUploading(true);
     
     try {
+      // Step 1: Parse the resume
       const formData = new FormData();
       formData.append('resume', selectedFile);
 
-      const response = await api.post('/resume/parse', formData, {
+      const parseResponse = await api.post('/resume/parse', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
 
-      // Merge the parsed data with our current empty structure
-      const parsedData = response.data;
-      setResumeData({
-        ...emptyResumeData,
-        ...parsedData,
-        personalInfo: {
-          ...emptyResumeData.personalInfo,
-          ...(parsedData.personalInfo || {})
-        }
-      });
+      const parsedData = parseResponse.data;
+      setCachedResumeData(parsedData);
       setHasUploadedResume(true);
-      alert('Resume parsed successfully! Check the Resume Builder.');
+      
+      // Step 2: Automatically search for jobs using parsed data
+      setIsSearchingJobs(true);
+      const searchResponse = await api.post('/jobs/search', {
+        role: '',
+        jobDescription: '',
+        resumeData: parsedData
+      });
+      
+      setRecommendedJobs(searchResponse.data.recommendedJobs || []);
+      setShowAllJobs(false);
+      alert('Resume processed! Showing personalized job matches.');
+      
     } catch (err: any) {
       console.error('Upload failed', err);
       const errorMsg = err.response?.data?.message || err.message;
-      alert(`Error: ${errorMsg}`);
+      alert(`Error processing resume: ${errorMsg}`);
     } finally {
       setIsUploading(false);
+      setIsSearchingJobs(false);
     }
   };
 
@@ -93,10 +85,10 @@ export function CareerCoach() {
       const response = await api.post('/jobs/search', {
         role,
         jobDescription,
-        resumeData: hasUploadedResume ? resumeData : undefined
+        resumeData: hasUploadedResume ? cachedResumeData : undefined
       });
       setRecommendedJobs(response.data.recommendedJobs || []);
-      setShowAllJobs(false); // Reset to show top 3 initially after search
+      setShowAllJobs(false);
     } catch (err) {
       console.error('Job search failed', err);
     } finally {
@@ -114,15 +106,19 @@ export function CareerCoach() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-        {/* Top Left: Upload Resume */}
-        <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col justify-between">
+        
+        {/* Top Left: Upload Resume for Jobs */}
+        <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col justify-between h-full">
           <div>
-            <div className="flex items-center mb-6">
-              <FileText className="w-6 h-6 text-[#1A4BFF] mr-3" />
-              <h3 className="font-bold text-[#1D1F4C] text-xl">Upload Resume</h3>
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center">
+                <FileText className="w-6 h-6 text-[#1A4BFF] mr-3" />
+                <h3 className="font-bold text-[#1D1F4C] text-xl">Find Match</h3>
+              </div>
             </div>
-            <p className="text-[14px] text-slate-500 mb-8 leading-relaxed">
-              Upload your latest resume in PDF format. Our AI will instantly parse your information to fill out your profile and recommend the best jobs.
+            
+            <p className="text-[14px] text-slate-500 mb-6 leading-relaxed">
+              Upload your resume and our AI will instantly recommend the best jobs suited for your skills.
             </p>
             
             <div 
@@ -144,13 +140,23 @@ export function CareerCoach() {
             </div>
           </div>
           
-          <button 
-            onClick={handleUpload}
-            disabled={!selectedFile || isUploading}
-            className={`w-full text-[15px] font-bold py-4 rounded-xl transition-colors ${!selectedFile || isUploading ? 'bg-slate-200 text-slate-400 cursor-not-allowed' : 'bg-[#FFCC00] hover:bg-[#F0C000] text-[#1D1F4C]'}`}
-          >
-            {isUploading ? 'Extracting Data with AI...' : 'Parse Resume'}
-          </button>
+          <div className="space-y-3">
+            <button 
+              onClick={handleUploadAndSearch}
+              disabled={!selectedFile || isUploading}
+              className={`w-full text-[15px] font-bold py-4 rounded-xl transition-colors ${!selectedFile || isUploading ? 'bg-slate-200 text-slate-400 cursor-not-allowed' : 'bg-[#FFCC00] hover:bg-[#F0C000] text-[#1D1F4C]'}`}
+            >
+              {isUploading ? 'Extracting & Matching Jobs...' : 'Find Matching Jobs'}
+            </button>
+            
+            <button 
+              onClick={() => navigate('/dashboard/career-coach/builder')}
+              className="w-full text-[#1A4BFF] text-[15px] font-bold py-4 rounded-xl transition-colors border-2 border-slate-100 hover:border-slate-200 hover:bg-slate-50 flex items-center justify-center"
+            >
+              <PlusCircle className="w-5 h-5 mr-2" />
+              Create New Resume
+            </button>
+          </div>
         </div>
 
         {/* Top Right: Job Search Section */}
@@ -194,37 +200,6 @@ export function CareerCoach() {
             </button>
           </div>
         )}
-      </div>
-
-      <hr className="border-t border-slate-200 my-12" />
-
-      {/* Resume Builder Section */}
-      <div className="flex flex-col">
-        <div className="flex justify-between items-end mb-6">
-          <div className="flex items-center">
-            <CheckCircle2 className="w-6 h-6 text-[#1A4BFF] mr-3" />
-            <h2 className="text-[28px] font-bold text-[#1D1F4C]">Resume Builder</h2>
-          </div>
-          
-          <PDFDownloadLink
-            document={<ResumePDF data={resumeData} />}
-            fileName={`${resumeData.personalInfo.fullName.replace(/\s+/g, '_') || 'My'}_Resume.pdf`}
-          >
-            {({ loading }) => (
-              <button 
-                disabled={loading}
-                className="bg-[#1D1F4C] hover:bg-[#15173B] text-white text-sm font-bold py-2.5 px-6 rounded-full flex items-center transition-colors shadow-sm"
-              >
-                <Download className="w-4 h-4 mr-2" />
-                {loading ? 'Preparing...' : 'Save & Download PDF'}
-              </button>
-            )}
-          </PDFDownloadLink>
-        </div>
-        
-        <div className="w-full">
-          <ResumeBuilderForm data={resumeData} setData={setResumeData} />
-        </div>
       </div>
 
     </div>
