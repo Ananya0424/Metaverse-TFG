@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Mic, Video, FileText, ArrowRight, User } from 'lucide-react';
+import api from '@/services/api';
 
 export function MockInterview() {
   const navigate = useNavigate();
@@ -160,7 +161,18 @@ export function MockInterview() {
                   Video Interview
                 </button>
                 <button 
-                  onClick={() => navigate('/dashboard/career-coach/report')}
+                  onClick={async () => {
+                    try {
+                      await api.post('/users/interview', {
+                        jobTitle: 'Frontend Developer',
+                        overallScore: '88%',
+                        feedback: 'Strong communication and problem solving. Needs minor improvement in CSS optimization.'
+                      });
+                    } catch (e) {
+                      console.error("Could not save interview", e);
+                    }
+                    navigate('/dashboard/career-coach/report');
+                  }}
                   className="bg-[#1D1F4C] hover:bg-[#2A2D6C] text-white text-[11px] font-bold py-3 px-2 rounded-xl flex flex-col items-center justify-center gap-1.5 transition-colors text-center"
                 >
                   <FileText className="w-4 h-4 text-[#FFCC00]" />

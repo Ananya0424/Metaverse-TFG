@@ -255,6 +255,77 @@ export function AdminDashboard() {
                   ))}
                 </div>
               )}
+
+              {/* Resumes Section */}
+              <h3 className="text-xl font-semibold text-white mt-10 mb-6 border-b border-white/10 pb-4">Resumes Uploaded</h3>
+              {!selectedUser.resumes || selectedUser.resumes.length === 0 ? (
+                <div className="text-slate-400 py-6 text-center bg-black/20 rounded-xl border border-white/5">
+                  This user hasn't uploaded any resumes.
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {selectedUser.resumes.map((resume: any, idx: number) => (
+                    <div key={idx} className="bg-black/40 border border-white/10 rounded-xl p-6">
+                      <div className="flex justify-between items-center mb-2">
+                        <h4 className="font-semibold text-white text-lg">{resume.fileName || 'Uploaded Resume'}</h4>
+                        <span className="text-xs text-slate-400">{new Date(resume.date).toLocaleDateString()}</span>
+                      </div>
+                      {resume.parsedData?.personalInfo && (
+                        <p className="text-sm text-slate-300">Name extracted: {resume.parsedData.personalInfo.fullName} | Email: {resume.parsedData.personalInfo.email}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Mock Interviews Section */}
+              <h3 className="text-xl font-semibold text-white mt-10 mb-6 border-b border-white/10 pb-4">Mock Interviews</h3>
+              {!selectedUser.mockInterviews || selectedUser.mockInterviews.length === 0 ? (
+                <div className="text-slate-400 py-6 text-center bg-black/20 rounded-xl border border-white/5">
+                  This user hasn't completed any mock interviews.
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {selectedUser.mockInterviews.map((interview: any, idx: number) => (
+                    <div key={idx} className="bg-black/40 border border-white/10 rounded-xl p-6">
+                      <div className="flex justify-between items-center mb-4">
+                        <div>
+                          <h4 className="font-semibold text-white text-lg">Job: {interview.jobTitle}</h4>
+                          <span className="text-xs text-slate-400">{new Date(interview.date).toLocaleDateString()}</span>
+                        </div>
+                        <div className="bg-[#FFD600]/20 text-[#FFD600] px-4 py-2 rounded-full text-sm font-bold border border-[#FFD600]/30 shadow-[0_0_15px_rgba(255,214,0,0.2)]">
+                          Score: {interview.overallScore}
+                        </div>
+                      </div>
+                      {interview.feedback && (
+                        <div className="mt-4 border-t border-white/5 pt-4">
+                          <p className="text-xs text-slate-400 mb-2 uppercase tracking-wider font-semibold">AI Feedback</p>
+                          <p className="text-sm text-slate-300 leading-relaxed bg-[#0b0822] p-5 rounded-lg italic border border-white/5">"{interview.feedback}"</p>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Product Training Logs */}
+              <h3 className="text-xl font-semibold text-white mt-10 mb-6 border-b border-white/10 pb-4">Product Training Q&A</h3>
+              {!selectedUser.productTrainingLogs || selectedUser.productTrainingLogs.length === 0 ? (
+                <div className="text-slate-400 py-6 text-center bg-black/20 rounded-xl border border-white/5">
+                  This user hasn't asked any questions in product training.
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {selectedUser.productTrainingLogs.map((log: any, idx: number) => (
+                    <div key={idx} className="bg-black/40 border border-white/10 rounded-xl p-4">
+                      <p className="text-sm text-[#FFD600] mb-2 font-semibold">Q: {log.query}</p>
+                      <p className="text-sm text-slate-300 leading-relaxed">A: {log.response}</p>
+                      <p className="text-xs text-slate-500 mt-2 text-right">{new Date(log.date).toLocaleDateString()}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
             </div>
           </div>
         </div>

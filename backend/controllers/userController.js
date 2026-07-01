@@ -68,8 +68,46 @@ const getAllUsers = async (req, res) => {
   }
 };
 
+// @desc    Add mock interview record
+// @route   POST /api/users/interview
+// @access  Private
+const addMockInterview = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+    if (user) {
+      user.mockInterviews.push(req.body);
+      await user.save();
+      res.status(201).json(user);
+    } else {
+      res.status(404).json({ message: 'User not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Add product training log
+// @route   POST /api/users/training-log
+// @access  Private
+const addTrainingLog = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+    if (user) {
+      user.productTrainingLogs.push(req.body);
+      await user.save();
+      res.status(201).json(user);
+    } else {
+      res.status(404).json({ message: 'User not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getUserProfile,
   updateUserProfile,
-  getAllUsers
+  getAllUsers,
+  addMockInterview,
+  addTrainingLog
 };

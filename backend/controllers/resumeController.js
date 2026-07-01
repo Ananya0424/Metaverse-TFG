@@ -88,6 +88,21 @@ const parseResume = async (req, res) => {
     const jsonResponse = response.choices[0]?.message?.content || "{}";
     
     const parsedData = JSON.parse(jsonResponse);
+
+    // Save to user if authenticated
+    if (req.user) {
+      const User = require('../models/User');
+      const user = await User.findById(req.user._id);
+      if (user) {
+        user.resumes.push({
+          fileName: req.file.originalname || 'Uploaded Resume',
+          parsedData: parsedData,
+          date: new Date()
+        });
+        await user.save();
+      }
+    }
+
     res.json(parsedData);
 
   } catch (error) {

@@ -63,7 +63,23 @@ const userSchema = new mongoose.Schema({
     enum: ['user', 'admin'],
     default: 'user'
   },
-  reports: [embeddedReportSchema] // Embedded Reports Array
+  reports: [embeddedReportSchema],
+  mockInterviews: [{
+    jobTitle: { type: String, default: 'Mock Interview' },
+    overallScore: { type: String, default: '' },
+    feedback: { type: String, default: '' },
+    date: { type: Date, default: Date.now }
+  }],
+  resumes: [{
+    fileName: { type: String, default: '' },
+    parsedData: { type: mongoose.Schema.Types.Mixed },
+    date: { type: Date, default: Date.now }
+  }],
+  productTrainingLogs: [{
+    query: { type: String, required: true },
+    response: { type: String, required: true },
+    date: { type: Date, default: Date.now }
+  }]
 }, {
   timestamps: true
 });
