@@ -19,6 +19,7 @@ app.use('/api/modules', require('./routes/moduleRoutes'));
 app.use('/api/reports', require('./routes/reportRoutes'));
 app.use('/api/jobs', require('./routes/jobRoutes'));
 app.use('/api/resume', require('./routes/resumeRoutes'));
+app.use('/api/training', require('./routes/trainingRoutes'));
 
 // Serve Frontend in Production
 if (process.env.NODE_ENV === 'production') {
