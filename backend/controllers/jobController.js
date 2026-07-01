@@ -14,15 +14,16 @@ const getJobs = async (req, res) => {
 // Seed initial 3 jobs
 const seedJobs = async (req, res) => {
   try {
-    const count = await Job.countDocuments();
-    if (count === 0) {
-      const initialJobs = [
+    await Job.deleteMany({});
+    
+    const initialJobs = [
         {
           title: "Frontend Developer",
           company: "TFG Technologies",
           location: "Remote",
           employmentType: "Full-time",
           experienceRequired: "2-4 years",
+          salaryRange: "$50k - $100k",
           skills: ["HTML", "CSS", "JavaScript", "React"],
           shortDescription: "Build modern and responsive user interfaces.",
           fullDescription: "We are looking for an experienced Frontend Developer..."
@@ -33,6 +34,7 @@ const seedJobs = async (req, res) => {
           location: "Bangalore",
           employmentType: "Full-time",
           experienceRequired: "1-3 years",
+          salaryRange: "$0 - $50k",
           skills: ["Negotiation", "Pitching", "CRM"],
           shortDescription: "Drive sales and expand our client base.",
           fullDescription: "As a Sales Executive, you will..."
@@ -43,6 +45,7 @@ const seedJobs = async (req, res) => {
           location: "Hybrid",
           employmentType: "Full-time",
           experienceRequired: "3+ years",
+          salaryRange: "$100k+",
           skills: ["Figma", "Prototyping", "UX Research"],
           shortDescription: "Design intuitive user experiences.",
           fullDescription: "Join our design team..."
@@ -50,8 +53,6 @@ const seedJobs = async (req, res) => {
       ];
       await Job.insertMany(initialJobs);
       return res.json({ message: "Seed successful", jobs: initialJobs });
-    }
-    res.json({ message: "Jobs already seeded" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -70,6 +71,19 @@ const searchJobs = async (req, res) => {
     }
     if (filters?.employmentType && filters.employmentType !== 'Any') {
       query.employmentType = filters.employmentType;
+    }
+    if (filters?.salaryRange && filters.salaryRange !== 'Any') {
+      query.salaryRange = filters.salaryRange;
+    }
+    if (filters?.datePosted && filters.datePosted !== 'Any') {
+      const now = new Date();
+      if (filters.datePosted === 'Past 24 hours') {
+        query.createdAt = { $gte: new Date(now.getTime() - 24*60*60*1000) };
+      } else if (filters.datePosted === 'Past Week') {
+        query.createdAt = { $gte: new Date(now.getTime() - 7*24*60*60*1000) };
+      } else if (filters.datePosted === 'Past Month') {
+        query.createdAt = { $gte: new Date(now.getTime() - 30*24*60*60*1000) };
+      }
     }
 
     // Fetch filtered jobs to pass to Gemini/Groq context
@@ -90,7 +104,7 @@ const searchJobs = async (req, res) => {
       User Resume Data: ${JSON.stringify(resumeData || {})}
       Requested Role: ${role || 'None'}
       Requested Job Description: ${jobDescription || 'None'}
-      Filters Applied: Location=${filters?.location || 'Any'}, Type=${filters?.employmentType || 'Any'}
+      Filters Applied: Location=${filters?.location || 'Any'}, Type=${filters?.employmentType || 'Any'}, Salary=${filters?.salaryRange || 'Any'}
       
       Available Jobs List:
       ${JSON.stringify(jobs)}

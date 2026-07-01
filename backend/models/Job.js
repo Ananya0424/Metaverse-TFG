@@ -7,6 +7,7 @@ const JobSchema = new mongoose.Schema({
   employmentType: { type: String, default: 'Full-time' },
   experienceRequired: { type: String },
   skills: [{ type: String }],
+  salaryRange: { type: String },
   shortDescription: { type: String },
   fullDescription: { type: String },
   applyLink: { type: String }

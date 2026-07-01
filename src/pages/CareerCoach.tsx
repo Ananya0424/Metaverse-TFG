@@ -23,6 +23,8 @@ export function CareerCoach() {
   const [lastSearch, setLastSearch] = useState({ role: '', jobDescription: '' });
   const [locationFilter, setLocationFilter] = useState('Any');
   const [typeFilter, setTypeFilter] = useState('Any');
+  const [salaryFilter, setSalaryFilter] = useState('Any');
+  const [dateFilter, setDateFilter] = useState('Any');
 
   // Fetch initial jobs on load
   useEffect(() => {
@@ -65,7 +67,7 @@ export function CareerCoach() {
         role: lastSearch.role,
         jobDescription: lastSearch.jobDescription,
         resumeData: parsedData,
-        filters: { location: locationFilter, employmentType: typeFilter }
+        filters: { location: locationFilter, employmentType: typeFilter, salaryRange: salaryFilter, datePosted: dateFilter }
       });
       
       setRecommendedJobs(searchResponse.data.recommendedJobs || []);
@@ -90,7 +92,7 @@ export function CareerCoach() {
         role,
         jobDescription,
         resumeData: hasUploadedResume ? cachedResumeData : undefined,
-        filters: { location: locationFilter, employmentType: typeFilter }
+        filters: { location: locationFilter, employmentType: typeFilter, salaryRange: salaryFilter, datePosted: dateFilter }
       });
       setRecommendedJobs(response.data.recommendedJobs || []);
       setShowAllJobs(false);
@@ -101,16 +103,18 @@ export function CareerCoach() {
     }
   };
 
-  const handleFilterChange = async (newLoc: string, newType: string) => {
+  const handleFilterChange = async (newLoc: string, newType: string, newSalary: string, newDate: string) => {
     setLocationFilter(newLoc);
     setTypeFilter(newType);
+    setSalaryFilter(newSalary);
+    setDateFilter(newDate);
     setIsSearchingJobs(true);
     try {
       const response = await api.post('/jobs/search', {
         role: lastSearch.role,
         jobDescription: lastSearch.jobDescription,
         resumeData: hasUploadedResume ? cachedResumeData : undefined,
-        filters: { location: newLoc, employmentType: newType }
+        filters: { location: newLoc, employmentType: newType, salaryRange: newSalary, datePosted: newDate }
       });
       setRecommendedJobs(response.data.recommendedJobs || []);
       setShowAllJobs(false);
@@ -187,13 +191,13 @@ export function CareerCoach() {
       </div>
 
       <div className="mb-12">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-          <h2 className="text-[28px] font-bold text-[#1D1F4C]">Recommended Jobs</h2>
+        <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center mb-8 gap-4">
+          <h2 className="text-[28px] font-bold text-[#1D1F4C] shrink-0">Recommended Jobs</h2>
           
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-3">
             <select 
               value={locationFilter}
-              onChange={(e) => handleFilterChange(e.target.value, typeFilter)}
+              onChange={(e) => handleFilterChange(e.target.value, typeFilter, salaryFilter, dateFilter)}
               className="border border-slate-200 rounded-lg px-4 py-2 text-sm font-semibold text-slate-600 focus:outline-none focus:border-[#FFCC00] bg-white"
             >
               <option value="Any">Any Location</option>
@@ -204,13 +208,35 @@ export function CareerCoach() {
             
             <select 
               value={typeFilter}
-              onChange={(e) => handleFilterChange(locationFilter, e.target.value)}
+              onChange={(e) => handleFilterChange(locationFilter, e.target.value, salaryFilter, dateFilter)}
               className="border border-slate-200 rounded-lg px-4 py-2 text-sm font-semibold text-slate-600 focus:outline-none focus:border-[#FFCC00] bg-white"
             >
               <option value="Any">Any Type</option>
               <option value="Full-time">Full-time</option>
               <option value="Part-time">Part-time</option>
               <option value="Contract">Contract</option>
+            </select>
+
+            <select 
+              value={salaryFilter}
+              onChange={(e) => handleFilterChange(locationFilter, typeFilter, e.target.value, dateFilter)}
+              className="border border-slate-200 rounded-lg px-4 py-2 text-sm font-semibold text-slate-600 focus:outline-none focus:border-[#FFCC00] bg-white"
+            >
+              <option value="Any">Any Salary</option>
+              <option value="$0 - $50k">$0 - $50k</option>
+              <option value="$50k - $100k">$50k - $100k</option>
+              <option value="$100k+">$100k+</option>
+            </select>
+
+            <select 
+              value={dateFilter}
+              onChange={(e) => handleFilterChange(locationFilter, typeFilter, salaryFilter, e.target.value)}
+              className="border border-slate-200 rounded-lg px-4 py-2 text-sm font-semibold text-slate-600 focus:outline-none focus:border-[#FFCC00] bg-white"
+            >
+              <option value="Any">Any Date</option>
+              <option value="Past 24 hours">Past 24 hours</option>
+              <option value="Past Week">Past Week</option>
+              <option value="Past Month">Past Month</option>
             </select>
           </div>
         </div>
