@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Upload, FileText, Download, CheckCircle2 } from 'lucide-react';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import api from '@/services/api';
@@ -24,7 +23,6 @@ const emptyResumeData: ResumeData = {
 };
 
 export function CareerCoach() {
-  const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isUploading, setIsUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);

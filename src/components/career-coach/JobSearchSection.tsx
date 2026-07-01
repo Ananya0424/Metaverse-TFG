@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Search } from 'lucide-react';
-import type { ResumeData } from '../../types/resume';
 
 interface Props {
   onSearch: (role: string, jobDescription: string) => void;
