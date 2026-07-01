@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { FileText, Download, CheckCircle2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { FileText, Download, CheckCircle2, ArrowLeft } from 'lucide-react';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import api from '@/services/api';
 import type { ResumeData } from '@/types/resume';
@@ -21,6 +22,7 @@ const emptyResumeData: ResumeData = {
 };
 
 export function ResumeBuilderPage() {
+  const navigate = useNavigate();
   const [resumeData, setResumeData] = useState<ResumeData>(emptyResumeData);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isUploading, setIsUploading] = useState(false);
@@ -66,6 +68,12 @@ export function ResumeBuilderPage() {
   return (
     <div className="p-10 max-w-[1400px] mx-auto w-full min-h-screen bg-[#F8FAFC]">
       <div className="mb-10">
+        <button 
+          onClick={() => navigate(-1)}
+          className="flex items-center text-slate-500 hover:text-[#1A4BFF] mb-6 font-semibold transition-colors"
+        >
+          <ArrowLeft className="w-5 h-5 mr-2" /> Back
+        </button>
         <h1 className="text-[32px] font-bold text-[#1D1F4C]">Resume Builder</h1>
         <p className="text-slate-500 mt-2">Create a professional, ATS-friendly resume from scratch or update an existing one.</p>
       </div>
