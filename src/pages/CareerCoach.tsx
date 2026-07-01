@@ -78,9 +78,10 @@ export function CareerCoach() {
       });
       setHasUploadedResume(true);
       alert('Resume parsed successfully! Check the Resume Builder.');
-    } catch (err) {
+    } catch (err: any) {
       console.error('Upload failed', err);
-      alert('Failed to parse resume. Ensure your backend has GROQ_API_KEY set.');
+      const errorMsg = err.response?.data?.message || err.message;
+      alert(`Error: ${errorMsg}`);
     } finally {
       setIsUploading(false);
     }

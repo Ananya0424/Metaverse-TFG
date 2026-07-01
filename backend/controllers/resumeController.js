@@ -10,9 +10,13 @@ const parseResume = async (req, res) => {
     let textContent = '';
 
     // Handle PDF parsing
-    if (req.file.mimetype === 'application/pdf') {
-      const data = await pdfParse(req.file.buffer);
-      textContent = data.text;
+    if (req.file.mimetype === 'application/pdf' || req.file.mimetype === 'application/x-pdf') {
+      try {
+        const data = await pdfParse(req.file.buffer);
+        textContent = data.text;
+      } catch (parseErr) {
+        return res.status(500).json({ message: "PDF extraction failed: " + parseErr.message });
+      }
     } else {
       return res.status(400).json({ message: "Only PDF files are currently supported for parsing" });
     }
@@ -88,7 +92,7 @@ const parseResume = async (req, res) => {
 
   } catch (error) {
     console.error("Resume parse error:", error);
-    res.status(500).json({ message: "Failed to parse resume", error: error.message });
+    res.status(500).json({ message: error.error?.error?.message || error.message || "Failed to parse resume" });
   }
 };
 
