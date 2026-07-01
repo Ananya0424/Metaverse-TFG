@@ -60,6 +60,16 @@ export function ResumeBuilderForm({
     { id: 'skills', label: 'Skills & More' }
   ];
 
+  const currentTabIndex = tabs.findIndex(t => t.id === activeTab);
+
+  const handlePrev = () => {
+    if (currentTabIndex > 0) setActiveTab(tabs[currentTabIndex - 1].id);
+  };
+  
+  const handleNext = () => {
+    if (currentTabIndex < tabs.length - 1) setActiveTab(tabs[currentTabIndex + 1].id);
+  };
+
   return (
     <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 h-[600px] flex flex-col">
       <div className="flex overflow-x-auto gap-2 mb-6 border-b border-slate-100 pb-4 shrink-0">
@@ -241,6 +251,33 @@ export function ResumeBuilderForm({
           </div>
         )}
 
+      </div>
+
+      {/* Navigation Buttons */}
+      <div className="flex justify-between items-center mt-6 pt-4 border-t border-slate-100 shrink-0">
+        <button 
+          onClick={handlePrev}
+          disabled={currentTabIndex === 0}
+          className={`px-6 py-2.5 rounded-full font-bold text-sm transition-colors ${
+            currentTabIndex === 0 
+              ? 'bg-slate-100 text-slate-400 cursor-not-allowed' 
+              : 'bg-white border border-slate-300 text-slate-600 hover:bg-slate-50'
+          }`}
+        >
+          Previous
+        </button>
+        
+        <button 
+          onClick={handleNext}
+          disabled={currentTabIndex === tabs.length - 1}
+          className={`px-6 py-2.5 rounded-full font-bold text-sm transition-colors ${
+            currentTabIndex === tabs.length - 1
+              ? 'bg-slate-100 text-slate-400 cursor-not-allowed' 
+              : 'bg-[#1A4BFF] hover:bg-[#153BCC] text-white'
+          }`}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
