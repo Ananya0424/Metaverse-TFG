@@ -20,6 +20,10 @@ export function CareerCoach() {
   const [isSearchingJobs, setIsSearchingJobs] = useState(false);
   const [showAllJobs, setShowAllJobs] = useState(false);
 
+  const [lastSearch, setLastSearch] = useState({ role: '', jobDescription: '' });
+  const [locationFilter, setLocationFilter] = useState('Any');
+  const [typeFilter, setTypeFilter] = useState('Any');
+
   // Fetch initial jobs on load
   useEffect(() => {
     fetchInitialJobs();
@@ -45,7 +49,6 @@ export function CareerCoach() {
     setIsUploading(true);
     
     try {
-      // Step 1: Parse the resume
       const formData = new FormData();
       formData.append('resume', selectedFile);
 
@@ -57,12 +60,12 @@ export function CareerCoach() {
       setCachedResumeData(parsedData);
       setHasUploadedResume(true);
       
-      // Step 2: Automatically search for jobs using parsed data
       setIsSearchingJobs(true);
       const searchResponse = await api.post('/jobs/search', {
-        role: '',
-        jobDescription: '',
-        resumeData: parsedData
+        role: lastSearch.role,
+        jobDescription: lastSearch.jobDescription,
+        resumeData: parsedData,
+        filters: { location: locationFilter, employmentType: typeFilter }
       });
       
       setRecommendedJobs(searchResponse.data.recommendedJobs || []);
@@ -79,14 +82,15 @@ export function CareerCoach() {
     }
   };
 
-  const handleJobSearch = async (role: string, jobDescription: string, filters: { location: string, employmentType: string }) => {
+  const handleJobSearch = async (role: string, jobDescription: string) => {
+    setLastSearch({ role, jobDescription });
     setIsSearchingJobs(true);
     try {
       const response = await api.post('/jobs/search', {
         role,
         jobDescription,
         resumeData: hasUploadedResume ? cachedResumeData : undefined,
-        filters
+        filters: { location: locationFilter, employmentType: typeFilter }
       });
       setRecommendedJobs(response.data.recommendedJobs || []);
       setShowAllJobs(false);
@@ -97,18 +101,35 @@ export function CareerCoach() {
     }
   };
 
+  const handleFilterChange = async (newLoc: string, newType: string) => {
+    setLocationFilter(newLoc);
+    setTypeFilter(newType);
+    setIsSearchingJobs(true);
+    try {
+      const response = await api.post('/jobs/search', {
+        role: lastSearch.role,
+        jobDescription: lastSearch.jobDescription,
+        resumeData: hasUploadedResume ? cachedResumeData : undefined,
+        filters: { location: newLoc, employmentType: newType }
+      });
+      setRecommendedJobs(response.data.recommendedJobs || []);
+      setShowAllJobs(false);
+    } catch (err) {
+      console.error('Filter search failed', err);
+    } finally {
+      setIsSearchingJobs(false);
+    }
+  };
+
   const displayedJobs = showAllJobs ? recommendedJobs : recommendedJobs.slice(0, 3);
 
   return (
     <div className="p-10 max-w-[1400px] mx-auto w-full min-h-screen bg-[#F8FAFC]">
-      {/* Header */}
       <div className="flex justify-between items-center mb-10">
         <h1 className="text-[32px] font-bold text-[#1D1F4C]">Career Coach & Job Matching</h1>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-        
-        {/* Top Left: Upload Resume for Jobs */}
         <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 flex flex-col justify-between h-full">
           <div>
             <div className="flex items-center justify-between mb-6">
@@ -160,24 +181,38 @@ export function CareerCoach() {
           </div>
         </div>
 
-        {/* Top Right: Job Search Section */}
         <div className="lg:col-span-2">
           <JobSearchSection onSearch={handleJobSearch} isLoading={isSearchingJobs} />
         </div>
       </div>
 
-      {/* Recommended Jobs Section */}
       <div className="mb-12">
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
           <h2 className="text-[28px] font-bold text-[#1D1F4C]">Recommended Jobs</h2>
-          {recommendedJobs.length > 3 && (
-            <button 
-              onClick={() => setShowAllJobs(!showAllJobs)}
-              className="text-[#1A4BFF] font-semibold hover:underline"
+          
+          <div className="flex gap-4">
+            <select 
+              value={locationFilter}
+              onChange={(e) => handleFilterChange(e.target.value, typeFilter)}
+              className="border border-slate-200 rounded-lg px-4 py-2 text-sm font-semibold text-slate-600 focus:outline-none focus:border-[#FFCC00] bg-white"
             >
-              {showAllJobs ? 'Show Less' : 'Show More'}
-            </button>
-          )}
+              <option value="Any">Any Location</option>
+              <option value="Remote">Remote</option>
+              <option value="Hybrid">Hybrid</option>
+              <option value="On-site">On-site</option>
+            </select>
+            
+            <select 
+              value={typeFilter}
+              onChange={(e) => handleFilterChange(locationFilter, e.target.value)}
+              className="border border-slate-200 rounded-lg px-4 py-2 text-sm font-semibold text-slate-600 focus:outline-none focus:border-[#FFCC00] bg-white"
+            >
+              <option value="Any">Any Type</option>
+              <option value="Full-time">Full-time</option>
+              <option value="Part-time">Part-time</option>
+              <option value="Contract">Contract</option>
+            </select>
+          </div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
