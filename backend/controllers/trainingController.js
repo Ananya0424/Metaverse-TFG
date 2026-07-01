@@ -1,18 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
-const { OpenAI } = require('openai');
-const { Pinecone } = require('@pinecone-database/pinecone');
 const Groq = require('groq-sdk');
 
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-const PINECONE_API_KEY = process.env.PINECONE_API_KEY;
-const PINECONE_INDEX_NAME = process.env.PINECONE_INDEX_NAME || 'vguard-fan-assistant';
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
 const GOOGLE_TTS_API_KEY = process.env.GOOGLE_TTS_API_KEY;
 
-const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
-const pinecone = new Pinecone({ apiKey: PINECONE_API_KEY });
 const groq = new Groq({ apiKey: GROQ_API_KEY });
 
 async function generateTTS(text, langCode) {
@@ -45,23 +38,14 @@ async function generateTTS(text, langCode) {
 }
 
 async function retrieveContext(query) {
-    try {
-        const embedding = await openai.embeddings.create({
-            model: 'text-embedding-3-small',
-            input: query
-        });
-        const vector = embedding.data[0].embedding;
-        const index = pinecone.Index(PINECONE_INDEX_NAME);
-        const results = await index.query({
-            vector,
-            topK: 3,
-            includeMetadata: true
-        });
-        return results.matches.map(m => m.metadata.text).join('\n\n');
-    } catch (e) {
-        console.error("RAG Error:", e);
-        return ""; // gracefully fallback without context
-    }
+    // Replaced OpenAI and Pinecone with a static knowledge base to save API usage!
+    return `
+V-Guard offers a variety of premium fans including Ceiling Fans, Pedestal Fans, Wall Fans, and Exhaust Fans.
+Our flagship BLDC (Brushless DC) fans consume up to 60% less electricity and come with a 5-star energy rating.
+Key features of V-Guard fans include dust-repellent coating, anti-microbial paint, and remote control operation.
+Warranty: Most V-Guard ceiling fans come with a 2-year to 3-year standard warranty. BLDC fans may have up to 5 years warranty on the motor.
+Customer Support: For service, call the V-Guard toll-free number or book a service via the V-Guard smart app.
+`;
 }
 
 async function processCoreLogic(query) {
