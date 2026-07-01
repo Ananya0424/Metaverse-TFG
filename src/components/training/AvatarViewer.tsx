@@ -26,6 +26,10 @@ export function AvatarViewer({ audioSrc, onPlaybackEnd }: { audioSrc: string | n
     return () => {
       if (avatarLoaderRef.current) {
         avatarLoaderRef.current.destroy();
+        avatarLoaderRef.current = null;
+      }
+      if (containerRef.current) {
+        containerRef.current.innerHTML = '';
       }
     };
   }, []);
