@@ -1,0 +1,155 @@
+{
+  "company": {
+    "name": "V-Guard Industries Ltd",
+    "founded": "1977",
+    "founder": "Kochouseph Chittilappilly",
+    "headquarters": "Kochi, Kerala",
+    "registered_office": "42/962, Vennala High School Road, Vennala, Kochi - 682 028, Kerala",
+    "CIN": "L31200KL1996PLC010010",
+    "history": "V-Guard was founded in 1977...",
+    "mission": "To understand human lives...",
+    "market_presence": "Pan-India",
+    "market_share": "Prominent player in Indian fans segment",
+    "revenue": null,
+    "employees": null,
+    "certifications": ["ISO", "BEE Star Rating", "BIS"],
+    "awards": [],
+    "about_text": "At V-Guard, we are building products of tomorrow...",
+    "manufacturing": {
+      "fans_unit_location": "Roorkee, Uttarakhand",
+      "established": "2018",
+      "commercial_production": "2020",
+      "iso_certification": "2021",
+      "quality_features": [
+        "Fully digitized production",
+        "Imported machineries"
+      ]
+    },
+    "bldc_technology": {
+      "description": "V-Guard BLDC Fans use Brushless DC motor technology...",
+      "electricity_saving_decade": "up to 2686 kWh saved in a decade",
+      "average_power_consumption": "32W - 35W",
+      "advantages": [
+        "Reduces power consumption by up to 50% vs induction fans",
+        "Longer motor life"
+      ]
+    }
+  },
+
+  "contact": {
+    "phone": ["0484-2005000", "0484-4335000"],
+    "email": ["customercare@vguard.in"],
+    "website": "https://www.vguard.in",
+    "headquarters_address": "42/962, Vennala High School Road, Vennala, Kochi - 682 028, Kerala",
+    "service_centers": "Visit https://www.vguard.in/home/dealer-service-network",
+    "social_media": {
+      "facebook": "https://www.facebook.com/VGuardOnline",
+      "instagram": "https://www.instagram.com/vguardonline/",
+      "youtube": null,
+      "twitter": null
+    },
+    "customer_care": "0120-4850100",
+    "toll_free": "1800-103-1300",
+    "timing": "Monday to Saturday 9am-7pm, Sunday 9am-6pm"
+  },
+
+  "product_categories": [
+    {
+      "category_name": "Ceiling Fans",
+      "category_url": "https://www.vguard.in/products/fans",
+      "description": "Elevate your interiors with V-Guard Ceiling Fans...",
+      "total_models": "40+",
+      "price_range": null,
+      "subcategories": ["Premium High Speed BLDC", "Standard BLDC", "Standard"]
+    }
+  ],
+
+  "fan_technical_basics": {
+    "motor_types": {
+      "induction": {
+        "description": "Single-Phase Induction Motor...",
+        "typical_power": "50W-75W"
+      },
+      "bldc": {
+        "description": "Brushless DC Motor...",
+        "typical_power": "32W-35W",
+        "power_saving_vs_induction": "up to 50%"
+      }
+    },
+    "star_rating_explanation": {
+      "formula": "Service Value = Air Delivery (m³/min) ÷ Input Power (W)",
+      "note": "Higher Service Value = Higher Star Rating"
+    },
+    "room_size_guide": {
+      "600mm": "2.4x2 to 2.4x3 m",
+      "1200mm": "3x4 to 4x4 m",
+      "1400mm": "4x5 to 5x5 m"
+    },
+    "installation_guidelines": {
+      "min_ceiling_to_blade": "30 cm minimum",
+      "max_blade_to_floor": "2.43 m maximum",
+      "standard_downrod": "9 inches for 10-foot ceiling"
+    }
+  },
+
+  "warranty_policy": {
+    "fans_warranty": "2 years standard, 5 years for BLDC models",
+    "claim_process": "Contact customer care or visit nearest service centre",
+    "toll_free": "1800-103-1300",
+    "terms": "Warranty covers manufacturing defects only"
+  },
+
+  "faqs": [
+    {
+      "question": "What is the warranty on V-Guard fans?",
+      "answer": "V-Guard fans come with 2 years warranty. BLDC fans come with 5 years warranty.",
+      "category": "Warranty"
+    },
+    {
+      "question": "How much energy does a BLDC fan save?",
+      "answer": "V-Guard BLDC fans consume only 28-35W compared to 50-75W of regular induction fans, saving up to 50% electricity.",
+      "category": "BLDC Technology"
+    }
+  ],
+
+  "products": [
+    {
+      "text": "The V-Guard INSIGHT-G is a Premium High Speed BLDC Ceiling Fan with 1200mm sweep, 35W BLDC motor, 370 RPM, 235 m³/min air delivery, 5-star BEE rating. Features dust repellent coating, 60V-310V voltage range, remote control, reverse rotation, multi-timer. 5-year warranty.",
+      "product_name": "INSIGHT-G",
+      "category": "Ceiling Fan",
+      "subcategory": "BLDC",
+      "motor_type": "BLDC",
+      "sweep_or_size": "1200mm",
+      "wattage": "35W",
+      "rpm": "370 RPM",
+      "air_delivery": "235 m³/min",
+      "voltage_range": "60V-310V",
+      "speed_settings": "4 mode wind selection",
+      "price": null,
+      "warranty": "5 years",
+      "energy_rating": "5 Star",
+      "service_value": "6.7",
+      "remote_control": true,
+      "features": [
+        "Dust repellent coating",
+        "Wide voltage range 60V-310V",
+        "4 mode wind selection",
+        "12 unique colours",
+        "Remote control",
+        "Reverse rotation",
+        "Multi-timer 2h/4h/8h"
+      ],
+      "specifications": {
+        "sweep": "1200mm",
+        "power": "35W",
+        "speed": "370 RPM",
+        "air_delivery": "235 m³/min",
+        "star_rating": "5",
+        "service_value": "6.7",
+        "voltage_range": "60V-310V"
+      },
+      "available_colors": ["Choco Gold Wood", "Imperial Gold", "Blossom White Matte"],
+      "sources": ["pdf", "website"]
+    }
+  ]
+}

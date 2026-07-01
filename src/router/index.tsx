@@ -17,6 +17,8 @@ import { ResumeBuilderPage } from '@/pages/ResumeBuilderPage';
 import { ProductTraining } from '@/pages/ProductTraining';
 import { MockInterview } from '@/pages/MockInterview';
 import { InterviewReport } from '@/pages/InterviewReport';
+import { AdminLogin } from '@/pages/admin/AdminLogin';
+import { AdminDashboard } from '@/pages/admin/AdminDashboard';
 
 export const router = createBrowserRouter([
   {
@@ -100,5 +102,13 @@ export const router = createBrowserRouter([
         element: <Simulation />
       }
     ],
+  },
+  {
+    path: '/admin',
+    element: <AdminLogin />,
+  },
+  {
+    path: '/admin/dashboard',
+    element: <AdminDashboard />,
   },
 ]);

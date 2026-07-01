@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V-Guard Knowledge Dashboard</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗄</text></svg>">
+  <link rel="stylesheet" href="/css/dashboard.css" />
+</head>
+<body>
+<div class="dash-layout">
+
+  <!-- Header -->
+  <header class="dash-header">
+    <h1>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent)">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+      </svg>
+      V-Guard <span>Knowledge Dashboard</span>
+    </h1>
+    <div class="header-links">
+      <a href="/" target="_blank">← Main App</a>
+    </div>
+  </header>
+
+  <!-- Tabs -->
+  <nav class="dash-tabs">
+    <button class="tab-btn active" data-tab="urls">URLs</button>
+    <button class="tab-btn" data-tab="data">Data Viewer</button>
+    <button class="tab-btn" data-tab="translate">Translate</button>
+    <button class="tab-btn" data-tab="pinecone">Pinecone</button>
+  </nav>
+
+  <!-- Body -->
+  <div class="dash-body">
+
+    <!-- ═══ TAB: URLs ═══════════════════════════════════════════════════════ -->
+    <div id="tab-urls" class="tab-panel active">
+
+      <!-- Add URL card -->
+      <div class="card">
+        <div class="card-title">Add URL</div>
+        <div class="form-row">
+          <label>URL</label>
+          <input type="url" id="add-url-input" placeholder="https://www.vguard.in/..." />
+        </div>
+        <div class="form-row">
+          <label>Mode</label>
+          <select id="add-url-mode">
+            <option value="exact">Exact — scrape this page only</option>
+            <option value="crawl">Crawl — follow all internal links</option>
+          </select>
+        </div>
+        <div class="form-row" id="max-pages-row">
+          <label>Max Pages</label>
+          <input type="number" id="add-url-maxpages" value="100" min="1" max="500" style="max-width:100px" />
+        </div>
+        <div class="mt-8">
+          <button class="btn btn-primary" id="add-url-btn">+ Add URL</button>
+        </div>
+      </div>
+
+      <!-- URL list card -->
+      <div class="card">
+        <div class="card-title flex items-center justify-between">
+          <span>Configured URLs</span>
+          <span id="url-count" class="text-dim text-sm">0 URLs</span>
+        </div>
+        <table class="url-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>URL</th>
+              <th>Mode</th>
+              <th>Max Pages</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="url-tbody">
+            <tr><td colspan="5" class="empty-state">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Stats card -->
+      <div class="card">
+        <div class="card-title flex items-center justify-between">
+          <span>Scraped Data Stats</span>
+          <button class="btn btn-ghost btn-sm" id="refresh-stats-kb-btn">Refresh</button>
+        </div>
+        <div id="kb-stats-summary" class="stat-grid" style="margin-bottom:14px">
+          <div class="stat-item">
+            <div class="stat-value" id="stat-kb-files">—</div>
+            <div class="stat-label">Scraped Files</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="stat-kb-words">—</div>
+            <div class="stat-label">Total Words</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="stat-kb-chunks">—</div>
+            <div class="stat-label">Total Chunks</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="stat-kb-size">—</div>
+            <div class="stat-label">Total Size</div>
+          </div>
+        </div>
+
+        <!-- Type breakdown -->
+        <div id="kb-type-breakdown" style="margin-bottom:14px;display:none">
+          <div class="text-dim text-sm" style="margin-bottom:6px;font-weight:600">Chunks by Type</div>
+          <div id="kb-type-bars"></div>
+        </div>
+
+        <!-- Language breakdown -->
+        <div id="kb-lang-breakdown" style="margin-bottom:14px;display:none">
+          <div class="text-dim text-sm" style="margin-bottom:6px;font-weight:600">Chunks by Language</div>
+          <div id="kb-lang-bars"></div>
+        </div>
+
+        <!-- Per-file table -->
+        <div id="kb-files-section" style="display:none">
+          <div class="text-dim text-sm" style="margin-bottom:6px;font-weight:600">Per-File Breakdown</div>
+          <table class="url-table" id="kb-files-table">
+            <thead>
+              <tr>
+                <th>File</th>
+                <th>URL / Title</th>
+                <th>Words</th>
+                <th>Size</th>
+                <th>Chunks</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="kb-files-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PDF Upload card -->
+      <div class="card">
+        <div class="card-title">PDF Extract</div>
+        <p class="text-dim text-sm" style="margin-bottom:12px">
+          Upload one or more PDF files. Text and tables are extracted page-by-page and saved as scraped data files, ready to be processed into chunks.
+        </p>
+        <div class="form-row">
+          <label>Language</label>
+          <select id="pdf-lang" style="max-width:200px">
+            <option value="en">English</option>
+            <option value="ta">Tamil</option>
+            <option value="hi">Hindi</option>
+            <option value="ml">Malayalam</option>
+          </select>
+        </div>
+        <div class="pdf-drop-zone" id="pdf-drop-zone">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="var(--text-dim)">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/>
+          </svg>
+          <div class="pdf-drop-text">Drop PDF files here or <span class="pdf-browse-link">browse</span></div>
+          <div class="text-dim text-sm">Supports multi-page PDFs with text and tables</div>
+          <input type="file" id="pdf-file-input" accept=".pdf" multiple style="display:none" />
+        </div>
+        <div id="pdf-file-list" style="display:none;margin-top:10px"></div>
+        <div class="mt-8">
+          <button class="btn btn-primary" id="pdf-upload-btn" disabled>Extract &amp; Save</button>
+        </div>
+        <div id="pdf-results" style="display:none;margin-top:12px"></div>
+      </div>
+
+      <!-- JSON Upload card -->
+      <div class="card">
+        <div class="card-title">Upload JSON → Chunks</div>
+        <p class="text-dim text-sm" style="margin-bottom:12px">
+          Upload a JSON file per language and it will be converted directly to chunks in the knowledge base. Accepts arrays of objects, plain text arrays, or smart-scraper output format.
+        </p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+          <div class="form-row">
+            <label>Language</label>
+            <select id="json-lang">
+              <option value="en">English</option>
+              <option value="ta">Tamil</option>
+              <option value="hi">Hindi</option>
+              <option value="ml">Malayalam</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label>Source name</label>
+            <input type="text" id="json-source" placeholder="e.g. ceiling-fans-tamil (optional)" />
+          </div>
+        </div>
+
+        <div class="pdf-drop-zone" id="json-drop-zone">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="var(--text-dim)">
+            <path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm7 14l5-5h-3V8h-4v4H7l5 5z"/>
+          </svg>
+          <div class="pdf-drop-text">Drop JSON file here or <span class="json-browse-link">browse</span></div>
+          <div class="text-dim text-sm">One JSON file per language recommended</div>
+          <input type="file" id="json-file-input" accept=".json" style="display:none" />
+        </div>
+
+        <div id="json-file-display" style="display:none;margin-top:10px"></div>
+
+        <div class="text-dim text-sm mt-8" style="background:var(--bg3);border-radius:5px;padding:10px;font-family:monospace;font-size:11px">
+          Accepted formats:<br/>
+          [{"text":"product info...","product_name":"..."}, ...]  ← object array<br/>
+          ["chunk text 1", "chunk text 2"]  ← string array<br/>
+          {"products":[...]}  ← smart scraper output
+        </div>
+
+        <div class="mt-8 flex gap-8">
+          <button class="btn btn-primary" id="json-import-btn" disabled>Import as Chunks</button>
+        </div>
+        <div id="json-result" style="display:none;margin-top:10px"></div>
+      </div>
+
+      <!-- Scrape card -->
+      <div class="card">
+        <div class="card-title">Scrape &amp; Process</div>
+        <p class="text-dim text-sm" style="margin-bottom:12px">
+          Scrapes all configured URLs, saves raw text files, then processes them into chunks ready for translation and upload.
+        </p>
+        <div class="actions-row">
+          <button class="btn btn-primary" id="smart-scrape-btn" title="Scrape + LLM clean + structure into JSON chunks">
+            ⚡ Smart Scrape (Recommended)
+          </button>
+          <button class="btn btn-ghost" id="scrape-btn" title="Raw scrape only — saves .txt files">Raw Scrape</button>
+          <button class="btn btn-secondary" id="process-btn" title="Convert raw .txt files into chunks">Process → Chunks</button>
+        </div>
+        <div class="text-dim text-sm" style="margin-bottom:8px">
+          <b>Smart Scrape</b> — uses Groq LLaMA to extract clean structured product data automatically. No manual editing needed.<br/>
+          <b>Raw Scrape</b> — saves raw page text as .txt; use Process → Chunks afterwards.
+        </div>
+        <div id="scrape-log" class="log-box" style="display:none"></div>
+      </div>
+
+    </div><!-- /tab-urls -->
+
+
+    <!-- ═══ TAB: DATA VIEWER ════════════════════════════════════════════════ -->
+    <div id="tab-data" class="tab-panel">
+
+      <div class="card">
+        <div class="card-title flex items-center justify-between">
+          <span>Knowledge Chunks</span>
+          <span id="chunk-total" class="text-dim text-sm"></span>
+        </div>
+
+        <div class="chunks-filters">
+          <label>Source:</label>
+          <select id="filter-source">
+            <option value="">All sources</option>
+          </select>
+          <label>Language:</label>
+          <select id="filter-lang">
+            <option value="">All</option>
+            <option value="en">English</option>
+            <option value="ta">Tamil</option>
+            <option value="hi">Hindi</option>
+            <option value="ml">Malayalam</option>
+          </select>
+          <button class="btn btn-ghost btn-sm" id="load-chunks-btn">Load / Refresh</button>
+          <button class="btn btn-danger btn-sm" id="delete-source-btn" style="display:none">Delete Source</button>
+        </div>
+
+        <div id="chunks-container">
+          <div class="empty-state">Select a source and click "Load / Refresh"</div>
+        </div>
+
+        <div class="pagination" id="chunk-pagination" style="display:none">
+          <button class="btn btn-ghost btn-sm" id="prev-page-btn">← Prev</button>
+          <span id="page-info"></span>
+          <button class="btn btn-ghost btn-sm" id="next-page-btn">Next →</button>
+        </div>
+      </div>
+
+    </div><!-- /tab-data -->
+
+
+    <!-- ═══ TAB: TRANSLATE ═══════════════════════════════════════════════════ -->
+    <div id="tab-translate" class="tab-panel">
+
+      <div class="two-col">
+
+        <div class="card">
+          <div class="card-title">Target Languages</div>
+          <p class="text-dim text-sm" style="margin-bottom:12px">
+            Select languages to translate all chunks into. Existing translations are skipped automatically.
+          </p>
+          <div class="lang-checks">
+            <label class="lang-check-item">
+              <input type="checkbox" name="tl" value="en" checked /> English
+            </label>
+            <label class="lang-check-item">
+              <input type="checkbox" name="tl" value="ta" checked /> Tamil
+            </label>
+            <label class="lang-check-item">
+              <input type="checkbox" name="tl" value="hi" checked /> Hindi
+            </label>
+            <label class="lang-check-item">
+              <input type="checkbox" name="tl" value="ml" checked /> Malayalam
+            </label>
+          </div>
+          <button class="btn btn-primary" id="translate-btn">Translate</button>
+          <p class="text-dim text-sm mt-8">
+            Translation uses Google Translate. Rate-limited (0.4s/call). Large knowledge bases may take several minutes.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">After Translation</div>
+          <p class="text-dim text-sm" style="margin-bottom:12px">
+            Once translation completes, upload the new chunks to Pinecone. Only new/changed chunks will be embedded.
+          </p>
+          <button class="btn btn-success" id="upload-after-translate-btn">Upload to Pinecone</button>
+        </div>
+
+      </div>
+
+      <div class="card" id="translate-log-card" style="display:none">
+        <div class="card-title">Translation Progress</div>
+        <div id="translate-log" class="log-box"></div>
+      </div>
+
+    </div><!-- /tab-translate -->
+
+
+    <!-- ═══ TAB: PINECONE ════════════════════════════════════════════════════ -->
+    <div id="tab-pinecone" class="tab-panel">
+
+      <!-- Stats -->
+      <div class="card">
+        <div class="card-title flex items-center justify-between">
+          <span>Index Stats</span>
+          <button class="btn btn-ghost btn-sm" id="refresh-stats-btn">Refresh</button>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-item">
+            <div class="stat-value" id="stat-total">—</div>
+            <div class="stat-label">Total Vectors</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="stat-index">—</div>
+            <div class="stat-label">Index Name</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upload -->
+      <div class="card">
+        <div class="card-title">Upload to Pinecone</div>
+        <p class="text-dim text-sm" style="margin-bottom:12px">
+          Embed and upload all new or changed chunks. Duplicate chunks (same text + source + language) are skipped automatically.
+        </p>
+        <button class="btn btn-success" id="pinecone-upload-btn">Upload / Sync</button>
+        <div id="upload-log" class="log-box mt-8" style="display:none"></div>
+      </div>
+
+      <!-- Delete filter -->
+      <div class="card">
+        <div class="card-title">Delete by Filter</div>
+        <p class="text-dim text-sm" style="margin-bottom:12px">
+          Delete vectors matching a specific language, source file, or source type.
+        </p>
+        <div class="filter-delete-row">
+          <select id="del-filter-type">
+            <option value="language">By Language</option>
+            <option value="source">By Source File</option>
+            <option value="source_type">By Source Type</option>
+          </select>
+          <input type="text" id="del-filter-value" placeholder="e.g. ta / page_001.txt / website_translated" />
+          <button class="btn btn-danger btn-sm" id="del-filter-btn">Delete Matching</button>
+        </div>
+      </div>
+
+      <!-- Delete all -->
+      <div class="card">
+        <div class="card-title" style="color:var(--red)">Danger Zone</div>
+        <p class="text-dim text-sm" style="margin-bottom:12px">
+          Wipe the entire Pinecone index. This cannot be undone. All vectors will be deleted.
+        </p>
+        <button class="btn btn-danger" id="pinecone-delete-all-btn">Delete ALL Vectors</button>
+      </div>
+
+    </div><!-- /tab-pinecone -->
+
+  </div><!-- /dash-body -->
+</div><!-- /dash-layout -->
+
+<!-- ── Edit Scraped File Modal ─────────────────────────────────────────── -->
+<div class="modal-overlay" id="scraped-edit-modal">
+  <div class="modal" style="width:min(780px,94vw)">
+    <div class="modal-title">Edit Scraped File</div>
+    <div class="flex items-center justify-between" style="margin-bottom:10px">
+      <span class="text-dim text-sm" id="scraped-edit-filename"></span>
+      <span class="text-dim text-sm" id="scraped-edit-size"></span>
+    </div>
+    <textarea id="scraped-edit-text" rows="22" style="font-family:monospace;font-size:12px"></textarea>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" id="scraped-edit-cancel">Cancel</button>
+      <button class="btn btn-primary" id="scraped-edit-save">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Edit Chunk Modal ─────────────────────────────────────────────────── -->
+<div class="modal-overlay" id="edit-modal">
+  <div class="modal">
+    <div class="modal-title">Edit Chunk</div>
+    <div class="text-dim text-sm" id="edit-modal-meta" style="margin-bottom:10px"></div>
+    <textarea id="edit-modal-text" rows="8"></textarea>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" id="edit-modal-cancel">Cancel</button>
+      <button class="btn btn-primary" id="edit-modal-save">Save</button>
+    </div>
+  </div>
+</div>
+
+<script src="/js/dashboard.js"></script>
+</body>
+</html>

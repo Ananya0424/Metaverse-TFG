@@ -1,0 +1,1495 @@
+{
+  "company": "V-Guard Industries Ltd",
+  "catalog_version": "1.0",
+
+  "company_info": {
+    "en": {
+      "name": "V-Guard Industries Ltd",
+      "founded": 1977,
+      "founder": "Kochouseph Chittilappilly",
+      "headquarters": "Kochi, Kerala",
+      "registered_office": "42/962, Vennala High School Road, Vennala, Kochi - 682 028, Kerala",
+      "CIN": "L31200KL1996PLC010010",
+      "story": "V-Guard was founded in 1977 by Mr. Kochouseph Chittilappilly with a loan of INR 1,00,000 from his father. Initially they manufactured only voltage stabilizers in Kerala. Over time they expanded into Digital UPS, Inverter & Batteries, Water Heaters, Pumps, Wires & Cables, Fans, Kitchen Appliances, Switches, Air Coolers, and Water Purifiers. In less than four decades, V-Guard built a strong reputation for reliability. In 2018 a world-class fans-only manufacturing facility was set up in Roorkee, Uttarakhand; commercial production began in 2020 and ISO certification was obtained in 2021. V-Guard now focuses on smart home solutions and technologically advanced products. They serve customers across India through a network of distributors, dealers, retailers, and service centers.",
+      "certifications": ["ISO (fans manufacturing unit, Roorkee, 2021)", "BEE Star Rating", "BIS"],
+      "vision": "At V-Guard we design tomorrow's products — starting from today's customer experiences, built to perform reliably for a lifetime.",
+      "fan_types_available": ["Ceiling Fans", "Table Fans", "Pedestal Fans", "Wall Fans", "Exhaust Fans", "Cabin Fans", "Multipurpose Fans", "Personal Fans", "Tower Fans"]
+    },
+    "ta": {
+      "name": "V-Guard Industries Ltd",
+      "founded": 1977,
+      "founder": "Kochouseph Chittilappilly",
+      "headquarters": "Kochi, Kerala",
+      "registered_office": "42/962, Vennala High School Road, Vennala, Kochi - 682 028, Kerala",
+      "CIN": "L31200KL1996PLC010010",
+      "story": "V-Guard ஐ 1977 ஆம் ஆண்டு திரு. Kochouseph Chittilappilly அவர்கள் தம் தந்தையிடமிருந்து INR 1,00,000 கடன் வாங்கி தொடங்கினார். ஆரம்பத்தில் Kerala இல் voltage stabilizers மட்டுமே தயாரித்தார்கள். பிறகு Digital UPS, Inverter & Batteries, Water Heaters, Pumps, Wires & Cables, Fans, Kitchen Appliances, Switches, Air Coolers, Water Purifiers என பல்வேறு தயாரிப்புகளில் விரிவடைந்தார்கள். நான்கு தசாப்தங்களுக்கும் குறைவான காலத்தில், V-Guard நம்பகத்தன்மைக்கான நற்பெயரை தேடிக்கொண்டது. 2018 ஆம் ஆண்டு Roorkee, Uttarakhand இல் fans மட்டுமே தயாரிக்கும் ஒரு உலகத்தர உற்பத்தி நிலையம் நிறுவப்பட்டது. 2020 இல் வணிக உற்பத்தி தொடங்கியது; 2021 இல் ISO சான்றிதழ் கிடைத்தது. V-Guard இப்போது smart home தீர்வுகள் மற்றும் தொழில்நுட்ப ரீதியாக மேம்பட்ட தயாரிப்புகளில் கவனம் செலுத்துகிறது. India முழுவதும் உள்ள distributor, dealer, retailer மற்றும் service center நெட்வொர்க் மூலம் வாடிக்கையாளர்களுக்கு சேவை செய்கிறார்கள்.",
+      "certifications": ["ISO (fans manufacturing unit, Roorkee, 2021)", "BEE Star Rating", "BIS"],
+      "vision": "V-Guard இல் நாளைய தயாரிப்புகளை வடிவமைக்கிறோம் — இன்றைய வாடிக்கையாளர் அனுபவங்களில் இருந்து தொடங்கி, வாழ்நாள் முழுவதும் நம்பகமாக இயங்கும் வகையில் தயாரிப்புகள் உருவாகின்றன.",
+      "fan_types_available": ["Ceiling Fans", "Table Fans", "Pedestal Fans", "Wall Fans", "Exhaust Fans", "Cabin Fans", "Multipurpose Fans", "Personal Fans", "Tower Fans"]
+    }
+  },
+
+  "manufacturing": {
+    "en": {
+      "facility": "Fans Manufacturing Plant",
+      "location": "Roorkee, Uttarakhand",
+      "established": 2018,
+      "commercial_production": 2020,
+      "iso_certification": 2021,
+      "quality_features": [
+        "Fully digitized manufacturing",
+        "Imported machinery",
+        "Real-time CP and CPK monitoring",
+        "Digital alert generation",
+        "Escalation system for CTQ parameters",
+        "Nano technology utilized",
+        "Liquid paint shop for superior finish",
+        "Powder coating setup for component coating",
+        "In-house SST chamber to test paint life",
+        "3-level quality testing: IQC / PQC & OQC"
+      ]
+    },
+    "ta": {
+      "facility": "Fans உற்பத்தி நிலையம்",
+      "location": "Roorkee, Uttarakhand",
+      "established": 2018,
+      "commercial_production": 2020,
+      "iso_certification": 2021,
+      "quality_features": [
+        "முழுமையாக digitized உற்பத்தி",
+        "Imported machinery",
+        "Real-time CP மற்றும் CPK monitoring",
+        "Digital alert generation",
+        "CTQ parameters க்கான escalation system",
+        "Nano technology பயன்படுத்துகிறார்கள்",
+        "சிறந்த finish க்கு liquid paint shop",
+        "Components coating க்கு powder coating setup",
+        "Paint life சோதிக்க in-house SST chamber",
+        "3 நிலை தர சோதனை: IQC / PQC & OQC"
+      ]
+    }
+  },
+
+  "products": [
+
+    {
+      "category": "Voltage Stabilizer",
+      "en": {
+        "brief": "Protects appliances from voltage fluctuations",
+        "features": [
+          "Wide input voltage range",
+          "Overload and surge protection",
+          "Digital display in some models"
+        ]
+      },
+      "ta": {
+        "brief": "மின்னழுத்த ஏற்றத்தாழ்வுகளிலிருந்து சாதனங்களை பாதுகாக்கிறது",
+        "features": [
+          "Wide input voltage range",
+          "Overload மற்றும் surge பாதுகாப்பு",
+          "சில models இல் digital display"
+        ]
+      }
+    },
+
+    {
+      "category": "Digital UPS",
+      "en": {
+        "brief": "Backup power system for homes and offices",
+        "features": [
+          "Pure sine wave output",
+          "Fast switching",
+          "Battery health management"
+        ]
+      },
+      "ta": {
+        "brief": "வீடுகள் மற்றும் அலுவலகங்களுக்கான backup power system",
+        "features": [
+          "Pure sine wave output",
+          "Fast switching",
+          "Battery health management"
+        ]
+      }
+    },
+
+    {
+      "category": "Inverter and Inverter Batteries",
+      "en": {
+        "brief": "Power backup during electricity cuts",
+        "features": [
+          "Long backup time",
+          "Smart charging",
+          "Tubular and flat plate batteries available"
+        ]
+      },
+      "ta": {
+        "brief": "மின்தடையின் போது backup power வழங்குகிறது",
+        "features": [
+          "நீண்ட backup time",
+          "Smart charging",
+          "Tubular மற்றும் flat plate batteries கிடைக்கும்"
+        ]
+      }
+    },
+
+    {
+      "category": "Electric Water Heaters",
+      "en": {
+        "brief": "Instant and storage water heating solutions",
+        "features": [
+          "Fast heating",
+          "Safety thermostat",
+          "Energy-efficient insulation"
+        ]
+      },
+      "ta": {
+        "brief": "உடனடி மற்றும் storage வகை சூடான தண்ணீர் தீர்வுகள்",
+        "features": [
+          "வேகமான சூடேற்றம்",
+          "Safety thermostat",
+          "Energy-efficient insulation"
+        ]
+      }
+    },
+
+    {
+      "category": "Solar Water Heaters",
+      "en": {
+        "brief": "Uses solar energy to heat water",
+        "features": [
+          "Energy saving",
+          "Eco-friendly",
+          "Low maintenance"
+        ]
+      },
+      "ta": {
+        "brief": "சூரிய சக்தி மூலம் தண்ணீர் சூடேற்றும் தீர்வு",
+        "features": [
+          "மின்சாரம் சேமிக்கலாம்",
+          "Eco-friendly",
+          "குறைந்த பராமரிப்பு"
+        ]
+      }
+    },
+
+    {
+      "category": "Domestic Pumps",
+      "en": {
+        "brief": "Water supply pumps for homes",
+        "features": [
+          "High suction power",
+          "Energy efficient",
+          "Low noise operation"
+        ]
+      },
+      "ta": {
+        "brief": "வீடுகளுக்கான தண்ணீர் வழங்கல் pumps",
+        "features": [
+          "அதிக suction power",
+          "Energy efficient",
+          "குறைந்த சத்தம்"
+        ]
+      }
+    },
+
+    {
+      "category": "Agricultural Pumps",
+      "en": {
+        "brief": "Pumps used for irrigation and farming",
+        "features": [
+          "Heavy-duty motors",
+          "High water discharge",
+          "Durable design"
+        ]
+      },
+      "ta": {
+        "brief": "நீர்பாசனம் மற்றும் விவசாயத்திற்கான pumps",
+        "features": [
+          "Heavy-duty motors",
+          "அதிக water discharge",
+          "உறுதியான design"
+        ]
+      }
+    },
+
+    {
+      "category": "Industrial Motors",
+      "en": {
+        "brief": "Motors designed for industrial usage",
+        "features": [
+          "High efficiency",
+          "Continuous operation",
+          "Robust build"
+        ]
+      },
+      "ta": {
+        "brief": "தொழிற்துறை பயன்பாட்டிற்கான motors",
+        "features": [
+          "High efficiency",
+          "தொடர்ச்சியான இயக்கம்",
+          "Robust build"
+        ]
+      }
+    },
+
+    {
+      "category": "Domestic Switch Gears",
+      "en": {
+        "brief": "Electrical switches and sockets for homes",
+        "features": [
+          "Shock-proof",
+          "Stylish design",
+          "Long life"
+        ]
+      },
+      "ta": {
+        "brief": "வீடுகளுக்கான electrical switches மற்றும் sockets",
+        "features": [
+          "Shock-proof",
+          "நவீன design",
+          "நீண்ட ஆயுள்"
+        ]
+      }
+    },
+
+    {
+      "category": "Distribution Boards",
+      "en": {
+        "brief": "Power distribution control panels",
+        "features": [
+          "Circuit protection",
+          "Modular design",
+          "Fire-resistant"
+        ]
+      },
+      "ta": {
+        "brief": "மின்சார விநியோக control panels",
+        "features": [
+          "Circuit பாதுகாப்பு",
+          "Modular design",
+          "Fire-resistant"
+        ]
+      }
+    },
+
+    {
+      "category": "Wiring Cables",
+      "en": {
+        "brief": "Electrical wiring cables for homes",
+        "features": [
+          "Heat resistant",
+          "High conductivity",
+          "Safe insulation"
+        ]
+      },
+      "ta": {
+        "brief": "வீடுகளுக்கான electrical wiring cables",
+        "features": [
+          "Heat resistant",
+          "அதிக conductivity",
+          "Safe insulation"
+        ]
+      }
+    },
+
+    {
+      "category": "Industrial Cables",
+      "en": {
+        "brief": "Heavy-duty cables for industrial wiring",
+        "features": [
+          "High load capacity",
+          "Weather resistant",
+          "Durable"
+        ]
+      },
+      "ta": {
+        "brief": "தொழிற்துறை wiring க்கான heavy-duty cables",
+        "features": [
+          "அதிக load capacity",
+          "Weather resistant",
+          "நீண்ட ஆயுள்"
+        ]
+      }
+    },
+
+    {
+      "category": "Induction Cooktops",
+      "en": {
+        "brief": "Electric cooking using induction technology",
+        "features": [
+          "Fast heating",
+          "Energy efficient",
+          "Touch controls"
+        ]
+      },
+      "ta": {
+        "brief": "Induction தொழில்நுட்பம் மூலம் மின்சார சமையல்",
+        "features": [
+          "வேகமான சூடேற்றம்",
+          "Energy efficient",
+          "Touch controls"
+        ]
+      }
+    },
+
+    {
+      "category": "Mixer Grinders",
+      "en": {
+        "brief": "Kitchen grinding and blending appliances",
+        "features": [
+          "Powerful motor",
+          "Multiple jars",
+          "Overload protection"
+        ]
+      },
+      "ta": {
+        "brief": "சமையலறை அரைக்கும் மற்றும் blend செய்யும் சாதனங்கள்",
+        "features": [
+          "Powerful motor",
+          "Multiple jars",
+          "Overload பாதுகாப்பு"
+        ]
+      }
+    },
+
+    {
+      "category": "Rice Cooker",
+      "en": {
+        "brief": "Automatic rice cooking appliance",
+        "features": [
+          "Auto cut-off",
+          "Keep warm function",
+          "Non-stick bowl"
+        ]
+      },
+      "ta": {
+        "brief": "தானியங்கி சாதம் சமைக்கும் சாதனம்",
+        "features": [
+          "Auto cut-off",
+          "Keep warm வசதி",
+          "Non-stick bowl"
+        ]
+      }
+    },
+
+    {
+      "category": "Gas Stoves",
+      "en": {
+        "brief": "LPG cooking solution for kitchens",
+        "features": [
+          "Toughened glass top",
+          "Brass burners",
+          "Efficient flame"
+        ]
+      },
+      "ta": {
+        "brief": "சமையலறைக்கான LPG சமையல் தீர்வு",
+        "features": [
+          "Toughened glass top",
+          "Brass burners",
+          "திறமையான flame"
+        ]
+      }
+    },
+
+    {
+      "category": "Solar Power Systems",
+      "en": {
+        "brief": "Solar electricity generation systems",
+        "features": [
+          "Renewable energy source",
+          "Cost saving",
+          "Battery backup support"
+        ]
+      },
+      "ta": {
+        "brief": "Solar மூலம் மின்சாரம் உற்பத்தி செய்யும் system",
+        "features": [
+          "Renewable energy source",
+          "செலவு சேமிப்பு",
+          "Battery backup support"
+        ]
+      }
+    },
+
+    {
+      "category": "Air Coolers",
+      "en": {
+        "brief": "Air cooling using water evaporation",
+        "features": [
+          "Large water tank",
+          "Honeycomb cooling pads",
+          "Energy efficient"
+        ]
+      },
+      "ta": {
+        "brief": "நீர் ஆவியாதல் மூலம் காற்றை குளிர்விக்கும் சாதனம்",
+        "features": [
+          "பெரிய water tank",
+          "Honeycomb cooling pads",
+          "Energy efficient"
+        ]
+      }
+    },
+
+    {
+      "category": "Fans",
+      "en": {
+        "brief": "Air circulation and cooling solutions with energy-efficient and high-performance designs",
+        "features": [
+          "Energy efficient",
+          "High air delivery",
+          "Durable build",
+          "Smooth operation",
+          "Modern design"
+        ]
+      },
+      "ta": {
+        "brief": "Energy efficient மற்றும் high-performance design கொண்ட காற்று சுழற்சி மற்றும் குளிர்விக்கும் தீர்வுகள்",
+        "features": [
+          "மின்சாரம் சேமிக்கலாம்",
+          "அதிக air delivery",
+          "உறுதியான build",
+          "Smooth இயக்கம்",
+          "நவீன design"
+        ]
+      },
+      "subcategories": [
+
+        {
+          "name": "Ceiling Fans",
+          "en": {
+            "description": "Primary cooling fans for homes with BLDC and induction technologies",
+            "brief": "Elevate your interiors and beat the heat efficiently with V-Guard Ceiling Fans",
+            "features": [
+              "BLDC energy saving up to 65 percent",
+              "High RPM airflow",
+              "Remote control available",
+              "Dust repellent coating",
+              "Timer and reverse rotation in premium models",
+              "Anti-rust and anti-fade finish"
+            ]
+          },
+          "ta": {
+            "description": "BLDC மற்றும் induction தொழில்நுட்பங்கள் கொண்ட வீடுகளுக்கான முக்கிய குளிர்விக்கும் fans",
+            "brief": "V-Guard Ceiling Fans உங்கள் அறையை அழகுபடுத்தி திறமையாக வெப்பத்தை குறைக்கும்",
+            "features": [
+              "BLDC மூலம் 65 சதவீதம் வரை மின்சாரம் சேமிக்கலாம்",
+              "அதிக RPM airflow",
+              "Remote control கிடைக்கும்",
+              "Dust repellent coating",
+              "Premium models இல் timer மற்றும் reverse rotation",
+              "Anti-rust மற்றும் anti-fade finish"
+            ]
+          },
+          "types": [
+
+            {
+              "name": "Premium High Speed BLDC",
+              "models": ["INSIGHT-G", "INSIGHT-E"],
+              "en": {
+                "description": "Top-tier BLDC ceiling fans with highest speed and widest voltage range",
+                "features": [
+                  "370 RPM high speed",
+                  "Remote control included",
+                  "Reverse rotation",
+                  "Multi-timer 2h 4h 8h",
+                  "Wide voltage range 60V to 310V",
+                  "Dust repellent coating",
+                  "5-star BEE rating"
+                ],
+                "note": "INSIGHT-G also available in 56-inch, 36-inch and 24-inch variants"
+              },
+              "ta": {
+                "description": "மிக அதிக speed மற்றும் wide voltage range கொண்ட top-tier BLDC ceiling fans",
+                "features": [
+                  "370 RPM high speed",
+                  "Remote control வழங்கப்படுகிறது",
+                  "Reverse rotation வசதி",
+                  "Multi-timer 2h 4h 8h",
+                  "60V-310V wide voltage range",
+                  "Dust repellent coating",
+                  "5-star BEE rating"
+                ],
+                "note": "INSIGHT-G 56-inch, 36-inch மற்றும் 24-inch variants இலும் கிடைக்கும்"
+              }
+            },
+
+            {
+              "name": "BLDC Silent Ceiling Fans",
+              "models": ["VG-HUSHER BLDC"],
+              "en": {
+                "description": "Engineered specifically for near-silent operation",
+                "features": [
+                  "Noiseless operation",
+                  "Energy efficient BLDC motor",
+                  "Smooth airflow",
+                  "5-star BEE rating",
+                  "Runs longer on inverter"
+                ]
+              },
+              "ta": {
+                "description": "அமைதியான இயக்கத்திற்காக வடிவமைக்கப்பட்ட fans",
+                "features": [
+                  "சத்தமற்ற இயக்கம்",
+                  "Energy efficient BLDC motor",
+                  "Smooth airflow",
+                  "5-star BEE rating",
+                  "Inverter இல் நீண்ட நேரம் இயங்கும்"
+                ]
+              }
+            },
+
+            {
+              "name": "Premium Decorative BLDC",
+              "models": ["ROMANZA ART BLDC", "GLADO PRIME BLDC", "GLADO PRIME BLDC-RE"],
+              "en": {
+                "description": "BLDC fans with premium aesthetics and decorative finishes",
+                "features": [
+                  "Premium decorative design",
+                  "High air delivery",
+                  "Energy saving BLDC motor",
+                  "Remote control",
+                  "Anti-stain and anti-fade coating",
+                  "Germ Shield Technology on Romanza Art BLDC"
+                ]
+              },
+              "ta": {
+                "description": "Premium அழகியல் மற்றும் decorative finish கொண்ட BLDC fans",
+                "features": [
+                  "Premium decorative design",
+                  "அதிக air delivery",
+                  "Energy saving BLDC motor",
+                  "Remote control",
+                  "Anti-stain மற்றும் anti-fade coating",
+                  "Romanza Art BLDC இல் Germ Shield Technology"
+                ]
+              }
+            },
+
+            {
+              "name": "Regular Premium BLDC",
+              "models": ["ENVIRO PRIME 32"],
+              "en": {
+                "description": "Balanced BLDC performance with premium build quality",
+                "features": [
+                  "Balanced performance",
+                  "Energy efficient",
+                  "Stable airflow",
+                  "5-star BEE rating",
+                  "Multi-timer support"
+                ]
+              },
+              "ta": {
+                "description": "Premium build quality உடன் balanced BLDC performance",
+                "features": [
+                  "Balanced performance",
+                  "Energy efficient",
+                  "Stable airflow",
+                  "5-star BEE rating",
+                  "Multi-timer support"
+                ]
+              }
+            },
+
+            {
+              "name": "Regular High Speed BLDC",
+              "models": ["ENVIRO PRO-SE"],
+              "en": {
+                "description": "High speed BLDC fan for regular use",
+                "features": [
+                  "High speed motor",
+                  "Energy efficient",
+                  "Remote control",
+                  "Runs longer on inverter"
+                ]
+              },
+              "ta": {
+                "description": "சாதாரண பயன்பாட்டிற்கான high speed BLDC fan",
+                "features": [
+                  "High speed motor",
+                  "Energy efficient",
+                  "Remote control",
+                  "Inverter இல் நீண்ட நேரம் இயங்கும்"
+                ]
+              }
+            },
+
+            {
+              "name": "Standard BLDC",
+              "models": ["ENVIRO PLUS-SE", "AIRHEW BLDC", "AIRHEW BLDC-RE", "ENVIRO NEO"],
+              "en": {
+                "description": "Affordable BLDC fans with consistent energy saving performance",
+                "features": [
+                  "Affordable BLDC technology",
+                  "Low power consumption",
+                  "Consistent airflow",
+                  "5-star BEE rating",
+                  "Wall regulator compatible"
+                ]
+              },
+              "ta": {
+                "description": "சீரான energy saving performance கொண்ட affordable BLDC fans",
+                "features": [
+                  "Affordable BLDC technology",
+                  "குறைந்த மின்சார நுகர்வு",
+                  "Consistent airflow",
+                  "5-star BEE rating",
+                  "Wall regulator உடன் பொருந்தும்"
+                ]
+              }
+            },
+
+            {
+              "name": "5 Star Induction",
+              "models": ["INNOWIND"],
+              "en": {
+                "description": "High efficiency induction fan with 5-star BEE rating",
+                "features": [
+                  "5-star BEE rated induction motor",
+                  "Cost effective",
+                  "Reliable performance",
+                  "Aluminium alloy blades"
+                ]
+              },
+              "ta": {
+                "description": "5-star BEE rating கொண்ட high efficiency induction fan",
+                "features": [
+                  "5-star BEE rated induction motor",
+                  "செலவு-திறன்மிக்கது",
+                  "நம்பகமான performance",
+                  "Aluminium alloy blades"
+                ]
+              }
+            },
+
+            {
+              "name": "Premium Decorative Induction",
+              "models": [
+                "ROMANZA ART VX",
+                "GLADO PRIME VX",
+                "GLADO PRIME VX 36 3S",
+                "ENLACE VX",
+                "SONCE PRIME",
+                "GLADO PRIME 400 24"
+              ],
+              "en": {
+                "description": "Induction ceiling fans with premium decorative designs",
+                "features": [
+                  "Premium decorative finish",
+                  "High speed motor",
+                  "Dust repellent coating",
+                  "Superior gloss and matte finish",
+                  "Wider aluminium alloy blades"
+                ]
+              },
+              "ta": {
+                "description": "Premium decorative designs கொண்ட induction ceiling fans",
+                "features": [
+                  "Premium decorative finish",
+                  "High speed motor",
+                  "Dust repellent coating",
+                  "Superior gloss மற்றும் matte finish",
+                  "Wide aluminium alloy blades"
+                ]
+              }
+            },
+
+            {
+              "name": "Regular Premium Induction",
+              "models": [
+                "GLADO VX",
+                "GLADO VXE",
+                "GLADO VX 56",
+                "TUFFMO VX 400",
+                "GLADO 400 24"
+              ],
+              "en": {
+                "description": "Regular premium induction fans with high speed performance",
+                "features": [
+                  "High speed 400 RPM",
+                  "Superior quality lamination",
+                  "Smooth air delivery",
+                  "Durable aluminium blades"
+                ]
+              },
+              "ta": {
+                "description": "அதிக speed performance கொண்ட regular premium induction fans",
+                "features": [
+                  "400 RPM high speed",
+                  "Superior quality lamination",
+                  "Smooth air delivery",
+                  "Durable aluminium blades"
+                ]
+              }
+            },
+
+            {
+              "name": "Standard Decorative Induction",
+              "models": [
+                "SONCE PRO",
+                "STURDEE PLUS VX",
+                "ROTAIR DX VX",
+                "HAIZE PRO",
+                "HAIZE DX VX",
+                "MISTAL"
+              ],
+              "en": {
+                "description": "Standard induction fans with decorative design options",
+                "features": [
+                  "Decorative design",
+                  "Multiple colour options",
+                  "High speed motor",
+                  "Double shielded ball bearings"
+                ]
+              },
+              "ta": {
+                "description": "Decorative design options கொண்ட standard induction fans",
+                "features": [
+                  "Decorative design",
+                  "Multiple colour options",
+                  "High speed motor",
+                  "Double shielded ball bearings"
+                ]
+              }
+            },
+
+            {
+              "name": "Standard Induction",
+              "models": [
+                "HAIZE PLUS VX",
+                "HAIZE VX",
+                "HAIZE VX 36",
+                "HAIZE 24",
+                "DREAMS PLUS VX",
+                "DREAMS PLUS 24",
+                "STURDEE VX",
+                "DREAMS VX",
+                "LILTO VXE",
+                "LILTO-N",
+                "WILO VX",
+                "COOLWIZ-SE",
+                "WHIZAIR-SE",
+                "FANZA-SE",
+                "ZEST VX 56"
+              ],
+              "en": {
+                "description": "Reliable and affordable standard induction ceiling fans",
+                "features": [
+                  "Affordable pricing",
+                  "Reliable performance",
+                  "Multiple colour options",
+                  "Double shielded ball bearings",
+                  "Standard power consumption"
+                ]
+              },
+              "ta": {
+                "description": "நம்பகமான மற்றும் affordable standard induction ceiling fans",
+                "features": [
+                  "Affordable pricing",
+                  "நம்பகமான performance",
+                  "Multiple colour options",
+                  "Double shielded ball bearings",
+                  "Standard power நுகர்வு"
+                ]
+              }
+            }
+
+          ]
+        },
+
+        {
+          "name": "Table Fans",
+          "en": {
+            "description": "Portable fans for personal cooling on desks and countertops",
+            "brief": "Enjoy cool breeze this summer with V-Guard Table Fans",
+            "features": [
+              "Compact and portable",
+              "Oscillation support",
+              "Stable base design",
+              "High-speed variants available",
+              "Overload protection"
+            ]
+          },
+          "ta": {
+            "description": "மேசை மற்றும் countertop இல் தனிப்பட்ட குளிர்விக்கும் portable fans",
+            "brief": "V-Guard Table Fans உடன் இந்த கோடையில் குளிர்ந்த காற்றை அனுபவியுங்கள்",
+            "features": [
+              "Compact மற்றும் portable",
+              "Oscillation support",
+              "Stable base design",
+              "High-speed variants கிடைக்கும்",
+              "Overload பாதுகாப்பு"
+            ]
+          },
+          "types": [
+
+            {
+              "name": "Normal Speed High Velocity",
+              "models": ["FINESTA TF PRIME II"],
+              "en": {
+                "features": [
+                  "1350 RPM",
+                  "70 m3 per min air delivery",
+                  "Triangular base for stability",
+                  "Superior lamination",
+                  "Inbuilt overheat protection"
+                ]
+              },
+              "ta": {
+                "features": [
+                  "1350 RPM",
+                  "70 m³/min air delivery",
+                  "Stability க்கு triangular base",
+                  "Superior lamination",
+                  "Inbuilt overheat பாதுகாப்பு"
+                ]
+              }
+            },
+
+            {
+              "name": "Standard Table Fans",
+              "models": ["FINESTA TF PLUS", "FINESTA TF NEO II", "WILO TF"],
+              "en": {
+                "features": [
+                  "1350 RPM balanced airflow",
+                  "Low noise operation",
+                  "Jerk-free smooth oscillation",
+                  "Super enamelled copper motor winding"
+                ]
+              },
+              "ta": {
+                "features": [
+                  "1350 RPM balanced airflow",
+                  "Low noise இயக்கம்",
+                  "Jerk-free smooth oscillation",
+                  "Super enamelled copper motor winding"
+                ]
+              }
+            },
+
+            {
+              "name": "High Speed Table Fans",
+              "models": ["FINESTA NEO HST"],
+              "en": {
+                "features": [
+                  "2100 RPM high speed",
+                  "85 m3 per min strong airflow",
+                  "CRNO lamination",
+                  "High power motor for unmatched performance",
+                  "Inbuilt overheat protection"
+                ]
+              },
+              "ta": {
+                "features": [
+                  "2100 RPM high speed",
+                  "85 m³/min strong airflow",
+                  "CRNO lamination",
+                  "Unmatched performance க்கு high power motor",
+                  "Inbuilt overheat பாதுகாப்பு"
+                ]
+              }
+            }
+
+          ]
+        },
+
+        {
+          "name": "Pedestal Fans",
+          "en": {
+            "description": "Height adjustable fans for flexible and efficient cooling",
+            "brief": "V-Guard Pedestal Fans are compact in size and give you efficient cooling as per your requirements",
+            "features": [
+              "Adjustable height",
+              "Oscillation support",
+              "High airflow",
+              "Portable design",
+              "BLDC and remote options available"
+            ]
+          },
+          "ta": {
+            "description": "நெகிழ்வான மற்றும் திறமையான குளிர்விக்க height adjustable fans",
+            "brief": "V-Guard Pedestal Fans compact size உடன் உங்கள் தேவைக்கேற்ற திறமையான குளிர்விக்கும் வசதி வழங்குகின்றன",
+            "features": [
+              "Adjustable height",
+              "Oscillation support",
+              "அதிக airflow",
+              "Portable design",
+              "BLDC மற்றும் remote options கிடைக்கும்"
+            ]
+          },
+          "types": [
+
+            {
+              "name": "Normal Speed Standard",
+              "models": [
+                "FINESTA STS PRIME II",
+                "FINESTA STS PLUS",
+                "FINESTA STS NEO II",
+                "GLADO STS",
+                "COOLWIZ STS",
+                "DREAMS STS"
+              ],
+              "en": {
+                "features": [
+                  "Stable base",
+                  "Balanced airflow",
+                  "ABS body construction",
+                  "Inbuilt overheat protection"
+                ]
+              },
+              "ta": {
+                "features": [
+                  "Stable base",
+                  "Balanced airflow",
+                  "ABS body construction",
+                  "Inbuilt overheat பாதுகாப்பு"
+                ]
+              }
+            },
+
+            {
+              "name": "Normal Speed BLDC",
+              "models": ["ENVIRO PF BLDC"],
+              "en": {
+                "features": [
+                  "32W low power BLDC motor",
+                  "Energy efficient",
+                  "Remote control with LED",
+                  "Multi-timer 1h to 9h",
+                  "2-in-1 convertible pedestal and table fan"
+                ]
+              },
+              "ta": {
+                "features": [
+                  "32W குறைந்த மின்சார BLDC motor",
+                  "Energy efficient",
+                  "LED உடன் remote control",
+                  "Multi-timer 1h முதல் 9h வரை",
+                  "Pedestal மற்றும் table fan ஆக பயன்படுத்தலாம்"
+                ]
+              }
+            },
+
+            {
+              "name": "Normal Speed Remote",
+              "models": ["FINESTA REMOTE NEO"],
+              "en": {
+                "features": [
+                  "Remote control",
+                  "Timer support",
+                  "Smooth oscillation"
+                ]
+              },
+              "ta": {
+                "features": [
+                  "Remote control",
+                  "Timer support",
+                  "Smooth oscillation"
+                ]
+              }
+            },
+
+            {
+              "name": "High Speed Pedestal",
+              "models": ["FINESTA NEO HSP", "GLADO HSP"],
+              "en": {
+                "features": [
+                  "2100 to 2200 RPM",
+                  "85 m3 per min strong airflow",
+                  "High power motor",
+                  "Inbuilt overheat protection",
+                  "Multiple colour options"
+                ]
+              },
+              "ta": {
+                "features": [
+                  "2100-2200 RPM",
+                  "85 m³/min strong airflow",
+                  "High power motor",
+                  "Inbuilt overheat பாதுகாப்பு",
+                  "Multiple colour options"
+                ]
+              }
+            },
+
+            {
+              "name": "Metal Pedestal Fans",
+              "models": [
+                "NOTUS CLASSIC NEO",
+                "FANZA MPF PRO",
+                "FANZA MPF DELIGHT NEO",
+                "FANZA MPF PLUS",
+                "FANZA FT NEO",
+                "FANZA PRIME"
+              ],
+              "en": {
+                "features": [
+                  "Metal construction",
+                  "Large base for stability",
+                  "Jerk-free oscillation",
+                  "Aluminium alloy blades",
+                  "Double shielded ball bearings",
+                  "Corrosion resistant powder coating"
+                ]
+              },
+              "ta": {
+                "features": [
+                  "Metal construction",
+                  "Stability க்கு large base",
+                  "Jerk-free oscillation",
+                  "Aluminium alloy blades",
+                  "Double shielded ball bearings",
+                  "Corrosion resistant powder coating"
+                ]
+              }
+            }
+
+          ]
+        },
+
+        {
+          "name": "Wall Fans",
+          "en": {
+            "description": "Wall-mounted fans for space-saving cooling solutions",
+            "brief": "V-Guard Wall Fans are a well-designed combination of attractive features and performance with strong build that ranks high on durability",
+            "features": [
+              "Wall mounted space saving design",
+              "Oscillation control",
+              "Remote options available",
+              "BLDC variants available",
+              "Durable build"
+            ]
+          },
+          "ta": {
+            "description": "இடம் மிச்சப்படுத்தும் wall-mounted cooling fans",
+            "brief": "V-Guard Wall Fans கவர்ச்சிகரமான features மற்றும் performance ஐ சிறந்த durability உடன் இணைக்கும்",
+            "features": [
+              "Wall mounted space saving design",
+              "Oscillation control",
+              "Remote options கிடைக்கும்",
+              "BLDC variants கிடைக்கும்",
+              "உறுதியான build"
+            ]
+          },
+          "types": [
+
+            {
+              "name": "Normal Speed Standard",
+              "models": [
+                "FINESTA STD PRIME II",
+                "FINESTA STD PLUS",
+                "FINESTA STD NEO II",
+                "GLADO STD"
+              ],
+              "en": {
+                "features": [
+                  "Pull cord speed and oscillation control",
+                  "ABS body construction",
+                  "Reliable performance",
+                  "Inbuilt overheat protection"
+                ]
+              },
+              "ta": {
+                "features": [
+                  "Pull cord speed மற்றும் oscillation control",
+                  "ABS body construction",
+                  "நம்பகமான performance",
+                  "Inbuilt overheat பாதுகாப்பு"
+                ]
+              }
+            },
+
+            {
+              "name": "Normal Speed Remote",
+              "models": ["FINESTA RW NEO"],
+              "en": {
+                "features": [
+                  "Remote control",
+                  "Natural wind mode",
+                  "Sleep wind mode",
+                  "Multi-timer 1h 2h 4h 7h",
+                  "Memory backup function"
+                ]
+              },
+              "ta": {
+                "features": [
+                  "Remote control",
+                  "Natural wind mode",
+                  "Sleep wind mode",
+                  "Multi-timer 1h 2h 4h 7h",
+                  "Memory backup வசதி"
+                ]
+              }
+            },
+
+            {
+              "name": "Normal Speed BLDC",
+              "models": ["ENVIRO WF BLDC"],
+              "en": {
+                "features": [
+                  "32W BLDC energy efficient motor",
+                  "Memory backup function",
+                  "Jerk-free oscillation",
+                  "Low voltage performance"
+                ]
+              },
+              "ta": {
+                "features": [
+                  "32W BLDC energy efficient motor",
+                  "Memory backup வசதி",
+                  "Jerk-free oscillation",
+                  "Low voltage இல் சிறந்த performance"
+                ]
+              }
+            },
+
+            {
+              "name": "High Speed Wall Fans",
+              "models": [
+                "FINESTA NEO HSW",
+                "FINESTA NEO HSW 16",
+                "GLADO HSW",
+                "FANZA MWF PRO",
+                "FANZA MWF DELIGHT NEO",
+                "FANZA MWF PLUS"
+              ],
+              "en": {
+                "features": [
+                  "High speed 2100 to 2200 RPM",
+                  "Strong airflow",
+                  "Metal blade options",
+                  "Heavy duty performance",
+                  "Thermal protection"
+                ]
+              },
+              "ta": {
+                "features": [
+                  "2100-2200 RPM high speed",
+                  "Strong airflow",
+                  "Metal blade options",
+                  "Heavy duty performance",
+                  "Thermal பாதுகாப்பு"
+                ]
+              }
+            }
+
+          ]
+        },
+
+        {
+          "name": "Special Purpose Fans",
+          "en": {
+            "description": "Unique fans designed for specific use cases and modern lifestyles"
+          },
+          "ta": {
+            "description": "குறிப்பிட்ட பயன்பாடுகள் மற்றும் நவீன வாழ்க்கை முறைக்காக வடிவமைக்கப்பட்ட fans"
+          },
+          "types": [
+
+            {
+              "name": "Multipurpose Fans",
+              "models": ["SELFEE", "SELFEE DUO"],
+              "en": {
+                "brief": "Multi-utility fan that can be mounted on table and wall",
+                "features": [
+                  "360 degree movement",
+                  "Table and wall mounting both supported",
+                  "2600 RPM high speed",
+                  "Overload protection",
+                  "Compact design"
+                ]
+              },
+              "ta": {
+                "brief": "Table மற்றும் wall இல் mount செய்யக்கூடிய multi-utility fan",
+                "features": [
+                  "360 degree movement",
+                  "Table மற்றும் wall mounting இரண்டும் supported",
+                  "2600 RPM high speed",
+                  "Overload பாதுகாப்பு",
+                  "Compact design"
+                ]
+              }
+            },
+
+            {
+              "name": "Cabin Fans",
+              "models": ["WHIZAIR"],
+              "en": {
+                "brief": "Compact personal cooling fan for cabins and small spaces",
+                "features": [
+                  "Compact design",
+                  "Low power consumption",
+                  "Portable usage",
+                  "Table and wall use",
+                  "CRNO lamination"
+                ]
+              },
+              "ta": {
+                "brief": "Cabin மற்றும் சிறிய இடங்களுக்கான compact personal cooling fan",
+                "features": [
+                  "Compact design",
+                  "குறைந்த மின்சார நுகர்வு",
+                  "Portable பயன்பாடு",
+                  "Table மற்றும் wall பயன்பாடு",
+                  "CRNO lamination"
+                ]
+              }
+            },
+
+            {
+              "name": "Tower Fans",
+              "models": ["VEEMAGIK NEO"],
+              "en": {
+                "brief": "Beat the summer heat with V-Guard Veemagik Tower Fans — sleek and stylish with automatic swing movement",
+                "features": [
+                  "Slim and stylish design",
+                  "Automatic oscillation for better air coverage",
+                  "3 speed choices",
+                  "High air velocity",
+                  "3 wind direction adjustment",
+                  "Inbuilt overheat protection"
+                ]
+              },
+              "ta": {
+                "brief": "Automatic swing movement உடன் sleek மற்றும் stylish V-Guard Veemagik Tower Fan உடன் கோடை வெப்பத்தை வெல்லுங்கள்",
+                "features": [
+                  "Slim மற்றும் stylish design",
+                  "Better air coverage க்கு automatic oscillation",
+                  "3 speed choices",
+                  "High air velocity",
+                  "3 wind direction adjustment",
+                  "Inbuilt overheat பாதுகாப்பு"
+                ]
+              }
+            }
+
+          ]
+        },
+
+        {
+          "name": "Exhaust and Ventilating Fans",
+          "en": {
+            "description": "Fans for air extraction, odour removal and ventilation",
+            "brief": "V-Guard Ventilating Fans offer superior performance and amazing durability, removing unpleasant odours for commercial and industrial purposes",
+            "features": [
+              "Removes stale air and odours",
+              "High airflow capacity",
+              "Industrial grade durability",
+              "BLDC low power options",
+              "Auto shutter variants"
+            ]
+          },
+          "ta": {
+            "description": "காற்று extraction, மோசமான வாசனை நீக்கம் மற்றும் ventilation க்கான fans",
+            "brief": "V-Guard Ventilating Fans சிறந்த performance மற்றும் durability வழங்கி, வணிக மற்றும் தொழிற்துறை பயன்பாட்டில் மோசமான வாசனைகளை நீக்குகின்றன",
+            "features": [
+              "Stale காற்று மற்றும் வாசனை நீக்கும்",
+              "அதிக airflow capacity",
+              "Industrial grade durability",
+              "BLDC குறைந்த மின்சார options",
+              "Auto shutter variants"
+            ]
+          },
+          "types": [
+
+            {
+              "name": "BLDC Ventilating Fans",
+              "models": ["ENVIRO VFR BLDC 6 inch", "ENVIRO VFR BLDC 8 inch"],
+              "en": {
+                "features": [
+                  "5W ultra low power BLDC motor",
+                  "Energy saving",
+                  "Silent and vibration-free operation",
+                  "Inbuilt shutter",
+                  "LED indication",
+                  "Advanced MMD technology"
+                ]
+              },
+              "ta": {
+                "features": [
+                  "5W ultra low power BLDC motor",
+                  "மின்சாரம் சேமிக்கலாம்",
+                  "Silent மற்றும் vibration-free இயக்கம்",
+                  "Inbuilt shutter",
+                  "LED indication",
+                  "Advanced MMD technology"
+                ]
+              }
+            },
+
+            {
+              "name": "Round and Pipe Mounting Ventilating",
+              "models": [
+                "WHIZAIR PRIME VFR",
+                "COOLWIZ VFR 6 inch",
+                "COOLWIZ VFR 8 inch",
+                "WHIZAIR VFR 4 inch",
+                "WHIZAIR VFR 6 inch",
+                "WHIZAIR VFR 8 inch",
+                "ENLACE NEO 4 inch",
+                "ENLACE NEO 6 inch"
+              ],
+              "en": {
+                "features": [
+                  "ABS body and blade construction",
+                  "Noiseless and vibration-free",
+                  "Inbuilt shutter",
+                  "Overload protection",
+                  "Super enamelled copper motor winding"
+                ]
+              },
+              "ta": {
+                "features": [
+                  "ABS body மற்றும் blade construction",
+                  "சத்தமற்ற மற்றும் vibration-free",
+                  "Inbuilt shutter",
+                  "Overload பாதுகாப்பு",
+                  "Super enamelled copper motor winding"
+                ]
+              }
+            },
+
+            {
+              "name": "Square Shutter Fans",
+              "models": [
+                "TIDALAIR HS 6 inch",
+                "TIDALAIR HS 8 inch",
+                "TIDALAIR 6 inch",
+                "TIDALAIR 8 inch",
+                "TIDALAIR 10 inch",
+                "TIDALAIR NEO 6 inch",
+                "TIDALAIR NEO 8 inch",
+                "TIDALAIR NEO 10 inch"
+              ],
+              "en": {
+                "features": [
+                  "Auto shutter for dust protection",
+                  "Energy efficient lamination",
+                  "Inbuilt overheat protection",
+                  "Factory set lubrication"
+                ]
+              },
+              "ta": {
+                "features": [
+                  "தூசு பாதுகாப்பிற்கு auto shutter",
+                  "Energy efficient lamination",
+                  "Inbuilt overheat பாதுகாப்பு",
+                  "Factory set lubrication"
+                ]
+              }
+            },
+
+            {
+              "name": "Ceiling Ventilating Fans",
+              "models": ["NOTUS PRO CVF"],
+              "en": {
+                "features": [
+                  "Ceiling mounted ventilation",
+                  "Strong airflow",
+                  "Compact design"
+                ]
+              },
+              "ta": {
+                "features": [
+                  "Ceiling mounted ventilation",
+                  "Strong airflow",
+                  "Compact design"
+                ]
+              }
+            },
+
+            {
+              "name": "Metal Exhaust Light Duty",
+              "models": [
+                "SHOVAIR H6",
+                "SHOVAIR H9",
+                "STURDEE H9",
+                "STURDEE H12",
+                "SHOVAIR S12",
+                "STURDEE S9",
+                "STURDEE S12"
+              ],
+              "en": {
+                "brief": "V-Guard Metal Exhaust Fans with superior performance, specially designed metal blades that remove stale air and ensure adequate ventilation",
+                "features": [
+                  "Metal construction",
+                  "Corrosion resistant",
+                  "High durability",
+                  "Strong airflow",
+                  "Inbuilt overload protection"
+                ]
+              },
+              "ta": {
+                "brief": "V-Guard Metal Exhaust Fans சிறந்த performance உடன், stale காற்றை நீக்கி போதுமான ventilation உறுதிப்படுத்தும்",
+                "features": [
+                  "Metal construction",
+                  "Corrosion resistant",
+                  "அதிக durability",
+                  "Strong airflow",
+                  "Inbuilt overload பாதுகாப்பு"
+                ]
+              }
+            },
+
+            {
+              "name": "Metal Light Duty Reversible",
+              "models": ["SHOVAIR R9"],
+              "en": {
+                "features": [
+                  "2-in-1 reversible operation",
+                  "Metal construction",
+                  "Corrosion resistant"
+                ]
+              },
+              "ta": {
+                "features": [
+                  "2-in-1 reversible இயக்கம்",
+                  "Metal construction",
+                  "Corrosion resistant"
+                ]
+              }
+            },
+
+            {
+              "name": "Metal Exhaust Heavy Duty Industrial",
+              "models": [
+                "SHOVAIR HD12",
+                "SHOVAIR HD15",
+                "SHOVAIR HD18",
+                "SHOVAIR HD24"
+              ],
+              "en": {
+                "brief": "V-Guard Industrial Exhaust Fans made of premium materials, engineered to combat indoor humid air delivering superior performance",
+                "features": [
+                  "IP55 protection against dust and water",
+                  "High airflow capacity up to 9400 m3 per hour",
+                  "Industrial performance",
+                  "Heavy duty build",
+                  "Double shielded ball bearings",
+                  "Aerodynamically designed metal blades",
+                  "Inbuilt overload protection"
+                ]
+              },
+              "ta": {
+                "brief": "V-Guard Industrial Exhaust Fans premium materials உடன் தயாரிக்கப்பட்டவை, உள்ளரங்கு ஈரமான காற்றை சமாளித்து சிறந்த performance வழங்குகின்றன",
+                "features": [
+                  "IP55 தூசு மற்றும் நீர் பாதுகாப்பு",
+                  "9400 m³/hour வரை high airflow capacity",
+                  "Industrial performance",
+                  "Heavy duty build",
+                  "Double shielded ball bearings",
+                  "Aerodynamically designed metal blades",
+                  "Inbuilt overload பாதுகாப்பு"
+                ]
+              }
+            }
+
+          ]
+        }
+
+      ]
+    }
+
+  ]
+}

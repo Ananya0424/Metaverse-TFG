@@ -142,4 +142,17 @@ const searchJobs = async (req, res) => {
   }
 };
 
-module.exports = { getJobs, seedJobs, searchJobs };
+// Create a new job (Admin)
+const createJob = async (req, res) => {
+  try {
+    const jobData = req.body;
+    // ensure required fields if needed, mongoose will handle validation too
+    const job = new Job(jobData);
+    await job.save();
+    res.status(201).json(job);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
+module.exports = { getJobs, seedJobs, searchJobs, createJob };

@@ -1,0 +1,100 @@
+[
+  {
+    "text": "கேள்வி: BLDC ceiling fan மற்றும் induction ceiling fan க்கு என்ன வித்தியாசம்? BLDC (Brushless DC) fans mechanical brushes இல்லாமல் electronic commutation மூலம் இயங்கும். Induction fans 50-75W செலவழிக்கும் போது, BLDC fans வெறும் 32-35W மட்டுமே செலவழிக்கும் — 50% வரை மின்சாரம் சேமிக்கலாம். BLDC fans inverter இல் சாதாரண fan ஐ விட 3 மடங்கு நேரம் இயங்கும். Motor ஆயுள் அதிகம், சத்தம் குறைவு, speed control சிறப்பாக இருக்கும். Induction fans single-phase capacitor-run motor கொண்டவை, விலை கம்மியாக இருக்கும்.",
+    "source": "vguard_fans_kb_ta",
+    "source_type": "json_faqs",
+    "language": "ta",
+    "category": "Ceiling Fan"
+  },
+  {
+    "text": "கேள்வி: என் அறைக்கு எந்த sweep size fan தேர்வு செய்யலாம்? V-Guard பரிந்துரை: 600mm (24\") — 2.4x2 முதல் 2.4x3 m அறைகளுக்கு; 900mm (36\") — 2.4x3 முதல் 3.3x3 m அறைகளுக்கு; 1050mm (42\") — 3x4 முதல் 4x4 m அறைகளுக்கு; 1200mm (48\") — 3x4 முதல் 4x4 m அறைகளுக்கு; 1400mm (56\") — 4x5 முதல் 5x5 m அறைகளுக்கு. அனுமானங்கள்: அறை நன்கு காற்றோட்டமுடையதாக இருக்க வேண்டும், ceiling இலிருந்து blade வரை குறைந்தது 30cm இருக்க வேண்டும், blade உயரம் தரையிலிருந்து 2.43m க்கு மிகாமல் இருக்க வேண்டும்.",
+    "source": "vguard_fans_kb_ta",
+    "source_type": "json_faqs",
+    "language": "ta",
+    "category": "Ceiling Fan"
+  },
+  {
+    "text": "கேள்வி: BEE star rating எப்படி தீர்மானிக்கப்படுகிறது? BEE star rating Service Value அடிப்படையில் கணக்கிடப்படுகிறது. Formula: Service Value = Air Delivery (m³/min) ÷ Input Power (W), இரண்டும் 230V இல் அளவிடப்படும். Service Value அதிகமாக இருந்தால் Star Rating அதிகமாக இருக்கும். 1200mm fans க்கு 5-star rating க்கு service value ≥6.0 வேண்டும். V-Guard BLDC fans பொதுவாக 5-star rating பெறுகின்றன — service value 6.1 முதல் 7.7 வரை.",
+    "source": "vguard_fans_kb_ta",
+    "source_type": "json_faqs",
+    "language": "ta",
+    "category": "Ceiling Fan"
+  },
+  {
+    "text": "கேள்வி: BLDC fans inverter இல் எவ்வளவு நேரம் இயங்கும்? V-Guard BLDC fans inverter இல் சாதாரண induction fan ஐ விட 3 மடங்கு நேரம் இயங்கும். காரணம்: induction fans 50-75W செலவழிக்கும் போது, BLDC fans வெறும் 32-35W மட்டுமே செலவழிக்கும். Power cut நேரத்தில் இது மிகவும் பயனுள்ளது.",
+    "source": "vguard_fans_kb_ta",
+    "source_type": "json_faqs",
+    "language": "ta",
+    "category": "Ceiling Fan"
+  },
+  {
+    "text": "கேள்வி: V-Guard INSIGHT series BLDC fans எந்த voltage range இல் இயங்கும்? INSIGHT-G, INSIGHT-E, மற்றும் INSIGHT-G 36/56/24 series fans 60V-310V என்ற wide voltage range இல் இயங்கும் — அடிக்கடி voltage fluctuation வரும் பகுதிகளுக்கு மிகவும் ஏற்றது. ENVIRO series BLDC fans 90V-300V voltage range இல் இயங்கும்.",
+    "source": "vguard_fans_kb_ta",
+    "source_type": "json_faqs",
+    "language": "ta",
+    "category": "Ceiling Fan"
+  },
+  {
+    "text": "கேள்வி: V-Guard fans க்கு எத்தனை ஆண்டு warranty கிடைக்கும்? Model பொறுத்து warranty மாறுபடும்: Premium BLDC fans (INSIGHT series, ROMANZA ART BLDC, VG-HUSHER BLDC) — 5 ஆண்டு warranty; ENVIRO PRO-SE — 4 ஆண்டு warranty; Standard BLDC fans — 3 ஆண்டு warranty; ENLACE VX, HAIZE PLUS VX — 30 மாத warranty; பெரும்பாலான induction ceiling fans — 2-3 ஆண்டு warranty; பெரும்பாலான table/pedestal/wall fans — 2 ஆண்டு warranty; tower fans — 18 மாத warranty.",
+    "source": "vguard_fans_kb_ta",
+    "source_type": "json_faqs",
+    "language": "ta",
+    "category": "All Fans"
+  },
+  {
+    "text": "கேள்வி: V-Guard fans இல் உள்ள Germ Shield Technology என்ன? Germ Shield Technology fan blades மீது antimicrobial coating வழங்குகிறது. JIS Z 2801 & ISO 21702 தரத்தில் laboratory conditions இல் சோதிக்கப்பட்டது. ROMANZA ART BLDC, ROMANZA ART VX, மற்றும் GLADO PRIME BLDC-RE models இல் இந்த வசதி கிடைக்கும்.",
+    "source": "vguard_fans_kb_ta",
+    "source_type": "json_faqs",
+    "language": "ta",
+    "category": "Ceiling Fan"
+  },
+  {
+    "text": "கேள்வி: V-Guard fans இல் உள்ள dust repellent coating என்ன? V-Guard Effective Dust Repellent Coating Technology என்பது ஒரு easy-to-clean coating. Ideal test conditions இல் சாதாரண fans உடன் ஒப்பிடும்போது தூசு குறைவாக படிகிறது. Fans சுத்தம் செய்வது எளிதாக இருக்கும், நீண்ட நாள் அழகாக இருக்கும். Premium மற்றும் BLDC models முழுவதும் இந்த வசதி கிடைக்கும்.",
+    "source": "vguard_fans_kb_ta",
+    "source_type": "json_faqs",
+    "language": "ta",
+    "category": "Ceiling Fan"
+  },
+  {
+    "text": "கேள்வி: V-Guard BLDC ceiling fans ஐ wall regulator மூலம் control செய்யலாமா? சில V-Guard BLDC fans — GLADO PRIME BLDC, AIRHEW BLDC, ENVIRO PLUS-SE — wall mounted regulator உடன் பொருந்தும். Remote-enabled versions (GLADO PRIME BLDC-RE, AIRHEW BLDC-RE) remote control உடன் வருகின்றன. INSIGHT மற்றும் ENVIRO PRIME series fan கள் timer கொண்ட remote control உடன் இயங்கும்.",
+    "source": "vguard_fans_kb_ta",
+    "source_type": "json_faqs",
+    "language": "ta",
+    "category": "Ceiling Fan"
+  },
+  {
+    "text": "கேள்வி: Standard downrod என்ன அளவு? எப்போது நீண்ட downrod தேவை? Standard downrod 9 inches — 10 அடி உயர ceiling க்கு ஏற்றது. Blade ceiling இலிருந்து குறைந்தது 30cm (1 அடி) இருக்க வேண்டும், தரையிலிருந்து அதிகபட்சம் 2.43m (9 அடி) இருக்க வேண்டும். Ceiling உயரம் அதிகமாக இருந்தால், சரியான installation height பராமரிக்க நீண்ட downrod தேவைப்படும்.",
+    "source": "vguard_fans_kb_ta",
+    "source_type": "json_faqs",
+    "language": "ta",
+    "category": "Ceiling Fan"
+  },
+  {
+    "text": "கேள்வி: V-Guard customer care ஐ எப்படி தொடர்பு கொள்வது? V-Guard Care: 0120-4850100, 1860 180 3000 (Toll), அல்லது 9633503333 என்ற எண்களில் அழைக்கலாம். Email: customercare@vguard.in. நேரம்: திங்கள் முதல் சனி வரை காலை 9 மணி முதல் மாலை 7 மணி வரை, ஞாயிறு காலை 9 மணி முதல் மாலை 6 மணி வரை. பதிவு செய்யப்பட்ட அலுவலகம்: 42/962, Vennala High School Road, Vennala, Kochi - 682 028, Kerala.",
+    "source": "vguard_fans_kb_ta",
+    "source_type": "json_faqs",
+    "language": "ta",
+    "category": "General"
+  },
+  {
+    "text": "கேள்வி: V-Guard எந்த வகை fans தயாரிக்கிறார்கள்? V-Guard தயாரிக்கும் fans: Ceiling Fans (BLDC மற்றும் Induction, 600mm முதல் 1400mm sweep வரை), Table Fans, Pedestal Fans (metal oscillating உட்பட), Wall Fans, Ventilating/Exhaust Fans (BLDC, shutter, heavy duty industrial வகைகள் உட்பட), Tower Fans, Cabin Fans, Multipurpose Fans.",
+    "source": "vguard_fans_kb_ta",
+    "source_type": "json_faqs",
+    "language": "ta",
+    "category": "General"
+  },
+  {
+    "text": "கேள்வி: V-Guard fans உற்பத்தி நிலையம் எங்கே இருக்கிறது? V-Guard fans மட்டுமே தயாரிக்கும் ஒரு உலகத்தர உற்பத்தி நிலையம் Roorkee, Uttarakhand இல் உள்ளது. 2018 இல் நிறுவப்பட்டது, 2020 இல் வணிக உற்பத்தி தொடங்கியது, 2021 இல் ISO சான்றிதழ் கிடைத்தது. முழுமையாக digitized உற்பத்தி, imported machinery, real-time quality monitoring, nano technology என்று சிறந்த வசதிகள் உள்ளன.",
+    "source": "vguard_fans_kb_ta",
+    "source_type": "json_faqs",
+    "language": "ta",
+    "category": "General"
+  },
+  {
+    "text": "கேள்வி: V-Guard இல் மிக அதிக energy rating கொண்ட fan எது? VG-HUSHER BLDC (1300mm, 34W) — service value 7.4 — மிக அதிக service value கொண்டது. INSIGHT-G 56 (1400mm) — service value 7.7. இரண்டுமே 5-star rated. 1200mm fans இல் ENVIRO PRIME 32 — service value 7.0 மற்றும் 5-star rating — மிகவும் திறமையான தேர்வு.",
+    "source": "vguard_fans_kb_ta",
+    "source_type": "json_faqs",
+    "language": "ta",
+    "category": "Ceiling Fan"
+  }
+]
