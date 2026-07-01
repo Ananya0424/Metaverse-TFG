@@ -1,5 +1,5 @@
 const Job = require('../models/Job');
-const { GoogleGenAI } = require('@google/genai');
+const Groq = require('groq-sdk');
 
 // Fetch all jobs
 const getJobs = async (req, res) => {
@@ -65,12 +65,12 @@ const searchJobs = async (req, res) => {
     // Fetch all jobs to pass to Gemini context
     const jobs = await Job.find();
     
-    if (!process.env.GEMINI_API_KEY) {
+    if (!process.env.GROQ_API_KEY) {
       // Fallback if no API key
       return res.json({ recommendedJobs: jobs.slice(0, 3) });
     }
 
-    const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
     
     const prompt = `
       You are an AI job recommendation engine.
@@ -84,20 +84,22 @@ const searchJobs = async (req, res) => {
       Available Jobs List:
       ${JSON.stringify(jobs)}
       
-      Please return a JSON array containing the '_id' of the recommended jobs, sorted by relevance.
-      Output ONLY valid JSON like: ["jobId1", "jobId2"]. No markdown formatting, just the raw array.
+      Please return a JSON object containing a property "recommendedJobIds" which is an array of the '_id' of the recommended jobs, sorted by relevance.
+      Example format: { "recommendedJobIds": ["jobId1", "jobId2"] }
+      Output ONLY valid JSON.
     `;
     
-    const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
-        contents: prompt,
+    const response = await groq.chat.completions.create({
+        messages: [{ role: 'user', content: prompt }],
+        model: 'llama3-70b-8192',
+        response_format: { type: 'json_object' }
     });
     
-    let text = response.text;
-    text = text.replace(/```json/g, '').replace(/```/g, '').trim();
+    const jsonResponse = response.choices[0]?.message?.content || "{}";
     
     try {
-      const recommendedJobIds = JSON.parse(text);
+      const parsed = JSON.parse(jsonResponse);
+      const recommendedJobIds = parsed.recommendedJobIds || [];
       const recommendedJobs = jobs.filter(job => recommendedJobIds.includes(job._id.toString()));
       
       // Sort recommended jobs according to the AI's order

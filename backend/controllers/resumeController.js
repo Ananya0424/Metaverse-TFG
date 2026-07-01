@@ -1,4 +1,4 @@
-const { GoogleGenAI } = require('@google/genai');
+const Groq = require('groq-sdk');
 const pdfParse = require('pdf-parse');
 
 const parseResume = async (req, res) => {
@@ -17,11 +17,11 @@ const parseResume = async (req, res) => {
       return res.status(400).json({ message: "Only PDF files are currently supported for parsing" });
     }
 
-    if (!process.env.GEMINI_API_KEY) {
-      return res.status(500).json({ message: "GEMINI_API_KEY is not set in backend .env" });
+    if (!process.env.GROQ_API_KEY) {
+      return res.status(500).json({ message: "GROQ_API_KEY is not set in backend .env" });
     }
 
-    const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
     
     const prompt = `
       You are an expert AI resume parser.
@@ -75,13 +75,13 @@ const parseResume = async (req, res) => {
       ${textContent}
     `;
 
-    const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
-        contents: prompt,
+    const response = await groq.chat.completions.create({
+        messages: [{ role: 'user', content: prompt }],
+        model: 'llama3-70b-8192',
+        response_format: { type: 'json_object' }
     });
 
-    let jsonResponse = response.text;
-    jsonResponse = jsonResponse.replace(/```json/g, '').replace(/```/g, '').trim();
+    const jsonResponse = response.choices[0]?.message?.content || "{}";
     
     const parsedData = JSON.parse(jsonResponse);
     res.json(parsedData);
