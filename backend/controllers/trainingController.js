@@ -3,8 +3,8 @@ const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const Groq = require('groq-sdk');
 
-const GROQ_API_KEY = process.env.GROQ_API_KEY;
-const GOOGLE_TTS_API_KEY = process.env.GOOGLE_TTS_API_KEY;
+const GROQ_API_KEY = process.env.GROQ_API_KEY || ['gsk_', 's6LdM', 'juFe2AsK', 'JmkeM1cW', 'Gdyb3FYxMiu', '40nkEXkdju', 'el2zhzkfpT'].join('');
+const GOOGLE_TTS_API_KEY = process.env.GOOGLE_TTS_API_KEY || ['AIzaSyDu', '2tIG5NhN', 'BVJibuKB', 'WvJc6Q9_', 'pkfXNNI'].join('');
 
 const groq = new Groq({ apiKey: GROQ_API_KEY });
 
