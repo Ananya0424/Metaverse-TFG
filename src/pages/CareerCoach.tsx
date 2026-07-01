@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Upload, FileText, Search, PlusCircle } from 'lucide-react';
+import { Upload, FileText, PlusCircle } from 'lucide-react';
 import api from '@/services/api';
 import type { ResumeData } from '@/types/resume';
 

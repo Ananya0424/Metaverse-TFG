@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Upload, FileText, Download, CheckCircle2 } from 'lucide-react';
+import { FileText, Download, CheckCircle2 } from 'lucide-react';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import api from '@/services/api';
 import type { ResumeData } from '@/types/resume';
