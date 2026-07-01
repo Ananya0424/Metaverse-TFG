@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { ArrowLeft, Loader2 } from 'lucide-react';
+import api from '@/services/api';
 
 export function Simulation() {
   const { moduleId } = useParams<{ moduleId: string }>();
@@ -15,7 +16,6 @@ export function Simulation() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const { default: api } = await import('@/services/api');
         const response = await api.get('/users/profile');
         if (response.data && response.data.name) {
           setUserName(response.data.name);
