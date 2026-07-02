@@ -22,7 +22,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-block mb-5">
-              <img src={logoImg} alt="TFG Logo" className="h-10 w-auto object-contain brightness-0 invert" />
+              <img src={logoImg} alt="TFG Logo" className="h-10 w-auto object-contain" />
             </Link>
             <p className="text-slate-300 text-sm leading-relaxed mb-5">
               Talent Fourth Gen Group — Redefining the Future of Talent. The first full capability Talent Marketplace in the EMEA & APAC region.

@@ -68,7 +68,7 @@ export function Login() {
           className="relative z-10"
         >
           <Link to="/">
-            <img src={logoImg} alt="TFG Logo" className="h-12 w-auto object-contain brightness-0 invert" />
+            <img src={logoImg} alt="TFG Logo" className="h-12 w-auto object-contain" />
           </Link>
         </motion.div>
 
@@ -134,7 +134,9 @@ export function Login() {
         >
           {/* Mobile Logo */}
           <div className="lg:hidden mb-8 flex justify-center">
-            <Link to="/"><img src={logoImg} alt="TFG Logo" className="h-10 w-auto object-contain" /></Link>
+            <Link to="/" className="bg-[#1D1F4C] py-2 px-4 rounded-xl shadow-sm">
+              <img src={logoImg} alt="TFG Logo" className="h-8 w-auto object-contain" />
+            </Link>
           </div>
 
           {/* Header */}

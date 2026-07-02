@@ -29,8 +29,8 @@ export function Header() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled
-          ? 'bg-white shadow-[0_2px_20px_rgba(0,0,0,0.08)] py-3 border-b border-slate-100'
-          : 'bg-white/90 backdrop-blur-md py-4 border-b border-slate-100'
+          ? 'bg-[#1D1F4C] shadow-[0_2px_20px_rgba(0,0,0,0.15)] py-3 border-b border-white/10'
+          : 'bg-[#1D1F4C]/95 backdrop-blur-md py-4 border-b border-white/5'
       )}
     >
       <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
@@ -46,7 +46,7 @@ export function Header() {
             <Link
               key={link.label}
               to={link.href}
-              className="text-[15px] font-medium text-slate-600 hover:text-[#1D1F4C] transition-colors tracking-wide"
+              className="text-[15px] font-medium text-slate-300 hover:text-white transition-colors tracking-wide"
             >
               {link.label}
             </Link>
@@ -67,7 +67,7 @@ export function Header() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden p-2 text-[#1D1F4C] hover:text-[#FFD600] transition-colors"
+          className="md:hidden p-2 text-white hover:text-[#FFD600] transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}

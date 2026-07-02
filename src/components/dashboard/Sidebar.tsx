@@ -37,7 +37,7 @@ export function Sidebar() {
 
       {/* Logo */}
       <div className="h-24 flex items-center px-8 border-b border-white/10 relative z-10">
-        <img src={logoImg} alt="TFG Logo" className="h-9 w-auto object-contain brightness-0 invert" />
+        <img src={logoImg} alt="TFG Logo" className="h-9 w-auto object-contain" />
       </div>
 
       {/* Navigation */}
