@@ -23,9 +23,11 @@ export function AdminLogin() {
   return ( 
     <div className="min-h-screen bg-[#F8F9FA] flex flex-col justify-center items-center px-4 relative overflow-hidden"> 
       {/* Background decoration */}
-      <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-[#FFD600]/10 rounded-full blur-[120px] pointer-events-none" /> 
-      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#1D1F4C]/5 rounded-full blur-[100px] pointer-events-none" /> 
-      
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-[#FFD600]/10 rounded-full blur-[120px]" /> 
+        <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#1D1F4C]/5 rounded-full blur-[100px]" /> 
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(29,31,76,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(29,31,76,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
+      </div>
       <motion.div 
         initial={{ opacity: 0, y: 20 }} 
         animate={{ opacity: 1, y: 0 }} 

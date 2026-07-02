@@ -71,7 +71,14 @@ export function AdminDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA] text-[#1D1F4C] flex">
+    <div className="min-h-screen bg-[#F8F9FA] text-[#1D1F4C] flex relative overflow-hidden">
+      {/* Premium Background Pattern */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-[#FFD600]/5 rounded-full blur-[100px]" /> 
+        <div className="absolute bottom-[-10%] left-[20%] w-[500px] h-[500px] bg-[#1D1F4C]/5 rounded-full blur-[100px]" /> 
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(29,31,76,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(29,31,76,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
+      </div>
+
       {/* Sidebar */}
       <div className="w-[260px] bg-[#1D1F4C] shadow-xl flex flex-col h-screen fixed left-0 top-0 z-40 overflow-hidden">
         {/* Background decoration */}
@@ -113,10 +120,10 @@ export function AdminDashboard() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 p-10 overflow-y-auto ml-[260px]">
+      <div className="flex-1 p-10 overflow-y-auto ml-[260px] relative z-10">
         <div className="max-w-6xl mx-auto">
           {activeTab === 'users' && (
-            <div>
+            <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
               <div className="mb-8">
                 <h1 className="text-[32px] font-extrabold text-[#1D1F4C] tracking-tight">Registered Users</h1>
                 <p className="text-slate-500 font-medium">Manage and view activity for all platform users.</p>
@@ -132,21 +139,21 @@ export function AdminDashboard() {
                     <div 
                       key={user._id} 
                       onClick={() => setSelectedUser(user)}
-                      className="bg-white border border-slate-100 shadow-[0_4px_25px_rgba(0,0,0,0.03)] rounded-3xl p-7 hover:shadow-xl hover:border-[#FFD600]/30 transition-all duration-300 cursor-pointer group"
+                      className="bg-white/70 backdrop-blur-xl border border-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] rounded-3xl p-7 hover:shadow-xl hover:border-[#FFD600]/40 transition-all duration-300 cursor-pointer group"
                     >
-                      <div className="w-16 h-16 bg-[#FFD600]/10 rounded-2xl flex items-center justify-center text-[#1D1F4C] text-2xl font-bold mb-6 group-hover:bg-[#FFD600] transition-colors duration-300">
+                      <div className="w-16 h-16 bg-[#FFD600]/15 rounded-2xl flex items-center justify-center text-[#1D1F4C] text-2xl font-bold mb-6 group-hover:bg-[#FFD600] transition-colors duration-300 shadow-sm">
                         {user.name ? user.name.charAt(0).toUpperCase() : 'U'}
                       </div>
                       <h3 className="text-lg font-extrabold text-[#1D1F4C] mb-1 truncate">{user.name || 'Unnamed User'}</h3>
                       <p className="text-sm text-slate-500 mb-6 truncate">{user.email}</p>
-                      <div className="inline-block px-3 py-1.5 rounded-lg bg-[#F8F9FA] border border-slate-100 text-xs text-slate-500 font-bold uppercase tracking-wider">
+                      <div className="inline-block px-3 py-1.5 rounded-lg bg-white/60 border border-slate-100/50 text-xs text-[#1D1F4C] font-bold uppercase tracking-wider shadow-sm">
                         Role: {user.role || 'user'}
                       </div>
                     </div>
                   ))}
                   {users.length === 0 && !loading && (
-                     <div className="col-span-full py-12 text-center bg-white rounded-3xl border border-slate-100">
-                        <p className="text-slate-500">No users found in the database.</p>
+                     <div className="col-span-full py-12 text-center bg-white/70 backdrop-blur-xl rounded-3xl border border-white shadow-sm">
+                        <p className="text-slate-500 font-medium">No users found in the database.</p>
                      </div>
                   )}
                 </div>
@@ -155,13 +162,13 @@ export function AdminDashboard() {
           )}
 
           {activeTab === 'jobs' && (
-            <div className="max-w-3xl">
+            <div className="max-w-3xl animate-in fade-in slide-in-from-bottom-4 duration-700">
               <div className="mb-8">
                 <h1 className="text-[32px] font-extrabold text-[#1D1F4C] tracking-tight mb-2">Post a New Job</h1>
                 <p className="text-slate-500 font-medium">Jobs posted here will instantly appear on the user's Career Coach page.</p>
               </div>
               
-              <form onSubmit={handleJobSubmit} className="bg-white border border-slate-100 shadow-[0_4px_25px_rgba(0,0,0,0.03)] rounded-3xl p-10 space-y-6">
+              <form onSubmit={handleJobSubmit} className="bg-white/70 backdrop-blur-xl border border-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] rounded-3xl p-10 space-y-6">
                 <div className="grid grid-cols-2 gap-6">
                   <div>
                     <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Job Title</label>
