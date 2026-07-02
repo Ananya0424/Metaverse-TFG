@@ -137,12 +137,12 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative z-10 w-full max-w-[800px] h-full scale-100 md:scale-125 origin-right"
+              className="relative z-10 w-full max-w-[800px] h-full scale-100 md:scale-110 origin-right"
             >
               <img 
                 src={heroAvatars} 
                 alt="TFG Mentors" 
-                className="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(29,31,76,0.12)] rounded-[2rem]" 
+                className="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(29,31,76,0.12)] mix-blend-multiply" 
               />
             </motion.div>
 
