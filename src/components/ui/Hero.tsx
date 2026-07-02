@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Button } from '@/components/common/Button';
-import heroAvatars from '@/assets/images/hero-avatars.jpg';
+import heroAvatars from '@/assets/images/hero-avatars.png';
 import { SignupModal } from '@/components/auth/SignupModal';
 import { ArrowRight, PlayCircle, BarChart3, Trophy, Mic, Users } from 'lucide-react';
 
