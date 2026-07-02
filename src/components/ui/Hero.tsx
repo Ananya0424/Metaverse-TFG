@@ -2,8 +2,9 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Button } from '@/components/common/Button';
+import aiHuman from '@/assets/images/ai-human.png';
 import { SignupModal } from '@/components/auth/SignupModal';
-import { ArrowRight, PlayCircle, Mic, BarChart3, Brain, Trophy, Users } from 'lucide-react';
+import { ArrowRight, PlayCircle, Mic, BarChart3, Trophy, Users } from 'lucide-react';
 
 // Floating dashboard mini-cards to replace the avatar
 const floatingCards = [
@@ -35,7 +36,7 @@ const floatingCards = [
     delay: 0.9,
   },
   {
-    icon: Brain,
+    icon: BarChart3,
     title: 'AI Feedback Ready',
     value: '3 Reports',
     sub: 'Tap to review',
@@ -141,68 +142,87 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* ── Right: Floating Dashboard Cards ── */}
-        <div className="flex-1 flex justify-center lg:justify-end items-center w-full relative mt-8 md:mt-0 min-h-[480px] md:min-h-[560px]">
-          {/* Central glow orb */}
+        {/* ── Right: Triangle Avatar Formation ── */}
+        <div className="flex-1 flex justify-center lg:justify-end items-end w-full relative mt-8 md:mt-0 min-h-[500px] md:min-h-[580px] overflow-visible">
+
+          {/* Background glow behind avatars */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[400px] bg-[#FFD600]/10 blur-[100px] rounded-full pointer-events-none" />
+
+          {/* ── LEFT Avatar (behind, left side) ── */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.3 }}
-            className="absolute inset-0 flex items-center justify-center pointer-events-none"
+            initial={{ opacity: 0, x: -40, y: 20 }}
+            animate={{ opacity: 1, x: 0, y: [0, -6, 0] }}
+            transition={{
+              opacity: { duration: 0.7, delay: 0.5 },
+              x: { duration: 0.7, delay: 0.5 },
+              y: { duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 },
+            }}
+            className="absolute bottom-0 z-10"
+            style={{ left: '2%' }}
           >
-            <div className="w-[320px] h-[320px] rounded-full bg-[#FFD600]/10 blur-[80px]" />
+            {/* Subtle glow ring */}
+            <div className="absolute inset-x-0 bottom-0 h-20 bg-[#FFD600]/15 blur-2xl rounded-full mx-4" />
+            <img
+              src={aiHuman}
+              alt="AI Trainer Left"
+              className="h-[340px] md:h-[400px] w-auto object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
+              style={{ filter: 'brightness(0.55) saturate(0.7)' }}
+            />
           </motion.div>
 
-          {/* Central illustration - abstract rings */}
+          {/* ── RIGHT Avatar (behind, right side) ── */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="relative w-[300px] h-[300px] flex items-center justify-center"
+            initial={{ opacity: 0, x: 40, y: 20 }}
+            animate={{ opacity: 1, x: 0, y: [0, -8, 0] }}
+            transition={{
+              opacity: { duration: 0.7, delay: 0.6 },
+              x: { duration: 0.7, delay: 0.6 },
+              y: { duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 },
+            }}
+            className="absolute bottom-0 z-10"
+            style={{ right: '2%' }}
           >
-            {[280, 220, 160, 100].map((size, i) => (
-              <motion.div
-                key={size}
-                className="absolute rounded-full border border-[#FFD600]/10"
-                style={{ width: size, height: size }}
-                animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
-                transition={{ duration: 20 + i * 5, repeat: Infinity, ease: 'linear' }}
-              />
-            ))}
-            {/* Center badge */}
-            <div className="relative z-10 w-20 h-20 rounded-2xl bg-[#FFD600]/10 border border-[#FFD600]/30 flex flex-col items-center justify-center backdrop-blur-sm">
-              <Brain className="w-8 h-8 text-[#FFD600]" />
-              <span className="text-[9px] text-[#FFD600] font-bold mt-1">AI CORE</span>
-            </div>
-
-            {/* Floating orbit dots */}
-            {[0, 60, 120, 180, 240, 300].map((deg, i) => (
-              <motion.div
-                key={deg}
-                className="absolute w-2 h-2 rounded-full bg-[#FFD600]"
-                style={{
-                  top: `${50 - 45 * Math.sin((deg * Math.PI) / 180)}%`,
-                  left: `${50 + 45 * Math.cos((deg * Math.PI) / 180)}%`,
-                  opacity: 0.4 + (i % 3) * 0.2
-                }}
-                animate={{ scale: [1, 1.5, 1] }}
-                transition={{ duration: 2, delay: i * 0.3, repeat: Infinity }}
-              />
-            ))}
+            <div className="absolute inset-x-0 bottom-0 h-20 bg-[#FFD600]/15 blur-2xl rounded-full mx-4" />
+            <img
+              src={aiHuman}
+              alt="AI Trainer Right"
+              className="h-[340px] md:h-[400px] w-auto object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)] scale-x-[-1]"
+              style={{ filter: 'brightness(0.55) saturate(0.7)' }}
+            />
           </motion.div>
 
-          {/* Floating metric cards */}
+          {/* ── CENTER Avatar (front, main) ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: [0, -10, 0] }}
+            transition={{
+              opacity: { duration: 0.8, delay: 0.4 },
+              y: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.8 },
+            }}
+            className="absolute bottom-0 z-20"
+            style={{ left: '50%', transform: 'translateX(-50%)' }}
+          >
+            {/* Strong glow under main avatar */}
+            <div className="absolute inset-x-0 bottom-0 h-24 bg-[#FFD600]/25 blur-3xl rounded-full mx-2" />
+            <img
+              src={aiHuman}
+              alt="AI Trainer Center"
+              className="h-[420px] md:h-[500px] w-auto object-contain drop-shadow-[0_0_40px_rgba(255,214,0,0.25)]"
+            />
+          </motion.div>
+
+          {/* ── Floating stat cards (on top of avatars) ── */}
           {floatingCards.map(({ icon: Icon, title, value, sub, color, style, delay }) => (
             <motion.div
               key={title}
-              initial={{ opacity: 0, scale: 0.7, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: [0, -8, 0] }}
+              initial={{ opacity: 0, scale: 0.7 }}
+              animate={{ opacity: 1, scale: 1, y: [0, -6, 0] }}
               transition={{
                 opacity: { duration: 0.5, delay },
                 scale: { duration: 0.5, delay },
-                y: { duration: 4 + Math.random() * 2, repeat: Infinity, ease: 'easeInOut', delay: delay + 0.5 },
+                y: { duration: 4, repeat: Infinity, ease: 'easeInOut', delay: delay + 0.5 },
               }}
-              className="absolute bg-[#0b0822]/90 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-2xl min-w-[160px]"
+              className="absolute bg-[#0b0822]/90 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-2xl min-w-[150px] z-30"
               style={style}
             >
               <div className="flex items-center gap-2 mb-2">
