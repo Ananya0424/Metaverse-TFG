@@ -25,47 +25,49 @@ export function AdminLogin() {
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-[#FFD600]/10 rounded-full blur-[120px]" /> 
-        <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#1D1F4C]/5 rounded-full blur-[100px]" /> 
+        <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#1D1F4C]/10 rounded-full blur-[100px]" /> 
         <div className="absolute inset-0 bg-[linear-gradient(rgba(29,31,76,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(29,31,76,0.03)_1px,transparent_1px)] bg-[size:30px_30px]" />
       </div>
+
       <motion.div 
         initial={{ opacity: 0, y: 20 }} 
         animate={{ opacity: 1, y: 0 }} 
-        className="w-full max-w-md bg-white border border-slate-100 p-10 rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] relative z-10"
+        className="w-full max-w-md bg-[#1D1F4C] border border-white/10 p-10 rounded-[2.5rem] shadow-[0_20px_60px_rgba(29,31,76,0.3)] relative z-10 overflow-hidden"
       > 
-        <div className="text-center mb-10"> 
-          <div className="bg-[#1D1F4C] inline-block p-4 rounded-xl mb-6 shadow-sm">
-            <img src={logoImg} alt="TFG" className="h-8 mx-auto object-contain" /> 
-          </div>
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#1D1F4C]/5 text-[#1D1F4C] mb-4"> 
-            <Shield size={24} /> 
+        {/* Card inner glow */}
+        <div className="absolute top-[-50px] left-[-50px] w-[150px] h-[150px] bg-[#FFD600]/20 rounded-full blur-[50px] pointer-events-none" />
+
+        <div className="text-center mb-10 relative z-10"> 
+          <img src={logoImg} alt="TFG" className="h-10 mx-auto object-contain mb-8" /> 
+          
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white/5 text-[#FFD600] mb-5 border border-white/10 shadow-sm"> 
+            <Shield size={28} /> 
           </div> 
-          <h2 className="text-2xl font-extrabold text-[#1D1F4C] mb-2">Admin Portal</h2> 
-          <p className="text-slate-500 text-sm font-medium">Restricted Access Area</p> 
+          <h2 className="text-[28px] font-extrabold text-white mb-2 tracking-tight">Admin Portal</h2> 
+          <p className="text-slate-400 text-[13px] font-bold uppercase tracking-widest">Restricted Access Area</p> 
         </div> 
 
-        <form onSubmit={handleLogin} className="space-y-6"> 
+        <form onSubmit={handleLogin} className="space-y-6 relative z-10"> 
           <div> 
-            <label className="block text-sm font-bold text-[#1D1F4C] mb-2 uppercase tracking-wider text-[11px]">Access Key</label> 
             <div className="relative"> 
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"> 
-                <Lock className="h-4 w-4 text-slate-400" /> 
+                <Lock className="h-5 w-5 text-slate-400" /> 
               </div> 
               <input 
                 type="password" 
                 value={password} 
                 onChange={(e) => { setPassword(e.target.value); setError(''); }} 
-                className="block w-full pl-11 pr-4 py-3.5 bg-[#F8F9FA] border border-slate-200 rounded-xl text-[#1D1F4C] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#FFD600]/40 focus:border-[#FFD600] transition-all font-medium" 
+                className="block w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-2xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#FFD600]/40 focus:border-[#FFD600]/60 focus:bg-white/10 transition-all font-medium text-lg" 
                 placeholder="Enter admin passcode" 
                 required 
               /> 
             </div> 
-            {error && <p className="mt-3 text-sm text-red-500 font-medium bg-red-50 p-2.5 rounded-lg border border-red-100 text-center">⚠️ {error}</p>} 
+            {error && <p className="mt-4 text-sm text-red-400 font-bold bg-red-400/10 p-3 rounded-xl border border-red-400/20 text-center">⚠️ {error}</p>} 
           </div> 
           
           <Button 
             type="submit" 
-            className="w-full bg-[#1D1F4C] hover:bg-[#2A2D6C] text-white font-bold py-4 text-lg rounded-xl transition-all shadow-[0_4px_14px_rgba(29,31,76,0.2)] hover:shadow-[0_6px_20px_rgba(29,31,76,0.3)]"
+            className="w-full bg-[#FFD600] hover:bg-[#e6c100] text-[#1D1F4C] font-extrabold py-4 text-lg rounded-2xl transition-all shadow-[0_4px_14px_rgba(255,214,0,0.2)] hover:shadow-[0_6px_20px_rgba(255,214,0,0.4)] hover:scale-[1.02]"
           > 
             Authenticate 
           </Button> 
