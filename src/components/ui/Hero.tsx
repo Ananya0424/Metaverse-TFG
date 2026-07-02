@@ -14,13 +14,7 @@ export function Hero() {
       aria-label="Hero Section"
       className="relative min-h-screen flex flex-col md:flex-row items-center overflow-hidden bg-white"
     >
-      {/* Soft background shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full"
-          style={{ background: 'radial-gradient(circle, rgba(255,214,0,0.12) 0%, transparent 70%)' }} />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full"
-          style={{ background: 'radial-gradient(circle, rgba(29,31,76,0.05) 0%, transparent 70%)' }} />
-      </div>
+      {/* Clean background for seamless image blend */}
 
       <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center w-full relative z-10 gap-8 min-h-screen">
 
@@ -124,12 +118,7 @@ export function Hero() {
         </div>
 
         {/* ── Right: Single Clean Avatar + Decorative Cards ── */}
-        <div className="flex-1 relative flex items-center justify-center min-h-[520px] md:min-h-screen">
-
-          {/* Yellow decorative arc behind avatar */}
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[380px] h-[380px] rounded-full border-[3px] border-dashed border-[#FFD600]/20 pointer-events-none" />
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[280px] h-[280px] rounded-full bg-[#FFD600]/8 blur-[60px] pointer-events-none" />
-
+        <div className="flex-[1.2] relative flex items-center justify-center min-h-[520px] md:min-h-screen">
           {/* The Avatars — user provided image */}
           <div className="relative z-20 h-[500px] md:h-[700px] w-full flex items-center justify-center md:justify-end md:pr-4 py-4">
             
@@ -137,7 +126,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative z-10 w-full max-w-[800px] h-full scale-100 md:scale-110 origin-right"
+              className="relative z-10 w-full max-w-[900px] h-full"
             >
               <img 
                 src={heroAvatars} 
