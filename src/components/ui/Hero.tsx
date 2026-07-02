@@ -2,8 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Button } from '@/components/common/Button';
-import coachMale from '@/assets/images/coach_male.png';
-import coachFemale from '@/assets/images/coach_female.png';
+import heroAvatars from '@/assets/images/hero-avatars.jpg';
 import { SignupModal } from '@/components/auth/SignupModal';
 import { ArrowRight, PlayCircle, BarChart3, Trophy, Mic, Users } from 'lucide-react';
 
@@ -131,43 +130,23 @@ export function Hero() {
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[380px] h-[380px] rounded-full border-[3px] border-dashed border-[#FFD600]/20 pointer-events-none" />
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[280px] h-[280px] rounded-full bg-[#FFD600]/8 blur-[60px] pointer-events-none" />
 
-          {/* The Avatars — two professional coaches */}
-          <div className="relative z-20 h-[460px] md:h-[580px] w-full flex items-center justify-center">
-            
+          {/* The Avatars — user provided 3D image */}
+          <div className="relative z-20 h-[460px] md:h-[600px] w-full flex items-center justify-center">
             <motion.div
-              initial={{ opacity: 0, x: -40, rotate: -6 }}
-              animate={{ opacity: 1, x: 0, y: [0, -10, 0], rotate: -6 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{
                 opacity: { duration: 0.8, delay: 0.4 },
-                x: { duration: 0.8, delay: 0.4 },
-                y: { duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.8 },
+                y: { duration: 0.8, delay: 0.4 },
               }}
-              className="absolute left-[5%] md:left-[10%] top-[10%] md:top-[15%] w-[200px] h-[280px] md:w-[280px] md:h-[380px] rounded-[2rem] border-[8px] border-white shadow-[0_20px_50px_rgba(29,31,76,0.15)] overflow-hidden z-10 bg-white"
+              className="relative w-full max-w-[550px] aspect-square md:aspect-auto md:h-full z-10"
             >
-              <img src={coachMale} alt="TFG Male Coach" className="w-full h-full object-cover" />
-              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#1D1F4C]/80 to-transparent p-4 pt-12">
-                <p className="text-white font-bold text-sm">Senior Coach</p>
-                <p className="text-[#FFD600] text-[10px] font-bold uppercase tracking-wider">Leadership</p>
-              </div>
+              <img 
+                src={heroAvatars} 
+                alt="TFG AI Mentors" 
+                className="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(29,31,76,0.12)] mix-blend-multiply" 
+              />
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 40, rotate: 4 }}
-              animate={{ opacity: 1, x: 0, y: [0, -12, 0], rotate: 4 }}
-              transition={{
-                opacity: { duration: 0.8, delay: 0.6 },
-                x: { duration: 0.8, delay: 0.6 },
-                y: { duration: 6.5, repeat: Infinity, ease: 'easeInOut', delay: 1.1 },
-              }}
-              className="absolute right-[5%] md:right-[10%] top-[20%] md:top-[25%] w-[220px] h-[300px] md:w-[300px] md:h-[400px] rounded-[2rem] border-[8px] border-white shadow-[0_20px_50px_rgba(29,31,76,0.2)] overflow-hidden z-20 bg-white"
-            >
-              <img src={coachFemale} alt="TFG Female Coach" className="w-full h-full object-cover" />
-              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#1D1F4C]/80 to-transparent p-4 pt-12">
-                <p className="text-white font-bold text-sm">Executive Trainer</p>
-                <p className="text-[#FFD600] text-[10px] font-bold uppercase tracking-wider">Communication</p>
-              </div>
-            </motion.div>
-
           </div>
 
           {/* Floating card — top left of avatar */}
