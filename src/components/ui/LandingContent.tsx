@@ -149,15 +149,8 @@ export function LandingContent() {
                   <img
                     src={img}
                     alt={title}
-                    className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1D1F4C]/90 via-[#1D1F4C]/30 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <span className="inline-block px-2.5 py-1 rounded-lg bg-[#FFD600] text-[#1D1F4C] text-xs font-bold mb-2">
-                      {tag}
-                    </span>
-                    <h3 className="text-white font-bold text-lg">{title}</h3>
-                  </div>
                 </div>
               </FadeIn>
             ))}
