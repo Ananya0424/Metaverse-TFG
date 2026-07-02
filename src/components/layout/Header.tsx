@@ -19,9 +19,9 @@ export function Header() {
   }, []);
 
   const navLinks = [
-    { label: 'Home', href: '/' },
+    { label: 'Home', href: '#home' },
     { label: 'About Us', href: '#about' },
-    { label: 'Contact Us', href: '#contact' },
+    { label: 'Contact Us', href: '#footer' },
   ];
 
   return (
@@ -35,34 +35,44 @@ export function Header() {
     >
       <div className="container mx-auto px-6 lg:px-12 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <img src={logoImg} alt="TFG Logo" className="h-10 md:h-11 w-auto object-contain" />
           </Link>
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              to={link.href}
-              className="text-[15px] font-medium text-slate-300 hover:text-white transition-colors tracking-wide"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        {/* Desktop Right Section: Nav + Auth */}
+        <div className="hidden md:flex items-center gap-10 lg:gap-14">
+          {/* Desktop Navigation */}
+          <nav className="flex items-center gap-8 lg:gap-10">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-[15px] font-medium text-slate-300 hover:text-white transition-colors tracking-wide"
+                onClick={(e) => {
+                  if (link.href.startsWith('#')) {
+                    e.preventDefault();
+                    const el = document.querySelector(link.href);
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
 
-        {/* Desktop Auth */}
-        <div className="hidden md:flex items-center gap-4">
-          <Link to="/login">
-            <Button
-              variant="primary"
-              className="bg-[#FFD600] hover:bg-[#e6c100] text-[#1D1F4C] px-6 py-2.5 text-[15px] font-bold rounded-lg shadow-[0_4px_14px_rgba(255,214,0,0.35)] hover:shadow-[0_4px_20px_rgba(255,214,0,0.5)] transition-all duration-300"
-            >
-              Login
-            </Button>
-          </Link>
+          {/* Desktop Auth */}
+          <div className="flex items-center">
+            <Link to="/login">
+              <Button
+                variant="primary"
+                className="bg-[#FFD600] hover:bg-[#e6c100] text-[#1D1F4C] px-6 py-2.5 text-[15px] font-bold rounded-lg shadow-[0_4px_14px_rgba(255,214,0,0.35)] hover:shadow-[0_4px_20px_rgba(255,214,0,0.5)] transition-all duration-300"
+              >
+                Login
+              </Button>
+            </Link>
+          </div>
         </div>
 
         {/* Mobile Menu Toggle */}

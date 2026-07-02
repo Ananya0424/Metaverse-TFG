@@ -11,7 +11,7 @@ const solutions = ['AI Mock Interviews', 'Resume Builder', 'VR Product Training'
 
 export function Footer() {
   return (
-    <footer className="bg-[#1D1F4C] text-white relative overflow-hidden">
+    <footer id="footer" className="bg-[#1D1F4C] text-white relative overflow-hidden">
       {/* Subtle pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,214,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,214,0,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 

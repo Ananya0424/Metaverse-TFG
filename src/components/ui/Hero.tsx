@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Button } from '@/components/common/Button';
-import heroAvatars from '@/assets/images/hero-avatars.png';
+import heroAvatars from '@/assets/images/hero-vr-avatars.png';
 import { SignupModal } from '@/components/auth/SignupModal';
 import { ArrowRight, PlayCircle, BarChart3, Trophy, Mic, Users } from 'lucide-react';
 
@@ -11,6 +11,7 @@ export function Hero() {
 
   return (
     <section
+      id="home"
       aria-label="Hero Section"
       className="relative min-h-screen flex flex-col md:flex-row items-center overflow-hidden bg-white"
     >
@@ -120,7 +121,7 @@ export function Hero() {
         {/* ── Right: Single Clean Avatar + Decorative Cards ── */}
         <div className="flex-1 relative flex items-center justify-center min-h-[520px] md:min-h-screen">
           {/* The Avatars — user provided image */}
-          <div className="relative z-20 h-[500px] md:h-[700px] w-full flex items-center justify-center md:justify-end md:pr-4 py-4">
+          <div className="relative z-20 h-[500px] md:h-screen w-full flex items-center justify-center md:justify-end md:pr-4">
             
             <motion.div
               initial={{ opacity: 0, y: 20 }}
