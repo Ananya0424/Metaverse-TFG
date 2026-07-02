@@ -28,20 +28,22 @@ const gallery = [
   { img: img6, title: 'Career Coaching', tag: 'Mentorship' },
 ];
 
+// REAL TFG stats from official website
 const stats = [
-  { value: '10,000+', label: 'Professionals Trained' },
-  { value: '95%', label: 'Completion Rate' },
-  { value: '50+', label: 'Enterprise Partners' },
-  { value: '4.9★', label: 'Avg. Rating' },
+  { value: '25+', label: 'Enterprise Solutions' },
+  { value: '1st', label: 'Metaverse Training Academy' },
+  { value: 'EMEA', label: '& APAC Region Leader' },
+  { value: '4.9★', label: 'Client Satisfaction' },
 ];
 
+// REAL TFG differentiators from official website
 const whyPoints = [
-  'Real-time AI performance analysis after every session',
-  'Industry-recognized certifications upon completion',
-  'VR headset & web browser compatible',
-  'Personalized learning paths based on your goals',
-  '24/7 access to all modules and resources',
-  'Regular content updates with new industry scenarios',
+  'First Full Capability Talent Marketplace in EMEA & APAC',
+  'First Metaverse Training Academy globally',
+  'First Immersive Innovation Learning Center',
+  'Collaboration with Ivy League Universities worldwide',
+  'World\'s largest portfolio of International Professional Certifications',
+  'Private Generative AI & VR-enabled training programs',
 ];
 
 function FadeIn({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -62,16 +64,16 @@ function FadeIn({ children, delay = 0, className = '' }: { children: React.React
 
 export function LandingContent() {
   return (
-    <div className="bg-[#0b0822] text-white">
+    <div className="bg-white text-[#1D1F4C]">
 
       {/* ════ STATS BAR ════ */}
-      <section className="border-y border-white/5 bg-white/[0.02]">
+      <section className="border-y border-slate-100 bg-[#FAFAFA]">
         <div className="container mx-auto px-6 lg:px-12 py-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map(({ value, label }, i) => (
               <FadeIn key={label} delay={i * 0.1}>
                 <div className="text-[36px] md:text-[44px] font-extrabold text-[#FFD600] leading-none mb-2">{value}</div>
-                <div className="text-slate-400 text-sm">{label}</div>
+                <div className="text-slate-500 text-sm font-medium">{label}</div>
               </FadeIn>
             ))}
           </div>
@@ -79,27 +81,27 @@ export function LandingContent() {
       </section>
 
       {/* ════ ABOUT TFG ════ */}
-      <section id="about" className="py-24 relative overflow-hidden">
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FFD600]/5 rounded-full blur-[150px] pointer-events-none" />
+      <section id="about" className="py-24 relative overflow-hidden bg-white">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#FFD600]/8 rounded-full blur-[150px] pointer-events-none" />
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <FadeIn>
-              <span className="inline-block px-4 py-1.5 rounded-full bg-[#FFD600]/10 border border-[#FFD600]/20 text-[#FFD600] text-sm font-semibold mb-5">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-[#FFD600]/15 border border-[#FFD600]/30 text-[#1D1F4C] text-sm font-bold mb-5">
                 About TFG
               </span>
-              <h2 className="text-[42px] lg:text-[52px] font-extrabold leading-tight mb-6 tracking-tight">
-                The Future of<br />
-                <span className="text-[#FFD600]">Professional Training</span>
+              <h2 className="text-[42px] lg:text-[50px] font-extrabold leading-tight mb-6 tracking-tight text-[#1D1F4C]">
+                Redefining the<br />
+                <span className="text-[#FFD600]">Future of Talent</span>
               </h2>
-              <p className="text-slate-400 text-lg leading-relaxed mb-6">
-                TFG MR-AI Platform is India's first AI-powered Mixed Reality training ecosystem. We bridge the gap between traditional learning and real-world skills by combining advanced AI coaching with immersive VR simulations.
+              <p className="text-slate-600 text-lg leading-relaxed mb-6">
+                Talent Fourth Gen Group (TFG) is a global talent ecosystem and the first full capability Talent Marketplace in the EMEA & APAC region. We solve business challenges with the power of Talent — combining consulting, learning, and immersive technology.
               </p>
-              <p className="text-slate-400 text-lg leading-relaxed mb-8">
-                Whether you're a fresh graduate looking to enter the workforce, a mid-career professional sharpening your edge, or an enterprise training a thousand employees — TFG adapts to your journey.
+              <p className="text-slate-600 text-lg leading-relaxed mb-8">
+                From AI-powered Learning Experience Platforms and VR training to Ivy League university programs and Metaverse experiences — TFG offers 25+ enterprise solutions across all talent dimensions.
               </p>
               <Link
                 to="/login"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#FFD600] hover:bg-[#e6c100] text-[#050410] rounded-2xl font-bold text-[15px] transition-all shadow-[0_0_20px_rgba(255,214,0,0.25)] hover:shadow-[0_0_35px_rgba(255,214,0,0.4)] hover:scale-105"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#FFD600] hover:bg-[#e6c100] text-[#1D1F4C] rounded-xl font-bold text-[15px] transition-all shadow-[0_4px_20px_rgba(255,214,0,0.35)] hover:shadow-[0_6px_30px_rgba(255,214,0,0.5)] hover:scale-105"
               >
                 Start Training Today →
               </Link>
@@ -107,11 +109,11 @@ export function LandingContent() {
 
             {/* Why Points Card */}
             <FadeIn delay={0.2}>
-              <div className="bg-white/[0.03] border border-white/10 rounded-3xl p-8">
-                <h3 className="text-white font-bold text-lg mb-6">Why learners choose TFG</h3>
+              <div className="bg-[#FAFAFA] border border-slate-100 rounded-3xl p-8 shadow-sm">
+                <h3 className="text-[#1D1F4C] font-bold text-lg mb-6">Why TFG is Different</h3>
                 <ul className="space-y-4">
                   {whyPoints.map((point) => (
-                    <li key={point} className="flex items-start gap-3 text-slate-300 text-sm leading-relaxed">
+                    <li key={point} className="flex items-start gap-3 text-slate-600 text-sm leading-relaxed">
                       <CheckCircle className="w-5 h-5 text-[#FFD600] shrink-0 mt-0.5" />
                       {point}
                     </li>
@@ -124,39 +126,38 @@ export function LandingContent() {
       </section>
 
       {/* ════ GALLERY / MODULES ════ */}
-      <section className="py-24 bg-[#050410] relative overflow-hidden">
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#4f46e5]/8 rounded-full blur-[150px] pointer-events-none" />
+      <section className="py-24 bg-[#F8F9FA] relative overflow-hidden">
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#1D1F4C]/3 rounded-full blur-[150px] pointer-events-none" />
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <FadeIn className="text-center mb-14">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#FFD600]/10 border border-[#FFD600]/20 text-[#FFD600] text-sm font-semibold mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#FFD600]/15 border border-[#FFD600]/30 text-[#1D1F4C] text-sm font-bold mb-4">
               Training Modules
             </span>
-            <h2 className="text-[42px] lg:text-[52px] font-extrabold leading-tight tracking-tight mb-4">
-              Explore Our World-Class<br />
+            <h2 className="text-[42px] lg:text-[50px] font-extrabold leading-tight tracking-tight mb-4 text-[#1D1F4C]">
+              World-Class<br />
               <span className="text-[#FFD600]">Learning Modules</span>
             </h2>
-            <p className="text-slate-400 text-lg max-w-xl mx-auto">
-              Hands-on, scenario-based training modules built for every stage of your professional growth.
+            <p className="text-slate-500 text-lg max-w-xl mx-auto">
+              Hands-on, scenario-based training built for every stage of your professional growth.
             </p>
           </FadeIn>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {gallery.map(({ img, title, tag }, i) => (
               <FadeIn key={title} delay={i * 0.08}>
-                <div className="group relative rounded-2xl overflow-hidden border border-white/10 hover:border-[#FFD600]/30 transition-all duration-500 cursor-pointer">
+                <div className="group relative rounded-2xl overflow-hidden border border-slate-100 hover:border-[#FFD600]/40 transition-all duration-500 cursor-pointer shadow-sm hover:shadow-[0_10px_40px_rgba(255,214,0,0.15)]">
                   <img
                     src={img}
                     alt={title}
                     className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050410] via-[#050410]/50 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1D1F4C]/90 via-[#1D1F4C]/30 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <span className="inline-block px-2.5 py-1 rounded-lg bg-[#FFD600]/20 border border-[#FFD600]/30 text-[#FFD600] text-xs font-semibold mb-2">
+                    <span className="inline-block px-2.5 py-1 rounded-lg bg-[#FFD600] text-[#1D1F4C] text-xs font-bold mb-2">
                       {tag}
                     </span>
                     <h3 className="text-white font-bold text-lg">{title}</h3>
                   </div>
-                  <div className="absolute inset-0 bg-[#FFD600]/0 group-hover:bg-[#FFD600]/5 transition-colors duration-300" />
                 </div>
               </FadeIn>
             ))}
@@ -165,31 +166,31 @@ export function LandingContent() {
       </section>
 
       {/* ════ FEATURES ════ */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute right-0 top-0 w-[600px] h-[600px] bg-[#FFD600]/5 rounded-full blur-[150px] pointer-events-none" />
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="absolute right-0 top-0 w-[500px] h-[500px] bg-[#FFD600]/6 rounded-full blur-[150px] pointer-events-none" />
         <div className="container mx-auto px-6 lg:px-12 relative z-10">
           <FadeIn className="text-center mb-14">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#FFD600]/10 border border-[#FFD600]/20 text-[#FFD600] text-sm font-semibold mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#FFD600]/15 border border-[#FFD600]/30 text-[#1D1F4C] text-sm font-bold mb-4">
               Platform Features
             </span>
-            <h2 className="text-[42px] lg:text-[52px] font-extrabold leading-tight tracking-tight mb-4">
+            <h2 className="text-[42px] lg:text-[50px] font-extrabold leading-tight tracking-tight mb-4 text-[#1D1F4C]">
               Everything You Need to<br />
               <span className="text-[#FFD600]">Excel at Work</span>
             </h2>
-            <p className="text-slate-400 text-lg max-w-xl mx-auto">
-              A complete ecosystem of tools and technologies designed to accelerate your professional growth.
+            <p className="text-slate-500 text-lg max-w-xl mx-auto">
+              A complete ecosystem of tools designed to accelerate your professional growth.
             </p>
           </FadeIn>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map(({ icon: Icon, title, desc }, i) => (
               <FadeIn key={title} delay={i * 0.08}>
-                <div className="bg-white/[0.03] border border-white/8 rounded-2xl p-6 hover:bg-white/[0.06] hover:border-[#FFD600]/20 transition-all duration-300 group h-full">
-                  <div className="w-12 h-12 rounded-2xl bg-[#FFD600]/10 flex items-center justify-center mb-5 group-hover:bg-[#FFD600]/20 group-hover:scale-110 transition-all duration-300">
-                    <Icon className="w-6 h-6 text-[#FFD600]" />
+                <div className="bg-[#FAFAFA] border border-slate-100 rounded-2xl p-6 hover:bg-white hover:border-[#FFD600]/30 hover:shadow-[0_8px_30px_rgba(255,214,0,0.12)] transition-all duration-300 group h-full">
+                  <div className="w-12 h-12 rounded-2xl bg-[#FFD600]/15 flex items-center justify-center mb-5 group-hover:bg-[#FFD600]/25 group-hover:scale-110 transition-all duration-300">
+                    <Icon className="w-6 h-6 text-[#1D1F4C]" />
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-3">{title}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
+                  <h3 className="text-[#1D1F4C] font-bold text-lg mb-3">{title}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">{desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -198,36 +199,35 @@ export function LandingContent() {
       </section>
 
       {/* ════ CTA BANNER ════ */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1a1040] to-[#0b0822]" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,214,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,214,0,0.03)_1px,transparent_1px)] bg-[size:40px_40px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#FFD600]/8 blur-[100px] rounded-full pointer-events-none" />
+      <section className="py-20 bg-[#1D1F4C] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,214,0,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,214,0,0.04)_1px,transparent_1px)] bg-[size:40px_40px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#FFD600]/10 blur-[100px] rounded-full pointer-events-none" />
         <FadeIn className="container mx-auto px-6 lg:px-12 relative z-10 text-center">
           <div className="flex items-center justify-center gap-1 mb-6">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-5 h-5 text-[#FFD600] fill-[#FFD600]" />
             ))}
-            <span className="text-slate-400 text-sm ml-2">Loved by 10,000+ professionals</span>
+            <span className="text-slate-400 text-sm ml-2">Trusted by enterprises across EMEA & APAC</span>
           </div>
-          <h2 className="text-[42px] lg:text-[56px] font-extrabold leading-tight tracking-tight mb-6">
+          <h2 className="text-[42px] lg:text-[52px] font-extrabold leading-tight tracking-tight mb-6 text-white">
             Ready to Transform<br />
-            <span className="text-[#FFD600]">Your Career?</span>
+            <span className="text-[#FFD600]">Your Organisation?</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-lg mx-auto mb-10">
-            Join thousands of professionals who have accelerated their growth with TFG's AI-powered training platform.
+          <p className="text-slate-300 text-lg max-w-lg mx-auto mb-10">
+            Partner with TFG — the first full capability Talent Marketplace in the EMEA & APAC region.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/login"
-              className="px-10 py-4 bg-[#FFD600] hover:bg-[#e6c100] text-[#050410] rounded-2xl font-bold text-[16px] transition-all shadow-[0_0_30px_rgba(255,214,0,0.4)] hover:shadow-[0_0_50px_rgba(255,214,0,0.6)] hover:scale-105 inline-block"
+              className="px-10 py-4 bg-[#FFD600] hover:bg-[#e6c100] text-[#1D1F4C] rounded-xl font-bold text-[16px] transition-all shadow-[0_0_30px_rgba(255,214,0,0.3)] hover:shadow-[0_0_50px_rgba(255,214,0,0.5)] hover:scale-105 inline-block"
             >
-              Get Started for Free →
+              Get Started →
             </Link>
             <a
-              href="#about"
-              className="px-10 py-4 bg-transparent border border-white/20 hover:border-white/40 text-white rounded-2xl font-semibold text-[16px] transition-all hover:bg-white/5 inline-block"
+              href="mailto:info@talentfourth.com"
+              className="px-10 py-4 bg-transparent border border-white/20 hover:border-white/40 text-white rounded-xl font-semibold text-[16px] transition-all hover:bg-white/5 inline-block"
             >
-              Learn More
+              Contact Us
             </a>
           </div>
         </FadeIn>

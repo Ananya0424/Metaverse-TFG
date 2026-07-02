@@ -5,9 +5,9 @@ import { LandingContent } from '@/components/ui/LandingContent';
 
 export function LandingLayout() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#0b0822] text-white">
+    <div className="min-h-screen flex flex-col bg-white text-[#1D1F4C]">
       <Header />
-      <main className="flex-grow pt-20">
+      <main className="flex-grow">
         <Outlet />
         <LandingContent />
       </main>
