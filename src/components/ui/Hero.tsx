@@ -130,23 +130,26 @@ export function Hero() {
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[380px] h-[380px] rounded-full border-[3px] border-dashed border-[#FFD600]/20 pointer-events-none" />
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[280px] h-[280px] rounded-full bg-[#FFD600]/8 blur-[60px] pointer-events-none" />
 
-          {/* The Avatars — user provided 3D image */}
+          {/* The Avatars — user provided image in premium frame */}
           <div className="relative z-20 h-[460px] md:h-[600px] w-full flex items-center justify-center">
+            
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                opacity: { duration: 0.8, delay: 0.4 },
-                y: { duration: 0.8, delay: 0.4 },
-              }}
-              className="relative w-full max-w-[550px] aspect-square md:aspect-auto md:h-full z-10"
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="relative z-10 w-[90%] md:w-[85%] max-w-[500px] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(29,31,76,0.15)] border-[8px] border-white bg-white group"
             >
               <img 
                 src={heroAvatars} 
-                alt="TFG AI Mentors" 
-                className="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(29,31,76,0.12)] mix-blend-multiply" 
+                alt="TFG Mentors" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" 
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1D1F4C]/30 to-transparent pointer-events-none" />
+              
+              {/* Subtle inner border for extreme premium feel */}
+              <div className="absolute inset-0 rounded-[1.5rem] border border-white/20 pointer-events-none" />
             </motion.div>
+
           </div>
 
           {/* Floating card — top left of avatar */}
