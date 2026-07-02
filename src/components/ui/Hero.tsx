@@ -118,7 +118,7 @@ export function Hero() {
         </div>
 
         {/* ── Right: Single Clean Avatar + Decorative Cards ── */}
-        <div className="flex-[1.2] relative flex items-center justify-center min-h-[520px] md:min-h-screen">
+        <div className="flex-1 relative flex items-center justify-center min-h-[520px] md:min-h-screen">
           {/* The Avatars — user provided image */}
           <div className="relative z-20 h-[500px] md:h-[700px] w-full flex items-center justify-center md:justify-end md:pr-4 py-4">
             
@@ -126,7 +126,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative z-10 w-full max-w-[900px] h-full"
+              className="relative z-10 w-full max-w-[900px] h-full scale-110 md:scale-125 origin-center md:origin-right"
             >
               <img 
                 src={heroAvatars} 
