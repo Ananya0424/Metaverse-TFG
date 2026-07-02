@@ -29,14 +29,19 @@ export function Sidebar() {
   const initial = displayName.charAt(0).toUpperCase();
 
   return (
-    <aside className="w-[260px] bg-white h-screen flex flex-col fixed left-0 top-0 z-40">
+    <aside className="w-[260px] bg-[#1D1F4C] h-screen flex flex-col fixed left-0 top-0 z-40 shadow-xl overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 pointer-events-none opacity-20">
+        <div className="absolute top-[-10%] left-[-10%] w-[300px] h-[300px] bg-[#FFD600] rounded-full blur-[100px]" />
+      </div>
+
       {/* Logo */}
-      <div className="h-20 flex items-center px-8 border-b border-transparent">
-        <img src={logoImg} alt="TFG Logo" className="h-8 w-auto object-contain" />
+      <div className="h-24 flex items-center px-8 border-b border-white/10 relative z-10">
+        <img src={logoImg} alt="TFG Logo" className="h-9 w-auto object-contain brightness-0 invert" />
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-4 py-8 space-y-8 overflow-y-auto">
+      <nav className="flex-1 px-4 py-8 space-y-8 overflow-y-auto relative z-10">
         <div className="space-y-2">
           {MAIN_NAV.map((item) => (
             <NavLink
@@ -45,21 +50,21 @@ export function Sidebar() {
               end={item.end}
               className={({ isActive }) =>
                 cn(
-                  "flex items-center gap-3 px-4 py-3.5 rounded-lg text-sm font-medium transition-colors",
+                  "flex items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-semibold transition-all duration-300",
                   isActive 
-                    ? "bg-[#F4F7FE] text-[#1A74E3]" 
-                    : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"
+                    ? "bg-[#FFD600]/15 text-[#FFD600]" 
+                    : "text-slate-300 hover:bg-white/5 hover:text-white"
                 )
               }
             >
-              <item.icon className="w-[22px] h-[22px]" />
+              <item.icon className={cn("w-5 h-5", "transition-transform duration-300")} />
               <span className="text-[15px]">{item.label}</span>
             </NavLink>
           ))}
         </div>
 
         <div>
-          <h4 className="px-4 text-xs font-bold text-slate-400 mb-4 tracking-wider">SETTINGS</h4>
+          <h4 className="px-4 text-xs font-bold text-slate-400 mb-4 tracking-widest uppercase">Settings</h4>
           <div className="space-y-2">
             {SETTINGS_NAV.map((item) => (
               <NavLink
@@ -67,14 +72,14 @@ export function Sidebar() {
                 to={item.href}
                 className={({ isActive }) =>
                   cn(
-                    "flex items-center gap-3 px-4 py-3.5 rounded-lg text-sm font-medium transition-colors",
+                    "flex items-center gap-3 px-4 py-3.5 rounded-xl text-sm font-semibold transition-all duration-300",
                     isActive 
-                      ? "bg-[#F4F7FE] text-[#1A74E3]" 
-                      : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"
+                      ? "bg-[#FFD600]/15 text-[#FFD600]" 
+                      : "text-slate-300 hover:bg-white/5 hover:text-white"
                   )
                 }
               >
-                <item.icon className="w-[22px] h-[22px]" />
+                <item.icon className="w-5 h-5" />
                 <span className="text-[15px]">{item.label}</span>
               </NavLink>
             ))}
@@ -83,9 +88,9 @@ export function Sidebar() {
                 logout();
                 navigate('/login');
               }}
-              className="flex items-center gap-3 px-4 py-3.5 rounded-lg text-[15px] font-medium text-slate-500 hover:bg-slate-50 hover:text-slate-900 transition-colors w-full text-left"
+              className="flex items-center gap-3 px-4 py-3.5 rounded-xl text-[15px] font-semibold text-red-400 hover:bg-red-400/10 transition-colors w-full text-left mt-2"
             >
-              <LogOut className="w-[22px] h-[22px]" />
+              <LogOut className="w-5 h-5" />
               Log Out
             </button>
           </div>
@@ -93,14 +98,14 @@ export function Sidebar() {
       </nav>
 
       {/* User Profile */}
-      <div className="p-6 border-t border-slate-100">
+      <div className="p-6 border-t border-white/10 bg-black/10 relative z-10">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-[#1A4BFF] text-white flex items-center justify-center shrink-0 font-bold text-lg">
+          <div className="w-10 h-10 rounded-xl bg-[#FFD600] text-[#1D1F4C] flex items-center justify-center shrink-0 font-bold text-lg shadow-sm">
             {initial}
           </div>
-          <div className="flex flex-col truncate w-full">
-            <span className="text-sm font-bold text-[#1D1F4C] truncate">{displayName}</span>
-            <span className="text-xs text-slate-500 truncate" title={displayEmail}>{displayEmail}</span>
+          <div className="flex flex-col w-full overflow-hidden">
+            <span className="text-sm font-bold text-white truncate">{displayName}</span>
+            <span className="text-xs text-slate-400 truncate" title={displayEmail}>{displayEmail}</span>
           </div>
         </div>
       </div>

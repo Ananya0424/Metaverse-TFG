@@ -1,7 +1,8 @@
-import { CheckCircle2, ChevronDown, ChevronUp, Layers } from 'lucide-react';
+import { CheckCircle2, Layers, PlayCircle } from 'lucide-react';
 import { useTrainingCategories } from '@/features/modules/hooks/useModules';
 import { useState, useEffect } from 'react';
 import api from '@/services/api';
+import { motion } from 'framer-motion';
 
 export function SummarySection() {
   const { data: categories = [] } = useTrainingCategories();
@@ -27,54 +28,53 @@ export function SummarySection() {
   }, []);
 
   return (
-    <div className="px-10 py-8">
+    <div className="px-10 py-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         {/* Completed Card */}
-        <div className="bg-white rounded-xl p-6 border border-slate-100 shadow-sm flex items-center justify-between">
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="bg-white rounded-3xl p-7 border border-slate-100 shadow-[0_4px_25px_rgba(0,0,0,0.03)] flex items-center justify-between group hover:shadow-lg transition-all duration-300">
           <div>
-            <h3 className="text-sm font-bold text-[#1D1F4C] leading-tight mb-4">
-              Learning Modules<br/>Completed
+            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">
+              Completed Modules
             </h3>
-            <div className="text-5xl font-bold text-[#1D1F4C]">
+            <div className="text-[40px] font-extrabold text-[#1D1F4C] leading-none">
               {completed}
             </div>
           </div>
-          <div className="w-16 h-16 rounded-full border-4 border-slate-100 flex items-center justify-center">
-            <CheckCircle2 className="w-8 h-8 text-slate-300" />
+          <div className="w-16 h-16 rounded-2xl bg-[#FFD600]/10 flex items-center justify-center group-hover:bg-[#FFD600] transition-colors duration-300">
+            <CheckCircle2 className="w-8 h-8 text-[#FFD600] group-hover:text-[#1D1F4C]" />
           </div>
-        </div>
+        </motion.div>
 
         {/* In Progress Card */}
-        <div className="bg-white rounded-xl p-6 border border-slate-100 shadow-sm flex items-center justify-between">
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-white rounded-3xl p-7 border border-slate-100 shadow-[0_4px_25px_rgba(0,0,0,0.03)] flex items-center justify-between group hover:shadow-lg transition-all duration-300">
           <div>
-            <h3 className="text-sm font-bold text-[#1D1F4C] leading-tight mb-4">
-              Modules in Progress
+            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">
+              In Progress
             </h3>
-            <div className="text-5xl font-bold text-green-500 mt-8">
+            <div className="text-[40px] font-extrabold text-[#1D1F4C] leading-none">
               {inProgress}
             </div>
           </div>
-          <div className="flex flex-col gap-2 text-slate-300">
-            <ChevronUp className="w-12 h-12 -mb-6" />
-            <ChevronDown className="w-12 h-12" />
+          <div className="w-16 h-16 rounded-2xl bg-[#FFD600]/10 flex items-center justify-center group-hover:bg-[#FFD600] transition-colors duration-300">
+             <PlayCircle className="w-8 h-8 text-[#FFD600] group-hover:text-[#1D1F4C]" />
           </div>
-        </div>
+        </motion.div>
 
         {/* Total Courses Card */}
-        <div className="bg-white rounded-xl p-6 border border-slate-100 shadow-sm flex items-center justify-between">
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-white rounded-3xl p-7 border border-slate-100 shadow-[0_4px_25px_rgba(0,0,0,0.03)] flex items-center justify-between group hover:shadow-lg transition-all duration-300">
           <div>
-            <h3 className="text-sm font-bold text-[#1D1F4C] leading-tight mb-4">
-              Total Courses Available
+            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">
+              Total Courses
             </h3>
-            <div className="text-5xl font-bold text-red-600 mt-8">
+            <div className="text-[40px] font-extrabold text-[#1D1F4C] leading-none">
               {totalCourses}
             </div>
           </div>
-          <div className="text-slate-300">
-            <Layers className="w-12 h-12" />
+          <div className="w-16 h-16 rounded-2xl bg-[#FFD600]/10 flex items-center justify-center group-hover:bg-[#FFD600] transition-colors duration-300">
+            <Layers className="w-8 h-8 text-[#FFD600] group-hover:text-[#1D1F4C]" />
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </div>

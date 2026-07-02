@@ -63,7 +63,7 @@ export function TrainingModules() {
         <h2 className="text-xl font-bold text-[#1D1F4C]">Recent Activity</h2>
         <Link 
           to="/dashboard/training" 
-          className="text-sm font-medium text-slate-500 hover:text-[#1A74E3] transition-colors"
+          className="text-sm font-bold text-slate-400 hover:text-[#1D1F4C] transition-colors uppercase tracking-widest"
         >
           See All Modules &gt;
         </Link>
