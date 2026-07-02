@@ -131,7 +131,7 @@ export function Hero() {
               <img 
                 src={heroAvatars} 
                 alt="TFG Mentors" 
-                className="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(29,31,76,0.12)] mix-blend-multiply" 
+                className="w-full h-full object-contain" 
               />
             </motion.div>
 
