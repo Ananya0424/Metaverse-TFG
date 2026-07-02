@@ -130,34 +130,30 @@ export function Hero() {
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[380px] h-[380px] rounded-full border-[3px] border-dashed border-[#FFD600]/20 pointer-events-none" />
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[280px] h-[280px] rounded-full bg-[#FFD600]/8 blur-[60px] pointer-events-none" />
 
-          {/* The Avatars — user provided image in premium frame */}
-          <div className="relative z-20 h-[460px] md:h-[600px] w-full flex items-center justify-center">
+          {/* The Avatars — user provided image without restrictive frame */}
+          <div className="relative z-20 h-[460px] md:h-[600px] w-full flex items-end justify-center md:justify-end md:pr-8">
             
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="relative z-10 w-[90%] md:w-[85%] max-w-[500px] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-[0_20px_60px_rgba(29,31,76,0.15)] border-[8px] border-white bg-white group"
+              className="relative z-10 w-full max-w-[550px] h-full"
             >
               <img 
                 src={heroAvatars} 
                 alt="TFG Mentors" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" 
+                className="w-full h-full object-contain mix-blend-multiply drop-shadow-[0_20px_40px_rgba(29,31,76,0.12)]" 
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1D1F4C]/30 to-transparent pointer-events-none" />
-              
-              {/* Subtle inner border for extreme premium feel */}
-              <div className="absolute inset-0 rounded-[1.5rem] border border-white/20 pointer-events-none" />
             </motion.div>
 
           </div>
 
-          {/* Floating card — top left of avatar */}
+          {/* Floating card — top left */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0, y: [0, -5, 0] }}
             transition={{ opacity: { delay: 0.8, duration: 0.5 }, x: { delay: 0.8, duration: 0.5 }, y: { duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 } }}
-            className="absolute top-[18%] left-[2%] z-30 bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.1)] border border-slate-100 p-4 min-w-[155px]"
+            className="absolute top-[12%] left-[0%] md:left-[-5%] z-30 bg-white/90 backdrop-blur-sm rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.1)] border border-slate-100 p-4 min-w-[155px]"
           >
             <div className="flex items-center gap-2 mb-2">
               <div className="w-7 h-7 rounded-lg bg-[#FFD600]/20 flex items-center justify-center">
@@ -169,12 +165,12 @@ export function Hero() {
             <p className="text-[#FFD600] text-[11px] mt-1 font-semibold">+12% this month</p>
           </motion.div>
 
-          {/* Floating card — mid right */}
+          {/* Floating card — top right */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0, y: [0, -7, 0] }}
             transition={{ opacity: { delay: 1, duration: 0.5 }, x: { delay: 1, duration: 0.5 }, y: { duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1.2 } }}
-            className="absolute top-[38%] right-[2%] z-30 bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.1)] border border-slate-100 p-4 min-w-[155px]"
+            className="absolute top-[30%] right-[0%] md:right-[-5%] z-30 bg-white/90 backdrop-blur-sm rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.1)] border border-slate-100 p-4 min-w-[155px]"
           >
             <div className="flex items-center gap-2 mb-2">
               <div className="w-7 h-7 rounded-lg bg-[#FFD600]/20 flex items-center justify-center">
@@ -188,10 +184,10 @@ export function Hero() {
 
           {/* Floating card — bottom left */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0, y: [0, -5, 0] }}
             transition={{ opacity: { delay: 1.2, duration: 0.5 }, x: { delay: 1.2, duration: 0.5 }, y: { duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1.5 } }}
-            className="absolute bottom-[18%] left-[3%] z-30 bg-white rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.1)] border border-slate-100 p-4 min-w-[155px]"
+            className="absolute bottom-[20%] left-[5%] md:left-[-10%] z-30 bg-white/90 backdrop-blur-sm rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.1)] border border-slate-100 p-4 min-w-[155px]"
           >
             <div className="flex items-center gap-2 mb-2">
               <div className="w-7 h-7 rounded-lg bg-[#FFD600]/20 flex items-center justify-center">
